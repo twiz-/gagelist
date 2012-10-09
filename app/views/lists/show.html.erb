@@ -2,7 +2,7 @@
 <div class="well span9 offset2">
   <h2 class="page-header"><%= @list.name %></h2>
   <h2 class="lead"><%= @list.description %></h2>  
-  <h3>Needs finishing</h3>
+  <h3>Still Not Finished</h3>
   <ul>
     <% @list.tasks.incomplete.each do |task| %> 
     <li style="list-style:none"><%= task.description %> <%= button_to "Completed", complete_task_path(@list.id,task.id), :class =>"btn-mini" %></li>
@@ -23,7 +23,6 @@
 </div>    
 
 <span class="btn affix"><%= link_to "Back to all Installs", lists_url %></span>
-<br>
 <div>
   Js Plumb stuff goes here!
   
