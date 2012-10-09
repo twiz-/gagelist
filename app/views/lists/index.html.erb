@@ -1,0 +1,13 @@
+<h1 class="page-header">Getting sensors up</h1>
+<span class="affix btn"><%= link_to "Add new Install", new_list_url %></span>
+
+  <% @lists.each do |list| %>
+  <div class="well span4 offset2"> 
+    <span class="lead"><%= link_to "#{list.name}", list_url(list) %></span><br>
+    <span><%= list.description %><br><br><hr> <%= link_to "Edit", edit_list_url(list) %> | <%= link_to "Delete", list_url(list), :method => :delete, data: { confirm: "You Sure?" } %></span>
+
+  </div>  
+  <% end %>  
+  
+<br>
+

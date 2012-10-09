@@ -1,0 +1,30 @@
+<h1 class="page-header"> Getting it up</h1>
+<div class="well span9 offset2">
+  <h2 class="page-header"><%= @list.name %></h2>
+  <h2 class="lead"><%= @list.description %></h2>  
+  <h3>Needs finishing</h3>
+  <ul>
+    <% @list.tasks.incomplete.each do |task| %> 
+    <li style="list-style:none"><%= task.description %> <%= button_to "Completed", complete_task_path(@list.id,task.id), :class =>"btn-mini" %></li>
+    <% end %>
+  </ul>
+  <hr>
+  <h3>Finished</h3>
+  <ul id="completed">
+    <% @list.tasks.completed.each do |task| %> 
+    <li style="list-style:none; opacity:.5; text-decoration:line-through;"><em><%= task.description %></em></li>
+    <% end %>
+  </ul>
+  
+  <hr>
+  <%= form_for [@list, @list.tasks.new] do |form| %>
+  <p><%= form.text_field :description %><%= form.submit %></p>
+  <% end %>
+</div>    
+
+<span class="btn affix"><%= link_to "Back to all Installs", lists_url %></span>
+<br>
+<div>
+  Js Plumb stuff goes here!
+  
+</div>
