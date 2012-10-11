@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require justgage
+//= require raphael.min
 //= require_tree .

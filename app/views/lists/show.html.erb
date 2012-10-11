@@ -1,8 +1,12 @@
+
 <h1 class="page-header"> Getting it up</h1>
 <div class="well span9 offset2">
   <h2 class="page-header"><%= @list.name %></h2>
   <h2 class="lead"><%= @list.description %></h2>  
+  <div class="pull-right" id="smallbuddy" style="width:340px; height:200px;"></div>
+  
   <h3>Still Not Finished</h3>
+  
   <ul>
     <% @list.tasks.incomplete.each do |task| %> 
     <li style="list-style:none"><%= task.description %> <%= button_to "Completed", complete_task_path(@list.id,task.id), :class =>"btn-mini" %></li>
@@ -24,6 +28,15 @@
 
 <span class="btn affix"><%= link_to "Back to all Installs", lists_url %></span>
 <div>
-  Js Plumb stuff goes here!
-  
+  <!-- Js Plumb stuff goes here! -->
 </div>
+
+<script>
+  var g = new JustGage({
+    id: "smallbuddy", 
+    value: 27, 
+    min: 0,
+    max: 100,
+    title: "Until Complete"
+  }); 
+</script>
