@@ -4,4 +4,9 @@ class List < ActiveRecord::Base
   has_many :tasks
   
   validates :name, :presence => true
+  
+  def percent_complete
+    (self.tasks.completed.count.to_f / self.tasks.all.count.to_f) * 100
+  end
+  
 end

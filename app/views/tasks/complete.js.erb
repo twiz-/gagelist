@@ -1,0 +1,22 @@
+gage<%= @list.id %>.refresh(<%= @list.percent_complete.round(2) %>);
+
+console.log("gage <%= @list.id %> updated to: <%= @list.percent_complete.round(2) %>")
+
+$("#task-<%= @task.id %>").fadeOut(1000, function() {
+  var description = $("#description-<%= @task.id %>").html();
+  var list_item = $("<li />").html(description).addClass("new-item");
+  
+  $("ul#completed").append(list_item)
+  
+  $(this).remove();
+});
+
+
+
+
+
+
+
+
+
+

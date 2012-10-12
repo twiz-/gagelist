@@ -11,3 +11,16 @@
  *= require_self
  *= require_tree .
  */
+
+ ul.task-list {
+   margin:0;
+   padding:0;
+   list-style:none; 
+ }
+
+ ul#completed {
+   opacity:.5; 
+   text-decoration:line-through;
+   font-style:italic;
+ }
+
