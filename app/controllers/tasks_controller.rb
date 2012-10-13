@@ -12,7 +12,7 @@ class TasksController < ApplicationController
 
     respond_with @list
   end
-
+  
   def complete
     @task = @list.tasks.find(params[:id])
     

@@ -9,6 +9,7 @@
   
   
   <!-- add :remote => true  for this to work via ajax again -->
+  
   <%= form_for [@list, @list.tasks.new] do |form| %>
     <%= form.text_field :description %>
     <%= form.submit %>
@@ -44,6 +45,9 @@
   This should be the thing that is collapsed in and out!
   <br>
   <br>
+  <div id="container0">
+       probably not
+	</div>
   <br>
   <br>
   <br>
@@ -55,19 +59,49 @@
   <br>
   <br>
   <br>
+  <div id="container1">
+       probably not
+	</div>
   <br>
 </div>
-
-
-
-
-
 <script>
   var gage<%= @list.id %> = new JustGage({
     id: "smallbuddy", 
     value: <%= @list.percent_complete.round(2) %>, 
     min: 0,
     max: 100,
-    title: "Until Complete"
+    title: "Until Complete",
+    startAnimationType: "bounce",
+    refreshAnimationType: "bounce",
+    refreshAnimationTime: 1500,
+    startAnimationTime: 1500
+    
   }); 
 </script>
+
+<script type="text/javascript">
+var e0 = jsPlumb.addEndpoint("container0"),
+	e1 = jsPlumb.addEndpoint("container1");
+	
+  jsPlumb.connect({
+  	source:e0,
+  	target:e1,
+  	endpoint:"Dot",
+  	anchors:[
+  		[ "Perimeter", { shape:"triangle" } ],
+  		[ "Perimeter", { shape:"diamond" } ]
+  	]
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+

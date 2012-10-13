@@ -1,25 +1,33 @@
 <h1 class="page-header">Getting sensors up</h1>
-<span class="affix btn"><%= link_to "Add new Install", new_list_url %></span>
 
-  <% @lists.each do |list| %>
-  
-  <div class="well span4 offset3">   
+<span class="affix btn" style="margin-left:-140px;"><%= link_to "Add new Install", new_list_url %></span>
+ 
+ 
+<div class="row"> 
+ <% @lists.each do |list| %>
+ <div class="span12">   
+  <div class="well span4">   
     <span class="lead"><%= link_to "#{list.name}", list_url(list) %></span><br>
     <div class="pull-right" id="gage-<%= list.id %>" style="width:170px; height:100px;"></div>
     <span><%= list.description %><br><br><hr> <%= link_to "Edit", edit_list_url(list) %> | <%= link_to "Delete", list_url(list), :method => :delete, data: { confirm: "You Sure?" } %></span>
   </div>
-    
+ </div>  
   <script>
     var gage<%= list.id %> = new JustGage({
       id: "gage-<%= list.id %>", 
       value: <%= list.percent_complete.round(2) %>, 
       min: 0,
       max: 100,
-      title: "Until Complete"
+      title: "Until Complete",
+      startAnimationType: "bounce",
+      refreshAnimationType: "bounce",
+      refreshAnimationTime: 1500,
+      startAnimationTime: 1500
     }); 
   </script>
   
-  <% end %>  
+ <% end %>  
+</div>  
   
 <br>
 
