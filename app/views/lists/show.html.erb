@@ -36,6 +36,31 @@
 <span class="btn affix"><%= link_to "Back to all Installs", lists_url %></span>
 <div>
 </div>
+<button type="button" class="btn-large btn-info offset5" data-toggle="collapse" data-target="#plumb_chart" id="plumb_button">
+  Show Flow chart for this project
+</button>
+ 
+<div id="plumb_chart" class="collapse in offset2"> 
+  This should be the thing that is collapsed in and out!
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+
+
+
+
 
 <script>
   var gage<%= @list.id %> = new JustGage({

@@ -24,3 +24,14 @@
    font-style:italic;
  }
 
+#plumb_chart {
+  height: 600px;
+  width:  740px;
+  background-color: green;
+}
+
+#plumb_button {
+  
+  margin-top: 30px;
+  margin-bottom:20px;
+}
