@@ -5,8 +5,8 @@ Everybody knows cheekiness is needed to finish things.
 The gage acts as a psychological incentive to get the project done! The
 index view gives managers a quick view of the status of each project. 
 
-It should answer the question "Why is this not done yet!" hold accountability
-to individual in the show view. 
+It should answer the question "Why is this not done yet!" and hold accountability
+to individuals in the show view. 
 
 Improve this please. 
 
