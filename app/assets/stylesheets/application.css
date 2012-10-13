@@ -12,6 +12,10 @@
  *= require_tree .
  */
 
+.well {
+ min-height: 340px;
+}
+
  ul.task-list {
    margin:0;
    padding:0;
