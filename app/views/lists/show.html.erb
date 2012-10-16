@@ -1,3 +1,27 @@
+<script>
+function allowDrop(ev)
+{
+ev.preventDefault();
+}
+
+function drag(ev)
+{
+ev.dataTransfer.setData("Text",ev.target.id);
+}
+
+function drop(ev)
+{
+ev.preventDefault();
+var data=ev.dataTransfer.getData("Text");
+ev.target.appendChild(document.getElementById(data));
+}
+</script>
+
+<style type="text/css">
+#div1, #div2,#div3,#div4,#div5,#div6,#div7
+{width:200px; height:65px; margin:10px;padding:10px;border:3px solid #aaaaaa;border-radius:15;}
+</style>
+
 <h1 class="page-header">Who's next?</h1>
 <div class="well span9 offset2">
   <h2 class="page-header"><%= @list.name %></h2>
@@ -36,6 +60,40 @@
 <span class="btn affix"><%= link_to "Back to all Installs", lists_url %></span>
 <div>
 </div>
+
+<button type="button" class="btn btn-info offset5" data-toggle="collapse" data-target="#demo">
+ Show this project chart 
+</button><br>
+
+<div class="offset2 collapse" id="demo" style="background-color:#FFF;height:600px;width:760px;margin-top:20px;">
+  <div id="div0" ondrop="drop(event)" ondragover="allowDrop(event)" style="height:80px; width:500px; border:3px solid;">  
+    <img src="https://asset0.37img.com/global/3d82b4aaf32b471cef2e5aa616d8e6d7ff27dcab14c210091f545d94087e6b8e04b83cc019a6a822162fef28652951c4bf2bbf7b4171df77b29fab67331b3318154d81c0e0699f4e873d65196fdb3bab/avatar.96.gif?r=3" draggable="true" ondragstart="drag(event)" id="drag1" width="68" height="21" style="border-radius:50px;">
+    <img src="https://asset0.37img.com/global/7b936c70ce64738752f307fca8a892e5dd7c0d41ef63a749933fd320c3a9de56f3ff5704a9b7ccfbaf41c055a4c62624e7ed27d41f65ced739e32c26680abdb46d86dec7c6c1365184ca82d6df9669bd/avatar.96.gif?r=3" draggable="true" ondragstart="drag(event)" id="drag2" width="68" height="21" style="border-radius:50px;">
+    <img src="https://asset0.37img.com/global/80cd2df7341cdaa026409d17fb78d13552cf0ee97826d147ee8ae7becfe2bcd84227432cfc4ab03d6c919fb29bbb0f87291e4e252bc83b51f1ef56808797237b1bd5b0938417cd4b38076cc1b104f5ba/avatar.96.gif?r=3" draggable="true" ondragstart="drag(event)" id="drag3" width="68" height="21" style="border-radius:50px;">
+    <img src="https://asset0.37img.com/global/b9af2f2d29d97b6733c1dbb378de9abe97daa3b4e5a60e1b1b09829ae71910154b8f7b25934eb6d68e67c90744a1ea90b34a32f2397c5d8cbce4c4716be0ab3747319081bad05514acab137c8870e388/avatar.96.gif?r=3" draggable="true" ondragstart="drag(event)" id="drag4" width="68" height="21" style="border-radius:50px;">
+  </div>  
+  <br>
+  <br>
+  <br>
+  <br>
+  <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="lead pull-right">Deal Closed!</span></div>  
+  <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="lead pull-right">Install Scheduled!</span></div>
+  <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="lead pull-right">Hand Count Scheduled</span></div>
+  <div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="lead pull-right">WebEx Scheduled</span></div>
+  <div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="lead pull-right">Follow up call</span></div>
+  <div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="lead pull-right">Additional Sensor Contact</span></div>
+  <div id="div7" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="lead pull-right">Details for sensor</span></div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  
+</div>
 <script>
   var gage<%= @list.id %> = new JustGage({
     id: "smallbuddy", 
@@ -51,3 +109,6 @@
   }); 
 </script>
 
+<script type="text/javascript">
+    $("#demo").collapse("hide");
+</script>
