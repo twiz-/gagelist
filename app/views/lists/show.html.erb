@@ -6,22 +6,19 @@
 
   <h3>Tasks</h3>
   
+  <%= button_tag "Add New Task", :id => "new_task", :class => "btn" %>
   
   <!-- add :remote => true  for this to work via ajax again -->
-  
-  <%= simple_form_for [@list, @list.tasks.new] do |form| %>
-    <%= form.input :user_id, collection: User.all, label_method: :full_name %>
-    <%= form.text_field :description %>
-    <%= form.input :due_date %>
-    <%= form.submit %>
-  <% end %>
+  <div id="new_task_form">
+	  <%= simple_form_for [@list, @list.tasks.new], :remote => true do |form| %>
+	    <%= form.input :user_id, collection: User.all, label_method: :full_name %>
+	    <%= form.text_field :description %>
+	    <%= form.input :due_date %>
+	    <%= form.submit %>
+	  <% end %>
+  </div>
   <ul class="task-list" id="incomplete">
-    <% @list.tasks.incomplete.each do |task| %> 
-      <li id="task-<%= task.id %>">
-        <span class="task-description" id="description-<%= task.id %>"><%= image_tag task.user.gravatar_url, :class => "gravatar_index" %><%= task.description %> <%= task.due_date %></span>
-        <%= button_to "Completed", complete_task_path(@list.id,task.id), :class =>"btn-mini", remote: true %>
-      </li>
-    <% end %>
+    <%= render 'incompletes' %>
   </ul>
 
   <hr>

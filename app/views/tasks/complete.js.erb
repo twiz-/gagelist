@@ -8,7 +8,7 @@ $("#task-<%= @task.id %>").fadeOut(1000, function() {
   
   $("ul#completed").append(list_item)
   
-  $(this).remove();
+  $("#task-<%= @task.id %>").remove();
 });
 
 

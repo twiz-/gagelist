@@ -22,6 +22,13 @@ class TasksController < ApplicationController
         
     respond_with @list
   end
+  
+  def destroy
+    task = @list.tasks.find(params[:id])
+    @task_id = task.id
+    task.destroy
+    
+  end
 
   private
 

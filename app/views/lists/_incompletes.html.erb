@@ -1,0 +1,14 @@
+<% @list.tasks.incomplete.each do |task| %> 
+  <li id="task-<%= task.id %>">
+    <span class="task-description" id="description-<%= task.id %>">
+    	<%= form_tag({:controller => 'tasks', :action => 'complete', :list_id => @list.id, :id => task.id}, :remote => true) do |f| %>
+    		<%= check_box_tag 'mark_complete', 1, false, :class => 'checkbox mark_comp' %>
+    	<% end %>
+    	<%= image_tag task.user.gravatar_url, :class => "gravatar_index" %>
+    	<%= task.description %> 
+    	<%= task.due_date %>
+    	<%= button_to "Remove", remove_task_path(@list.id,task.id), :class =>"btn-mini", remote: true %>
+	</span>
+    
+  </li>
+<% end %>

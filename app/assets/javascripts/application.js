@@ -15,3 +15,16 @@
 //= require justgage
 //= require raphael.min
 //= require_tree .
+
+
+$(function() {
+	$('#new_task').click(function() {
+		$('#new_task_form').show();
+	});
+	
+	$('.mark_comp').click(function() {
+		if ($(this).is(':checked')) {
+			$(this).parent().submit();
+		}
+	});
+});
