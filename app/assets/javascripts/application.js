@@ -14,5 +14,4 @@
 //= require jquery_ujs
 //= require justgage
 //= require raphael.min
-//= require jsPlum.min
 //= require_tree .
