@@ -1,11 +1,7 @@
-<%= form_for @list do |form| %>
+<%= simple_form_for @list do |f| %>
   
-  <label>Name
-    <p><%= form.text_field :name %></p>
-  </label>
-  <label>Description
-    <p><%= form.text_field :description %></p>
-  </label>  
+    <p><%= f.input :name %></p>
+    <p><%= f.input :description %></p>
   
-  <p><%= form.submit %></p>
+  <p><%= f.submit %></p>
 <% end %>

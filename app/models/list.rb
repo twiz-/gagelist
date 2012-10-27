@@ -2,6 +2,7 @@ class List < ActiveRecord::Base
   attr_accessible :description, :name
   
   has_many :tasks
+  belongs_to :user
   
   validates :name, :presence => true
   

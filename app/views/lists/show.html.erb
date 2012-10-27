@@ -33,15 +33,15 @@ ev.target.appendChild(document.getElementById(data));
   
   <!-- add :remote => true  for this to work via ajax again -->
   
-  <%= form_for [@list, @list.tasks.new] do |form| %>
+  <%= simple_form_for [@list, @list.tasks.new] do |form| %>
+    <%= form.input :user_id, collection: User.all, label_method: :full_name %>
     <%= form.text_field :description %>
     <%= form.submit %>
   <% end %>
-    
   <ul class="task-list" id="incomplete">
     <% @list.tasks.incomplete.each do |task| %> 
       <li id="task-<%= task.id %>">
-        <span class="task-description" id="description-<%= task.id %>"><%= task.description %> </span>
+        <span class="task-description" id="description-<%= task.id %>"><%= task.description %> | <%= task.user.full_name %> </span>
         <%= button_to "Completed", complete_task_path(@list.id,task.id), :class =>"btn-mini", remote: true %>
       </li>
     <% end %>
@@ -56,7 +56,7 @@ ev.target.appendChild(document.getElementById(data));
   <div class="offset2 collapse" id="demo" style="background-color:#FFF;height:600px;width:760px;margin-top:20px;">
     <ul class="task-list" id="completed">
       <% @list.tasks.completed.each do |task| %> 
-        <li><%= task.description %></li>
+        <li><%= task.description %> |  <%= task.user.full_name %></li>
       <% end %>
     </ul>
   </div>
