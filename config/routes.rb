@@ -6,7 +6,7 @@ Gagelist::Application.routes.draw do
     resources :tasks
   end
 
-  root :to => 'lists#index'
+  root :to => 'front#index'
   
   match 'lists/:list_id/tasks/:id/complete' => 'tasks#complete', :as => :complete_task
   
