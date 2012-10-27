@@ -1,0 +1,12 @@
+<% @list.tasks.completed.each do |task| %> 
+    <li id="incomp-task-<%= task.id %>">
+    	<span>
+	    	<%= form_tag({:controller => 'tasks', :action => 'incomplete', :list_id => @list.id, :id => task.id}, :remote => true) do |f| %>
+	    		<%= check_box_tag 'mark_in_complete', 0, false, :class => 'checkbox mark_in_comp' %>
+	    	<% end %>
+	    	<div>
+	    		<%= task.description %> |  <%= task.user.full_name %> | <%= task.due_date %>
+	    	</div>
+    	</span>
+	</li>
+<% end %>

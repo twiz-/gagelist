@@ -6,7 +6,7 @@
 
   <h3>Tasks</h3>
   
-  <%= button_tag "Add New Task", :id => "new_task", :class => "btn" %>
+  <%= button_tag "Add New Task", :id => "new_task_bt", :class => "btn" %>
   
   <!-- add :remote => true  for this to work via ajax again -->
   <div id="new_task_form">
@@ -29,9 +29,7 @@
   </button><br>
   <div class="offset2 collapse" id="demo" style="background-color:#FFF;height:600px;width:760px;margin-top:20px;">
     <ul class="task-list" id="completed">
-      <% @list.tasks.completed.each do |task| %> 
-        <li><%= task.description %> |  <%= task.user.full_name %> | <%= task.due_date %></li>
-      <% end %>
+      <%= render "completed" %>
     </ul>
   </div>
   

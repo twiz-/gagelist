@@ -5,8 +5,10 @@
     		<%= check_box_tag 'mark_complete', 1, false, :class => 'checkbox mark_comp' %>
     	<% end %>
     	<%= image_tag task.user.gravatar_url, :class => "gravatar_index" %>
-    	<%= task.description %> 
-    	<%= task.due_date %>
+    	<div id="task-desc-<%= task.id %>">
+	    	<%= task.description %> 
+    	</div>
+    	<div><%= task.due_date %></div>
     	<%= button_to "Remove", remove_task_path(@list.id,task.id), :class =>"btn-mini", remote: true %>
 	</span>
     

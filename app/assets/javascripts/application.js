@@ -18,12 +18,22 @@
 
 
 $(function() {
-	$('#new_task').click(function() {
+	$('#new_task_bt').click(function() {
 		$('#new_task_form').show();
+		$("#new_task").each (function(){
+		  this.reset();
+		});
+		$(this).hide();
 	});
 	
-	$('.mark_comp').click(function() {
+	$('.mark_comp').live('click', function() {
 		if ($(this).is(':checked')) {
+			$(this).parent().submit();
+		}
+	});
+	
+	$('.mark_in_comp').live('click', function() {
+		if($(this).is(':checked')) {
 			$(this).parent().submit();
 		}
 	});
