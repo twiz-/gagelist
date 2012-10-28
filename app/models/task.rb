@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  attr_accessible :completed, :description, :list_id, :user_id
+  attr_accessible :completed, :description, :list_id, :user_id, :due_date
   
   belongs_to :list
   belongs_to :user
@@ -9,10 +9,10 @@ class Task < ActiveRecord::Base
   scope :incomplete, where(:completed => false)
   
  def self.who_are_we_waiting_on(list)
-   where(list_id: list).order('id ASC').incomplete.first
+   where(list_id: list).order('due_date ASC').incomplete.first
  end
  
  def self.who_is_next(list)
-   where(list_id: list).order('id ASC').incomplete.second
+   where(list_id: list).order('due_date ASC').incomplete.second
  end
 end
