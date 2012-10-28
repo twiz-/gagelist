@@ -8,6 +8,12 @@
       <span class="lead"><%= link_to "#{list.name}", list_url(list) %></span>
       <%= list.description %><br><br>
       <div id="gage-<%= list.id %>" style="width:170px; height:100px;"></div>
+      <span id="on_deck">
+        <div class="check">
+         <span class="tick"></span>
+         <span class="cross"></span>
+        </div>
+      </span>
       <span><hr> <%= link_to "Edit", edit_list_url(list) %> | <%= link_to "Delete", list_url(list), :method => :delete, data: { confirm: "You Sure?" } %></span>
     </div>  
   </div>  
@@ -27,5 +33,6 @@
   
  <% end %>  
 </div>  
+
 <span class="affix btn"><%= link_to "Add new Install", new_list_url %></span>
 

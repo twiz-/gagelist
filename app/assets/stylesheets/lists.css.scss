@@ -1,3 +1,90 @@
 // Place all the styles related to the lists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+a{
+	color: black;
+}
+
+.well {
+	background-color: #8C8C8C;
+}
+	
+
+#on_deck span {
+  -webkit-transition: all .5s cubic-bezier(1.000, -0.360, 0.000, 1.385); 
+  -moz-transition: all .5s cubic-bezier(1.000, -0.360, 0.000, 1.385); 
+  -o-transition: all .5s cubic-bezier(1.000, -0.360, 0.000, 1.385); 
+  -ms-transition: all .5s cubic-bezier(1.000, -0.360, 0.000, 1.385); 
+  -webkit-transition-timing-function: cubic-bezier(1.000, -0.360, 0.000, 1.385);
+  -moz-transition-timing-function: cubic-bezier(1.000, -0.360, 0.000, 1.385);
+  -o-transition-timing-function: cubic-bezier(1.000, -0.360, 0.000, 1.385);
+  -ms-transition-timing-function: cubic-bezier(1.000, -0.360, 0.000, 1.385);
+}
+
+#on_deck {
+  display:block;
+  height:68px;
+  margin:0 auto;
+  outline:none;
+  position:relative;
+  width:68px;
+}
+#on_deck span {
+    left:50%;
+    margin:-34px 0 0 -34px;
+    position:absolute;
+    top:50%;
+  }
+
+#on_deck:hover {
+	outline:none;
+}
+
+#on_deck:active {
+	outline:none;
+}
+
+#on_deck:focus {
+	outline:none;
+}
+ 
+.tick {
+  background:url(http://cl.ly/image/0v3Y1M1D2l1f/tick.png);
+  display:block;
+  height:68px;
+  -webkit-transform: scale(1) rotate(0deg);
+  -moz-transform: scale(1) rotate(0deg);
+  -o-transform: scale(1) rotate(0deg);
+  -ms-transform: scale(1) rotate(0deg);
+  
+  
+  width:68px;
+  z-index:2;
+}
+.cross {
+  background:url(http://cl.ly/image/0B0E1b0z003I/cross.png);
+  display:block;
+  height:68px;
+  -webkit-transform:scale(0) rotate(0deg);
+  -moz-transform:scale(0) rotate(0deg);
+  -o-transform:scale(0) rotate(0deg);
+  -ms-transform:scale(0) rotate(0deg);
+  width:68px;
+  z-index:1;
+}
+#on_deck:hover .tick {
+  -webkit-transform:scale(0) rotate(360deg);
+  -moz-transform:scale(0) rotate(360deg);
+  -o-transform:scale(0) rotate(360deg);
+  -ms-transform:scale(0) rotate(360deg);
+  z-index:1;
+}
+#on_deck:hover .cross {
+  -webkit-transform:scale(1) rotate(360deg);
+  -moz-transform:scale(1) rotate(360deg);
+  -o-transform:scale(1) rotate(360deg);
+  -ms-transform:scale(1) rotate(360deg);
+  z-index:2;
+}

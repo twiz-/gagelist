@@ -16,6 +16,9 @@
  min-height: 340px;
 }
 
+a {
+	color: #00A4ED;
+}
  ul.task-list {
    margin:0;
    padding:0;
