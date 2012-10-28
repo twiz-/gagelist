@@ -11,8 +11,8 @@ a{
 	background-color: #FAFAFA;
 }
 	
-/*
-#on_deck span {
+
+#blame_game span {
   -webkit-transition: all .5s cubic-bezier(1.000, -0.360, 0.000, 1.385); 
   -moz-transition: all .5s cubic-bezier(1.000, -0.360, 0.000, 1.385); 
   -o-transition: all .5s cubic-bezier(1.000, -0.360, 0.000, 1.385); 
@@ -23,7 +23,7 @@ a{
   -ms-transition-timing-function: cubic-bezier(1.000, -0.360, 0.000, 1.385);
 }
 
-#on_deck {
+#blame_game {
   display:block;
   height:68px;
   margin:0 auto;
@@ -31,28 +31,26 @@ a{
   position:relative;
   width:68px;
 }
-#on_deck span {
+#blame_game span {
     left:50%;
     margin:-34px 0 0 -34px;
     position:absolute;
     top:50%;
   }
 
-#on_deck:hover {
+#blame_game:hover {
 	outline:none;
 }
 
-#on_deck:active {
+#blame_game:active {
 	outline:none;
 }
 
-#on_deck:focus {
+#blame_game:focus {
 	outline:none;
 }
  
-.tick {
-  background:url(http://cl.ly/image/0v3Y1M1D2l1f/tick.png);
-  display:block;
+.now {
   height:68px;
   -webkit-transform: scale(1) rotate(0deg);
   -moz-transform: scale(1) rotate(0deg);
@@ -63,9 +61,7 @@ a{
   width:68px;
   z-index:2;
 }
-.cross {
-  background:url(http://cl.ly/image/0B0E1b0z003I/cross.png);
-  display:block;
+.next {
   height:68px;
   -webkit-transform:scale(0) rotate(0deg);
   -moz-transform:scale(0) rotate(0deg);
@@ -74,17 +70,17 @@ a{
   width:68px;
   z-index:1;
 }
-#on_deck:hover .tick {
+#blame_game:hover .now {
   -webkit-transform:scale(0) rotate(360deg);
   -moz-transform:scale(0) rotate(360deg);
   -o-transform:scale(0) rotate(360deg);
   -ms-transform:scale(0) rotate(360deg);
   z-index:1;
 }
-#on_deck:hover .cross {
+#blame_game:hover .next {
   -webkit-transform:scale(1) rotate(360deg);
   -moz-transform:scale(1) rotate(360deg);
   -o-transform:scale(1) rotate(360deg);
   -ms-transform:scale(1) rotate(360deg);
   z-index:2;
-}*/
+}

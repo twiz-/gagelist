@@ -13,19 +13,23 @@
       </p>
       <hr>
       <div class="pull-right" id="gage-<%= list.id %>" style="width:170px; height:100px;"></div>
-      <br>  
-      <span class="offset1">
-      <% if Task.who_are_we_waiting_on(list) %>
-      <span class="pull-left"> 
-       <%= image_tag Task.who_are_we_waiting_on(list).user.gravatar_url, :class => "gravatar_index" %>
-      </span>
-      <% end %> 
-      <% if Task.who_is_next(list) %>
-        <span class="pull-left" style="opacity:.4;">
-         <%= image_tag Task.who_is_next(list).user.gravatar_url, :class => "gravatar_index" %>
-        </span>
-      <% end %>
-      </span>
+      <br>
+        <span id="blame_game"> 
+         <div class="who_is_next"> 
+          <span class="offset1">
+          <% if Task.who_are_we_waiting_on(list) %>
+          <span class="pull-left now"> 
+           <%= image_tag Task.who_are_we_waiting_on(list).user.gravatar_url, :class => "gravatar_index" %>
+          </span>
+          <% end %> 
+          <% if Task.who_is_next(list) %>
+            <span class="pull-left next">
+             <%= image_tag Task.who_is_next(list).user.gravatar_url, :class => "gravatar_index" %>
+            </span>
+          <% end %>
+          </span>
+         </div>
+        </span>     
     </div>  
   </div>  
   <script>
@@ -47,9 +51,9 @@
 
 <span class="affix btn"><%= link_to "Add New Project", new_list_url %></span>
 
-<!-- <span id="on_deck">
+<span id="on_deck">
         <div class="check">
          <span class="tick"></span>
          <span class="cross"></span>
         </div>
-      </span> -->
+</span>
