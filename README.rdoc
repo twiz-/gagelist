@@ -8,6 +8,4 @@ index view gives managers a quick view of the status of each project.
 It should answer the question "Why is this not done yet!" and hold accountability
 to individuals in the show view. 
 
-Improve this please. 
-
-Using bootstrap, justgage, raphael.
+Ask me if you want to commercially use it or use it with your team!

@@ -5,16 +5,20 @@
     <div class="span3">
     </div>  
     <div class="span4">   
-      <span class="lead"><%= link_to "#{list.name}", list_url(list) %></span>
-      <%= list.description %><br><br>
-      <div id="gage-<%= list.id %>" style="width:170px; height:100px;"></div>
-      <span id="on_deck">
-        <div class="check">
-         <span class="tick"></span>
-         <span class="cross"></span>
-        </div>
+      <span class="lead">
+      <%= link_to "#{list.name}", list_url(list) %>
       </span>
-      <span><hr> <%= link_to "Edit", edit_list_url(list) %> | <%= link_to "Delete", list_url(list), :method => :delete, data: { confirm: "You Sure?" } %></span>
+      <p>
+       <%= list.description %>
+      </p><hr>
+      <div class="pull-right" id="gage-<%= list.id %>" style="width:170px; height:100px;"></div>
+      <br>  
+      <span class="offset1">
+      <% if Task.most_recent %>
+      <span class="pull-left"> <%= image_tag Task.most_recent.user.gravatar_url, :class => "gravatar_index" %></span>
+      <% end %>  
+      
+      </span>
     </div>  
   </div>  
   <script>
@@ -36,3 +40,11 @@
 
 <span class="affix btn"><%= link_to "Add new Install", new_list_url %></span>
 
+<!-- <span id="on_deck">
+        <div class="check">
+         <span class="tick"></span>
+         <span class="cross"></span>
+        </div>
+      </span> -->
+      
+<!-- <%= # link_to "Edit", edit_list_url(list) %> | <%= # link_to "Delete", list_url(list), :method => :delete, data: { confirm: "You Sure?" } %>       -->

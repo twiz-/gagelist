@@ -25,12 +25,7 @@ class User < ActiveRecord::Base
     
     "http://gravatar.com/avatar/#{hash}"
   end
-  
-  def who_are_we_waiting_on
     
-  end
-  
-  
   def on_deck
     #This will most likely need to take the task in ascending order and check if it is completed
     #id it's not complete render it on this page and show who it is assigned to. Baby
