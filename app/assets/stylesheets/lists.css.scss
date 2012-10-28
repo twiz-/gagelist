@@ -37,18 +37,6 @@ a{
     position:absolute;
     top:50%;
   }
-
-#blame_game:hover {
-	outline:none;
-}
-
-#blame_game:active {
-	outline:none;
-}
-
-#blame_game:focus {
-	outline:none;
-}
  
 .now {
   height:68px;
@@ -56,8 +44,6 @@ a{
   -moz-transform: scale(1) rotate(0deg);
   -o-transform: scale(1) rotate(0deg);
   -ms-transform: scale(1) rotate(0deg);
-  
-  
   width:68px;
   z-index:2;
 }
