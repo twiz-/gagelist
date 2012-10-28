@@ -8,9 +8,9 @@ class Task < ActiveRecord::Base
   scope :completed, where(:completed => true)
   scope :incomplete, where(:completed => false)
   
-  def self.most_recent
-    first(:order => 'id DESC') # or whatever query you need to get the most recent
-  end
+ def self.who_are_we_waiting_on(list)
+   where(list_id: list).order('id ASC').incomplete.first
+ end
   
   
 end

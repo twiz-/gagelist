@@ -9,3 +9,6 @@ It should answer the question "Why is this not done yet!" and hold accountabilit
 to individuals in the show view. 
 
 Ask me if you want to commercially use it or use it with your team!
+
+
+      <!-- <%= # link_to "Edit", edit_list_url(list) %> | <%= # link_to "Delete", list_url(list), :method => :delete, data: { confirm: "You Sure?" } %>       -->

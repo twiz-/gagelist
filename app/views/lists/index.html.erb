@@ -14,8 +14,8 @@
       <div class="pull-right" id="gage-<%= list.id %>" style="width:170px; height:100px;"></div>
       <br>  
       <span class="offset1">
-      <% if Task.most_recent %>
-      <span class="pull-left"> <%= image_tag Task.most_recent.user.gravatar_url, :class => "gravatar_index" %></span>
+      <% if Task.who_are_we_waiting_on(list) %>
+      <span class="pull-left"> <%= image_tag Task.who_are_we_waiting_on(list).user.gravatar_url, :class => "gravatar_index" %></span>
       <% end %>  
       
       </span>
@@ -38,7 +38,7 @@
  <% end %>  
 </div>  
 
-<span class="affix btn"><%= link_to "Add new Install", new_list_url %></span>
+<span class="affix btn"><%= link_to "Add new Project", new_list_url %></span>
 
 <!-- <span id="on_deck">
         <div class="check">
@@ -46,5 +46,3 @@
          <span class="cross"></span>
         </div>
       </span> -->
-      
-<!-- <%= # link_to "Edit", edit_list_url(list) %> | <%= # link_to "Delete", list_url(list), :method => :delete, data: { confirm: "You Sure?" } %>       -->
