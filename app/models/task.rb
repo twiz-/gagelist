@@ -11,6 +11,8 @@ class Task < ActiveRecord::Base
  def self.who_are_we_waiting_on(list)
    where(list_id: list).order('id ASC').incomplete.first
  end
-  
-  
+ 
+ def self.who_is_next(list)
+   where(list_id: list).order('id ASC').incomplete.second
+ end
 end

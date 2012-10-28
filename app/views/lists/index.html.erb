@@ -10,14 +10,21 @@
       </span>
       <p>
        <%= list.description %>
-      </p><hr>
+      </p>
+      <hr>
       <div class="pull-right" id="gage-<%= list.id %>" style="width:170px; height:100px;"></div>
       <br>  
       <span class="offset1">
       <% if Task.who_are_we_waiting_on(list) %>
-      <span class="pull-left"> <%= image_tag Task.who_are_we_waiting_on(list).user.gravatar_url, :class => "gravatar_index" %></span>
-      <% end %>  
-      
+      <span class="pull-left"> 
+       <%= image_tag Task.who_are_we_waiting_on(list).user.gravatar_url, :class => "gravatar_index" %>
+      </span>
+      <% end %> 
+      <% if Task.who_is_next(list) %>
+        <span class="pull-left" style="opacity:.4;">
+         <%= image_tag Task.who_is_next(list).user.gravatar_url, :class => "gravatar_index" %>
+        </span>
+      <% end %>
       </span>
     </div>  
   </div>  
@@ -38,7 +45,7 @@
  <% end %>  
 </div>  
 
-<span class="affix btn"><%= link_to "Add new Project", new_list_url %></span>
+<span class="affix btn"><%= link_to "Add New Project", new_list_url %></span>
 
 <!-- <span id="on_deck">
         <div class="check">
