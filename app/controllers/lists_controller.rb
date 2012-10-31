@@ -3,6 +3,8 @@ class ListsController < ApplicationController
   respond_to :html, :xml, :js
   
   def index
+    @it_works = Snapshots.new.picture
+    
     respond_with(@lists = List.all)
   end
   
@@ -22,7 +24,7 @@ class ListsController < ApplicationController
   end
   
   def show
-    @list = List.find(params[:id])    
+    @list = List.find(params[:id])  
   end
   
   def edit

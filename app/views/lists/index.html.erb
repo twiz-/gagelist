@@ -1,3 +1,8 @@
+
+
+<%= image_tag @it_works %>
+
+
 <h1 class="page-header">Projects at a glance</h1> 
 <div class="span12 offset2"> 
  <% @lists.each do |list| %> 
@@ -47,7 +52,9 @@
   </script>
   
  <% end %>  
+ 
 </div>  
+
 
 <span class="affix btn"><%= link_to "Add New Project", new_list_url %></span>
 
