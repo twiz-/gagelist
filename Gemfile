@@ -45,3 +45,6 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+# 516e011353b62078731712566b01e143f56adf0b snapito API Key 
+
