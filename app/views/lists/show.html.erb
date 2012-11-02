@@ -17,16 +17,25 @@
   <% end %>
   <ul class="task-list" id="incomplete">
     <% @list.tasks.incomplete.each do |task| %> 
-      <li id="task-<%= task.id %>">
-        <span class="task-description" id="description-<%= task.id %>"><%= image_tag task.user.gravatar_url, :class => "gravatar_index" %><%= task.description %> <%= task.due_date %></span>
-        <%= button_to "Completed", complete_task_path(@list.id,task.id), :class =>"btn-mini", remote: true %>
-      </li>
+     <table class="table table-hover table-condensed">
+       <tbody>
+         <tr>
+           <td>
+            <li id="task-<%= task.id %>">
+              <span class="task-description" id="description-<%= task.id %>">
+                <%= image_tag task.user.gravatar_url, :class => "gravatar_index" %>
+                <%= task.description %>
+              </span>
+              <span class="pull-right" id="completed_checkbox">
+               <%= button_to "Completed", complete_task_path(@list.id,task.id), :class =>"btn-mini", remote: true %>
+              </span>
+            </li>
+          </td>
+         </tr>
+       </tbody>
+      </table>
     <% end %>
   </ul>
-
-  <hr>
-
-
   <button type="button" class="btn btn-info offset3" data-toggle="collapse" data-target="#demo">
    Show completed tasks
   </button><br>
