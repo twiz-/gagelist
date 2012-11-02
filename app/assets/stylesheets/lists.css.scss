@@ -13,8 +13,42 @@ a{
 
 #completed_checkbox {
 	margin-top: 15px;
+	margin-right:15px;
 }
-	
+.kontainer {
+  width: 700px;
+  height: 760px;
+  position: relative;
+  perspective: 800px;
+}	
+
+#card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+#card figure {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+#card .front {
+  background: red;
+}
+#card .back {
+  background: blue;
+  transform: rotateY( 180deg );
+}
+#card.flipped {
+  transform: rotateY( 180deg );
+}
+
 
 #blame_game span {
   -webkit-transition: all .5s cubic-bezier(1.000, -0.360, 0.000, 1.385); 

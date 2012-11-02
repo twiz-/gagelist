@@ -12,7 +12,7 @@
   <%= simple_form_for [@list, @list.tasks.new] do |form| %>
     <%= form.input :user_id, collection: User.all, label_method: :full_name %>
     <%= form.text_field :description %>
-    <%= form.input :due_date %>
+    <%= form.text_field :due_date %>
     <%= form.submit %>
   <% end %>
   <ul class="task-list" id="incomplete">
@@ -26,8 +26,8 @@
                 <%= image_tag task.user.gravatar_url, :class => "gravatar_index" %>
                 <%= task.description %>
               </span>
-              <span class="pull-right" id="completed_checkbox">
-               <%= button_to "Completed", complete_task_path(@list.id,task.id), :class =>"btn-mini", remote: true %>
+              <span class="pull-left" id="completed_checkbox">
+               <%= button_to "Completed", complete_task_path(@list.id,task.id), :class => "btn-mini", remote: true %>
               </span>
             </li>
           </td>
@@ -39,10 +39,16 @@
   <button type="button" class="btn btn-info offset3" data-toggle="collapse" data-target="#demo">
    Show completed tasks
   </button><br>
-  <div class="offset2 collapse" id="demo" style="background-color:#FFF;height:600px;width:760px;margin-top:20px;">
+  <div class="pull-left offset2 collapse" id="demo" style="height:600px;width:760px;margin-top:20px;margin-left:0px;padding-right:1px;">
     <ul class="task-list" id="completed">
       <% @list.tasks.completed.each do |task| %> 
-        <li><%= task.description %> |  <%= task.user.full_name %> | <%= task.due_date %></li>
+       <table>
+         <tbody>
+           <tr>
+             <td>+<%= task.description %> |  <%= task.user.full_name %> | <%= task.due_date %>></td>
+           </tr>
+         </tbody>   
+        <table>
       <% end %>
     </ul>
   </div>
