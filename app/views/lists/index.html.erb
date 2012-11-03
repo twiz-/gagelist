@@ -1,18 +1,15 @@
 <h1 class="page-header">Projects at a glance</h1> 
-<span class="affix btn"><%= link_to "Add New Project", new_list_url %></span>
-<div class="span12 offset2"> 
+<span class="index_button affix btn"><%= link_to "New Project", new_list_url %></span>
+<div> 
  <% @lists.each do |list| %> 
   <div class="well row span4">
-    <div class="span3">
-    </div>  
     <div class="span4">   
-      <span class="lead">
+      <span class="index_title">
       <%= link_to "#{list.name}", list_url(list) %>
       </span>
       <p>
        <%= list.description %>
       </p>
-      <hr>
       <div class="pull-right" id="gage-<%= list.id %>" style="width:170px; height:100px;"></div>
       <br>
         <span id="blame_game"> 
