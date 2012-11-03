@@ -1,4 +1,5 @@
 <h1 class="page-header">Who's next?</h1>
+<span class="btn affix"><%= link_to "Back To All Projects", lists_url %></span>
 <div class="well span9 offset2">
   <h2 class="page-header"><%= @list.name %></h2>
   <h2 class="lead"><%= @list.description %></h2>  
@@ -45,17 +46,14 @@
        <table>
          <tbody>
            <tr>
-             <td>+<%= task.description %> |  <%= task.user.full_name %> | <%= task.due_date %>></td>
+             <td>+<%= task.description %> |  <%= task.user.full_name %> | <%= task.due_date %></td>
            </tr>
          </tbody>   
         <table>
       <% end %>
     </ul>
   </div>
-  
 </div>    
-
-<span class="btn affix"><%= link_to "Back To All Projects", lists_url %></span>
 <div>
 </div>
 
