@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   
-  respond_to :html, :xml, :js
+  respond_to :html, :xml, :json, :js
   
   def index
     @it_works = Snapshots.new.picture
