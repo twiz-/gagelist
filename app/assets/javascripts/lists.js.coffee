@@ -4,3 +4,6 @@
 jQuery ->
   $('#task_due_date').datepicker
     dateFormat: 'mm/dd/yy'
+  
+jQuery ->
+  $('.best_in_place').best_in_place()
