@@ -2,30 +2,33 @@
 <span class="index_button affix btn"><%= link_to "New Project", new_list_url %></span>
 <div> 
  <% @lists.each do |list| %> 
-  <div class="well row span4">
+  <div class="well row span4" id="index_well">
     <div class="span4">   
       <span class="index_title">
       <%= link_to "#{list.name}", list_url(list) %>
       </span>
-      <p>
+      <p id="index_description">
        <%= list.description %>
       </p>
-      <div class="pull-right" id="gage-<%= list.id %>" style="width:170px; height:100px;"></div>
-      <br>
-        <span id="blame_game"> 
-         <div class="who_is_next"> 
-          <% if Task.who_are_we_waiting_on(list) %>
-          <span class="now"> 
-           <%= image_tag Task.who_are_we_waiting_on(list).user.gravatar_url, :class => "gravatar_index" %>
-          </span>
-          <% end %> 
-          <% if Task.who_is_next(list) %>
-            <span class="next">
-             <%= image_tag Task.who_is_next(list).user.gravatar_url, :class => "gravatar_index" %>
+       <div id="face_and_gage">
+        <div class="gage_index pull-right" id="gage-<%= list.id %>" style="width:170px; height:100px;">
+        </div>
+        <br>
+          <span id="blame_game"> 
+           <div class="who_is_next"> 
+            <% if Task.who_are_we_waiting_on(list) %>
+            <span class="now"> 
+             <%= image_tag Task.who_are_we_waiting_on(list).user.gravatar_url, :class => "gravatar_index" %>
             </span>
-          <% end %>
-         </div>
-        </span>     
+            <% end %> 
+            <% if Task.who_is_next(list) %>
+              <span class="next">
+               <%= image_tag Task.who_is_next(list).user.gravatar_url, :class => "gravatar_index" %>
+              </span>
+            <% end %>
+           </div>
+          </span>
+       </div>         
     </div>  
   </div>  
   <script>
