@@ -14,5 +14,5 @@ class Task < ActiveRecord::Base
  
  def self.who_is_next(list)
    where(list_id: list).order('due_date ASC').incomplete.second
- end
+ end 
 end

@@ -1,8 +1,10 @@
 class ListsController < ApplicationController
   
-  respond_to :html, :xml, :js
+  respond_to :html, :xml, :json, :js
   
   def index
+    @it_works = Snapshots.new.picture
+    
     respond_with(@lists = List.all)
   end
   
@@ -22,7 +24,7 @@ class ListsController < ApplicationController
   end
   
   def show
-    @list = List.find(params[:id])    
+    @list = List.find(params[:id])  
   end
   
   def edit
@@ -41,12 +43,7 @@ class ListsController < ApplicationController
   end
   def update
     @list = List.find(params[:id])
-    if @list.update_attributes(params[:list])
-      flash[:notice] = "List updated"
-      respond_with(@list, :location => list_url(@list))
-    else
-      flash[:error] = 'Something is Awry :('
-      redirect_to edit_list_path(@list)
-    end
+    @list.update_attributes(params[:list])  
+    respond_with(@list, :location => list_url(@list))
   end
 end

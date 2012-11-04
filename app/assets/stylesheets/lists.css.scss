@@ -2,15 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+.gage_index {
+	margin-top: 20px;
+	margin-left: -10px;
+}
 a{
 	color: #00A4ED;
 }
 
 .well {
-	background-color: #FAFAFA;
+	background-color: #FFF8DC;
 }
-	
+
+#index_description {
+	margin-left:4px;
+}
+
+#index .well {
+	width: 31%;
+}
+
+#completed_checkbox {
+	margin-top: 15px;
+	margin-right:15px;
+}
 
 #blame_game span {
   -webkit-transition: all .5s cubic-bezier(1.000, -0.360, 0.000, 1.385); 
@@ -22,12 +37,47 @@ a{
   -o-transition-timing-function: cubic-bezier(1.000, -0.360, 0.000, 1.385);
   -ms-transition-timing-function: cubic-bezier(1.000, -0.360, 0.000, 1.385);
 }
+.index_button {
+    margin-left: -150px;
+}
+
+
+#list_show_title{
+  	padding-bottom: 5px;
+	border-bottom: 1px solid #eeeeee;	
+	margin-bottom: 50px;
+}
+#task_show_description {
+	margin-top: 17px;
+}
+.index_button a{
+  color: #A80000;
+}
+.show_button a{
+  color: #A80000;
+}
+.index_title {
+   height: 100px;
+   width: 75%;
+   font-size:1.5em;
+   padding: 3px;
+}
+
+.index_title a{
+  text-align:center;
+  color: #A80000;
+  font: helvetica;
+  letter-spacing: 1.1px;
+  font-weight:bold;
+}
 
 #blame_game {
   display:block;
   height:68px;
   margin:0 auto;
   outline:none;
+  margin-left: 20px;
+  margin-top: 45px;
   position:relative;
   width:68px;
 }

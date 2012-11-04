@@ -1,46 +1,62 @@
 <h1 class="page-header">Who's next?</h1>
-<div class="well span9 offset2">
-  <h2 class="page-header"><%= @list.name %></h2>
-  <h2 class="lead"><%= @list.description %></h2>  
+<span class="show_button btn affix"><%= link_to "Back To Projects", lists_url %></span>
+<div class="well row span9 offset2">
+  <div class="span8" id="list_show_title">
+   <div class="row">  
+      <h2 class="span5"><%= best_in_place @list, :name %></h2>
+      <p id="task_show_description" class=" lead span3">
+       <%= best_in_place @list, :description %>
+      </p>
+   </div>    
+  </div>  
   <div class="pull-right" id="smallbuddy" style="width:340px; height:200px;"></div>
 
   <h3>Tasks</h3>
-  
-  
-  <!-- add :remote => true  for this to work via ajax again -->
-  
+    
   <%= simple_form_for [@list, @list.tasks.new] do |form| %>
     <%= form.input :user_id, collection: User.all, label_method: :full_name %>
     <%= form.text_field :description %>
-    <%= form.input :due_date %>
+    <%= form.text_field :due_date %>
     <%= form.submit %>
   <% end %>
   <ul class="task-list" id="incomplete">
     <% @list.tasks.incomplete.each do |task| %> 
-      <li id="task-<%= task.id %>">
-        <span class="task-description" id="description-<%= task.id %>"><%= image_tag task.user.gravatar_url, :class => "gravatar_index" %><%= task.description %> <%= task.due_date %></span>
-        <%= button_to "Completed", complete_task_path(@list.id,task.id), :class =>"btn-mini", remote: true %>
-      </li>
+     <table class="table table-hover table-condensed">
+       <tbody>
+         <tr>
+           <td>
+            <li id="task-<%= task.id %>">
+              <span class="task-description" id="description-<%= task.id %>">
+                <%= image_tag task.user.gravatar_url, :class => "gravatar_index" %>
+                <%= task.description %>
+              </span>
+              <span class="pull-left" id="completed_checkbox">
+               <%= button_to "Completed", complete_task_path(@list.id,task.id), :class => "btn-mini", remote: true %>
+              </span>
+            </li>
+          </td>
+         </tr>
+       </tbody>
+      </table>
     <% end %>
   </ul>
-
-  <hr>
-
-
   <button type="button" class="btn btn-info offset3" data-toggle="collapse" data-target="#demo">
    Show completed tasks
   </button><br>
-  <div class="offset2 collapse" id="demo" style="background-color:#FFF;height:600px;width:760px;margin-top:20px;">
+  <div class="pull-left offset2 collapse" id="demo" style="height:600px;width:760px;margin-top:20px;margin-left:0px;padding-right:1px;">
     <ul class="task-list" id="completed">
       <% @list.tasks.completed.each do |task| %> 
-        <li><%= task.description %> |  <%= task.user.full_name %> | <%= task.due_date %></li>
+       <table>
+         <tbody>
+           <tr>
+             <td>-<%= task.description %> | <span style="color:red;"> <%= task.user.full_name %></span> | <%= time_ago_in_words(task.updated_at) %></td>
+           </tr>
+         </tbody>   
+        <table>
       <% end %>
     </ul>
   </div>
-  
 </div>    
-
-<span class="btn affix"><%= link_to "Back To All Projects", lists_url %></span>
 <div>
 </div>
 

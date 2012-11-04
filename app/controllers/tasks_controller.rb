@@ -28,5 +28,4 @@ class TasksController < ApplicationController
   def find_list
     @list = List.find(params[:list_id])
   end
-
 end
