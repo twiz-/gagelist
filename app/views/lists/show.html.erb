@@ -11,33 +11,7 @@
   </div>  
   <div class="pull-right" id="smallbuddy" style="width:340px; height:200px;"></div>
 <!-- delete from 14 to 41 and restyle -->
-  <h3>Tasks</h3>
-  <%= simple_form_for [@list, @list.tasks.new] do |form| %>
-    <%= form.input :user_id, collection: User.all, label_method: :full_name %>
-    <%= form.text_field :description %>
-    <%= form.text_field :due_date %>
-    <%= form.submit %>
-  <% end %>
-  <ul class="task-list" id="incomplete">
-    <% @list.tasks.incomplete.each do |task| %> 
-     <table class="table table-hover table-condensed">
-       <tbody>
-         <tr>
-           <td>
-            <li id="task-<%= task.id %>">
-              <span class="task-description" id="description-<%= task.id %>">
-                <%= image_tag task.user.gravatar_url, :class => "gravatar_index" %>
-                <%= task.description %>
-              </span>
-              <span class="pull-left" id="completed_checkbox">
-               <%= button_to "Completed", complete_task_path(@list.id,task.id), :class => "btn-mini", remote: true %>
-              </span>
-            </li>
-          </td>
-         </tr>
-       </tbody>
-      </table>
-    <% end %>
+
   
   <%= button_tag "Add New Task", :id => "new_task_bt", :class => "btn" %>
   
@@ -58,16 +32,14 @@
   </button><br>
   <div class="pull-left offset2 collapse" id="demo" style="height:600px;width:760px;margin-top:20px;margin-left:0px;padding-right:1px;">
     <ul class="task-list" id="completed">
-      <% @list.tasks.completed.each do |task| %> 
        <table>
          <tbody>
            <tr>
-             <td>-<%= task.description %> | <span style="color:red;"> <%= task.user.full_name %></span> | <%= time_ago_in_words(task.updated_at) %></td>
+             <td><%= render "completed" %>
+             </td>
            </tr>
          </tbody>   
         <table>
-      <% end %>
-      <%= render "completed" %>
     </ul>
   </div>
 </div>    
