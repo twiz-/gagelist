@@ -10,9 +10,8 @@
    </div>    
   </div>  
   <div class="pull-right" id="smallbuddy" style="width:340px; height:200px;"></div>
-
+<!-- delete from 14 to 41 and restyle -->
   <h3>Tasks</h3>
-    
   <%= simple_form_for [@list, @list.tasks.new] do |form| %>
     <%= form.input :user_id, collection: User.all, label_method: :full_name %>
     <%= form.text_field :description %>
@@ -39,6 +38,20 @@
        </tbody>
       </table>
     <% end %>
+  
+  <%= button_tag "Add New Task", :id => "new_task_bt", :class => "btn" %>
+  
+  <!-- add :remote => true  for this to work via ajax again -->
+  <div id="new_task_form">
+	  <%= simple_form_for [@list, @list.tasks.new], :remote => true do |form| %>
+	    <%= form.input :user_id, collection: User.all, label_method: :full_name %>
+	    <%= form.text_field :description %>
+	    <%= form.input :due_date %>
+	    <%= form.submit %>
+	  <% end %>
+  </div>
+  <ul class="task-list" id="incomplete">
+    <%= render 'incompletes' %>
   </ul>
   <button type="button" class="btn btn-info offset3" data-toggle="collapse" data-target="#demo">
    Show completed tasks
@@ -54,6 +67,7 @@
          </tbody>   
         <table>
       <% end %>
+      <%= render "completed" %>
     </ul>
   </div>
 </div>    

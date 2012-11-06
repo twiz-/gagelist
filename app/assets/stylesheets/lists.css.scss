@@ -121,3 +121,23 @@ a{
   -ms-transform:scale(1) rotate(360deg);
   z-index:2;
 }
+
+#new_task_form {
+  display:none;
+}
+
+#incomplete li span {
+  float:left;
+  width:370px;
+  margin-top:20px;
+}
+
+#completed li span {
+  float:left;
+  width:100%;
+}
+
+#incomplete li span form, #incomplete li span div, #incomplete li span img,  #completed li span form, #completed li span div {
+  float:left;
+  margin-right:5px;
+}

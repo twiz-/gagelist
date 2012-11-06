@@ -1,0 +1,5 @@
+gage<%= @list.id %>.refresh(<%= @list.percent_complete.round(2) %>);
+
+$("#incomplete").html('<%= escape_javascript render 'lists/incompletes' %>');
+$("#incomp-task-<%= @task.id %>").fadeOut(1000);
+$("#incomp-task-<%= @task.id %>").remove();

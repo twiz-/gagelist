@@ -1,1 +1,6 @@
-console.log("POST task created")
+gage<%= @list.id %>.refresh(<%= @list.percent_complete.round(2) %>);
+$('#incomplete').fadeOut(1000);
+$("#new_task_bt").show();
+$("#new_task_form").hide();
+$('#incomplete').html('<%= escape_javascript render 'lists/incompletes' %>');
+$('#incomplete').fadeIn(1000);

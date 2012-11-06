@@ -18,3 +18,26 @@
 //= require jquery.purr
 //= require best_in_place
 //= require_tree .
+
+
+$(function() {
+	$('#new_task_bt').click(function() {
+		$('#new_task_form').show();
+		$("#new_task").each (function(){
+		  this.reset();
+		});
+		$(this).hide();
+	});
+	
+	$('.mark_comp').live('click', function() {
+		if ($(this).is(':checked')) {
+			$(this).parent().submit();
+		}
+	});
+	
+	$('.mark_in_comp').live('click', function() {
+		if($(this).is(':checked')) {
+			$(this).parent().submit();
+		}
+	});
+});
