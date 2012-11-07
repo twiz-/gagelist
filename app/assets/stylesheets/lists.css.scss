@@ -124,12 +124,40 @@ a{
 
 #new_task_form {
   display:none;
+  width:500px;
+}
+
+#incomplete li {
+    border-top: 1px solid #DDDDDD;
+    border-bottom:1px solid #DDDDDD;
+    float: left;
+    width: 100%;
+    padding-bottom:5px;
+}
+
+#incomplete li:hover {
+  border-top-color:#A80000;
+  border-bottom-color:#A80000;
+  background-color: #f5f5f5;
+}
+
+.task-list li.last {
+  // border-bottom:1px solid #DDDDDD;
+  // border-top:1px solid #DDDDDD;
 }
 
 #incomplete li span {
   float:left;
-  width:370px;
+  width:100px;
   margin-top:20px;
+}
+
+#incomplete li span.small {
+  width:50px;
+}
+
+#incomplete li span.large {
+  width:450px;
 }
 
 #completed li span {
@@ -141,3 +169,13 @@ a{
   float:left;
   margin-right:5px;
 }
+
+.remove_task_bt {
+  cursor:pointer;
+}
+
+table thead {
+  background-color:#DDD;
+}
+
+.handle:hover{cursor: move;}

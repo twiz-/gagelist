@@ -11,6 +11,7 @@
  *= require jquery.ui.datepicker
  *= require_self
  *= require_tree .
+ *= bootstrap
  */
 
 .well {
@@ -37,3 +38,8 @@ a {
   height: 60px;
   width: 60px;
 }
+
+/*.task-list li span, .task-list li div {
+	float:left;
+	width:100px;
+}*/

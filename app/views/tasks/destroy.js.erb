@@ -1,5 +1,5 @@
 gage<%= @list.id %>.refresh(<%= @list.percent_complete.round(2) %>);
 
-$("#task-<%= @task_id %>").fadeOut(1000, function() {
-  $("#task-<%= @task_id %>").remove();
+$("#task_<%= @task_id %>").fadeOut(1000, function() {
+  $("#task_<%= @task_id %>").remove();
 });

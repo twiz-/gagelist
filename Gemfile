@@ -13,10 +13,10 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-group :production do 
-  gem 'pg'
-  
-end
+# group :production do 
+  # gem 'pg'
+#   
+# end
 
 gem 'httparty'
 # Gems used only for assets and not required
@@ -37,6 +37,8 @@ gem 'jquery-rails'
 gem 'execjs'
 
 gem 'therubyracer'
+
+gem "acts_as_list", "~> 0.1.8"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

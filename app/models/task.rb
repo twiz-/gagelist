@@ -6,7 +6,14 @@ class Task < ActiveRecord::Base
   
   
   scope :completed, where(:completed => true)
+  
   scope :incomplete, where(:completed => false)
+  
+  acts_as_list
+  
+def self.incompletes(list_id)
+  where('list_id =? AND completed  = ?', list_id, false)
+end
   
  def self.who_are_we_waiting_on(list)
    where(list_id: list).order('due_date ASC').incomplete.first

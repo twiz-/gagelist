@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  
+  #helper_method :sort_column, :sort_direction
   respond_to :html, :xml, :json, :js
   
   def index
@@ -24,7 +24,7 @@ class ListsController < ApplicationController
   end
   
   def show
-    @list = List.find(params[:id])  
+    @list = List.find(params[:id])
   end
   
   def edit
@@ -46,4 +46,5 @@ class ListsController < ApplicationController
     @list.update_attributes(params[:list])  
     respond_with(@list, :location => list_url(@list))
   end
+  
 end

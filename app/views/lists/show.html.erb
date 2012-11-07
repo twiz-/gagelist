@@ -1,3 +1,34 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+		var list_id = "<%= @list.id %>";
+		var url = '/lists/' + list_id + '/tasks/sort';
+		var data = $('#incomplete').sortable('serialize');
+		alert(data.toString());
+		$('#incomplete').sortable({			
+			axis: 'y',
+			dropOnEmpty: false,
+			handle: '.handle',
+			cursor: 'crosshair',
+			items: 'li',
+			opacity: 0.4,
+			scroll: true,
+			update: function(){
+				alert('update');
+				$.ajax({
+					type: 'post',
+					url: url,
+					data: $('#incomplete').sortable('serialize'),
+					dataType: 'script',
+					complete: function(request){
+						alert('test');
+						$('#incomplete').effect('highlight');
+					},
+				});
+			}
+		});
+	});
+</script>
+
 <h1 class="page-header">Who's next?</h1>
 <span class="show_button btn affix"><%= link_to "Back To Projects", lists_url %></span>
 <div class="well row span9 offset2">
@@ -12,22 +43,26 @@
   <div class="pull-right" id="smallbuddy" style="width:340px; height:200px;"></div>
 <!-- delete from 14 to 41 and restyle -->
 
-  
-  <%= button_tag "Add New Task", :id => "new_task_bt", :class => "btn" %>
+  <span class="show_button btn" id="new_task_bt"><%= link_to "Add New Task", '#' %></span>
+  <!-- <%= button_tag "Add New Task", :id => "new_task_bt", :class => "btn" %> -->
   
   <!-- add :remote => true  for this to work via ajax again -->
   <div id="new_task_form">
 	  <%= simple_form_for [@list, @list.tasks.new], :remote => true do |form| %>
 	    <%= form.input :user_id, collection: User.all, label_method: :full_name %>
+	    <%= form.label :description %>
 	    <%= form.text_field :description %>
+	    <%= form.label :due_date %>
 	    <%= form.text_field :due_date %><br>
-	    <%= form.submit %>
+	    <%= form.submit :class => 'btn' %>
+	    <%= button_tag 'Cancel', :id => 'bt-cancel-task', :class => 'btn', :type => 'button' %>
 	  <% end %>
   </div>
   <br><br>
   <ul class="task-list" id="incomplete">
     <%= render 'incompletes' %>
   </ul>
+  
   <button type="button" class="btn btn-info offset3" data-toggle="collapse" data-target="#demo">
    Show completed tasks
   </button><br>

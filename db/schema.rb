@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121028204626) do
+ActiveRecord::Schema.define(:version => 20121030075635) do
 
   create_table "lists", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20121028204626) do
     t.datetime "updated_at",                     :null => false
     t.integer  "user_id"
     t.date     "due_date"
+    t.integer  "position"
   end
 
   add_index "tasks", ["due_date"], :name => "index_tasks_on_due_date"

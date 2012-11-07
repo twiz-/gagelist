@@ -5,6 +5,10 @@ Gagelist::Application.routes.draw do
   resources :lists do
     resources :tasks
   end
+  
+  post 'lists/:list_id/tasks/sort', :controller => 'tasks', :action => 'sort'
+  
+  #resources :lists, :collection => { :sort => :post }, :as => 'sort_lists'
 
   root :to => 'front#index'
   

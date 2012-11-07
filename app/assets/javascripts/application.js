@@ -40,4 +40,23 @@ $(function() {
 			$(this).parent().submit();
 		}
 	});
+	
+	$('#bt-cancel-task').live('click', function() {
+		$("#new_task").each (function(){
+		  this.reset();
+		});
+		$('#new_task_form').hide();
+		$('#new_task_bt').show();
+	});
+	
+	$(".remove_task_bt").live("click", function() {
+		$(this).parent().submit();
+	});
+	
+	 $("#tb-incompletes th a").live("click", function() {
+	    $.getScript(this.href);
+	    return false;
+	  });
+
+	
 });

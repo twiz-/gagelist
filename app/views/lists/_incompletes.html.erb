@@ -1,26 +1,37 @@
- <table class="table table-hover table-condensed">
-  <% @list.tasks.incomplete.each do |task| %>
-  <tbody>
-    <tr id="task-<%= task.id %>">
-      <td>
-        <span class="task-description" id="description-<%= task.id %>">
-          <%= form_tag({:controller => 'tasks', :action => 'complete', :list_id => @list.id, :id => task.id}, :remote => true) do |f| %>
-    		    <%= check_box_tag 'mark_complete', 1, false, :class => 'checkbox mark_comp' %>
-    	    <% end %>
-    	  </span>  
-    	</td>
-      <td>
-        <%= image_tag task.user.gravatar_url, :class => "gravatar_index" %>
-      </td>
-      <td>
-        <div id="task-desc-<%= task.id %>">
-  	    	<%= task.description %> 
-      	</div>
-      </td>
-      <td>
-        <%= button_to "Remove", remove_task_path(@list.id,task.id), :class =>"btn-mini", remote: true %>
-      </td>
-    </tr>  
-  </tbody>
-  <% end %>
-</table>
+
+ 	<% 
+ 	index = 0;
+ 	tasks = @list.tasks.incomplete
+ 	tasks.each do |task| 
+ 	%>
+ 		
+	    <li id="task_<%= task.id %>" class="handle <%= index == (tasks.length - 1) ? 'last' : '' %>">
+	    	<span class="small"> 
+	    		<%= form_tag({:controller => 'tasks', :action => 'complete', :list_id => @list.id, :id => task.id}, :remote => true) do |f| %>
+	    		    <%= check_box_tag 'mark_complete', 1, false, :class => 'checkbox mark_comp' %>
+	    	    <% end %> 
+    	    </span>
+    	    <span>
+    	    	<%= image_tag task.user.gravatar_url, :class => "gravatar_index" %>
+    	    </span>
+	    	<span class="large"> <%= task.description %> </span>
+	    	<span class="small">
+	    		<%= form_tag(remove_task_path(@list.id,task.id), :remote => true) do |f| %>
+		      		<i class="icon-trash remove_task_bt"></i>
+		      		
+		      	<% end %>
+	    	</span>
+	    	<div class="clear"></div>
+	    </li>
+
+ 	<% 
+ 	index += 1
+ 	end 
+ 	%>
+ 	
+ 	
+
+ 	
+ 
+ 
+<!-- <%#= sortable_element("tasks", :url => {:controller => 'lists', :action => 'sort'}, :handle => "handle") %> -->
