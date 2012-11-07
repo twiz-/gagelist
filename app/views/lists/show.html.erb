@@ -20,7 +20,7 @@
 	  <%= simple_form_for [@list, @list.tasks.new], :remote => true do |form| %>
 	    <%= form.input :user_id, collection: User.all, label_method: :full_name %>
 	    <%= form.text_field :description %>
-	    <%= form.input :due_date %>
+	    <%= form.text_field :due_date %><br>
 	    <%= form.submit %>
 	  <% end %>
   </div>

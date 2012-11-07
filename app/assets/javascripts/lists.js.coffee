@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
   $('#task_due_date').datepicker
-    dateFormat: 'mm/dd/yy'
+    dateFormat: 'mm-dd-yy'
   
 jQuery ->
   $('.best_in_place').best_in_place()

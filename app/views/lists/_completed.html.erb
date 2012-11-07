@@ -5,7 +5,7 @@
 	    		<%= check_box_tag 'mark_in_complete', 0, false, :class => 'checkbox mark_in_comp' %>
 	    	<% end %>
 	    	<div>
-	    		<%= task.description %> |  <%= task.user.full_name %> | <%= task.due_date %>
+	    		<%= task.description %> | <%= task.user.full_name %> | <%= "done " + time_ago_in_words(task.updated_at) + " ago" %>
 	    	</div>
     	</span>
 	</li>
