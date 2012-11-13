@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_filter :find_list
+  before_filter :find_list, :except => [:sort]
   respond_to :html, :js
 
   def create
@@ -39,8 +39,12 @@ class TasksController < ApplicationController
   end
   
   def sort
-    params[:tasks].each_with_index do |id, index|
-      @list.tasks.update_all(['position=?', index+1], ['id=?', id])
+    logger = Logger.new('log/debug.log')
+    logger.info('-----------Log for sort-----------')
+    logger.info(params[:task].length)
+    params[:task].each_with_index do |id, index|
+      logger.info('id: ' + id.to_s + ' ' + index.to_s)
+      Task.update_all(['position=?', index+1], ['id=?', id])
     end
     render :nothing => true
   end

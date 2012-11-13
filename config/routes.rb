@@ -3,10 +3,10 @@ Gagelist::Application.routes.draw do
   devise_for :users
 
   resources :lists do
-    resources :tasks
+    resources :tasks 
   end
   
-  post 'lists/:list_id/tasks/sort', :controller => 'tasks', :action => 'sort'
+  post '/tasks/sort', :controller => 'tasks', :action => 'sort', :as => 'sort_tasks'
   
   #resources :lists, :collection => { :sort => :post }, :as => 'sort_lists'
 

@@ -5,14 +5,14 @@ class Task < ActiveRecord::Base
   belongs_to :user
   
   
-  scope :completed, where(:completed => true)
+  scope :completed, where(:completed => true).order('position')
   
-  scope :incomplete, where(:completed => false)
+  scope :incomplete, where(:completed => false).order('position')
   
   acts_as_list
   
 def self.incompletes(list_id)
-  where('list_id =? AND completed  = ?', list_id, false)
+  where('list_id =? AND completed  = ?', list_id, false).order('position')
 end
   
  def self.who_are_we_waiting_on(list)

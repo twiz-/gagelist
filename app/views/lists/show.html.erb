@@ -1,33 +1,3 @@
-<script type="text/javascript">
-	$(document).ready(function() {
-		var list_id = "<%= @list.id %>";
-		var url = '/lists/' + list_id + '/tasks/sort';
-		var data = $('#incomplete').sortable('serialize');
-		alert(data.toString());
-		$('#incomplete').sortable({			
-			axis: 'y',
-			dropOnEmpty: false,
-			handle: '.handle',
-			cursor: 'crosshair',
-			items: 'li',
-			opacity: 0.4,
-			scroll: true,
-			update: function(){
-				alert('update');
-				$.ajax({
-					type: 'post',
-					url: url,
-					data: $('#incomplete').sortable('serialize'),
-					dataType: 'script',
-					complete: function(request){
-						alert('test');
-						$('#incomplete').effect('highlight');
-					},
-				});
-			}
-		});
-	});
-</script>
 
 <h1 class="page-header">Who's next?</h1>
 <span class="show_button btn affix"><%= link_to "Back To Projects", lists_url %></span>
@@ -59,7 +29,7 @@
 	  <% end %>
   </div>
   <br><br>
-  <ul class="task-list" id="incomplete">
+  <ul class="task-list" id="incomplete" data-update-url="<%= sort_tasks_url %>">
     <%= render 'incompletes' %>
   </ul>
   
