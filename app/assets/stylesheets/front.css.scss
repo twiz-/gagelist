@@ -2,7 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+/* First Section */
 #front_container {
+  margin-top: -7px;
   /* fallback */
   background-color: red;
   /* Safari 4-5, Chrome 1-9 */
@@ -17,19 +20,23 @@
   /* Opera cannot do radial gradients yet */
 }
 #front_mktng_title {
-/*  text-align: center;*/
+  font-family: helvetica;
   font-size: 32px;
+  color: white;
   line-height: 35px;
-  padding-bottom: 35px;
 }
 #front_mktng_copy {
+  padding-top: 15px;
   text-align: justify;
-  color: white;
+  color: #272727;
+  font-size: 21px;
+  line-height: 25px;
 
 }
 #front_mktng_image {
-height: 330px;
-width: 612px;
+  padding-top: 27px;
+  height: 330px;
+  width: 612px;
 }
 #front_mktng_list_thumb {
   padding-top: 15px;
@@ -43,3 +50,19 @@ width: 612px;
   width: 1153px;
   height: 390px;
 }
+
+/* Start Second Section */
+#next_front_container {
+
+}
+#second-front_hold {
+  width: 1153px;
+  height:303px;
+}
+
+
+
+
+
+/*Start Third section */
+
