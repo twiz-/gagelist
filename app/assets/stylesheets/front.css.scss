@@ -1,3 +1,45 @@
 // Place all the styles related to the front controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#front_container {
+  /* fallback */
+  background-color: red;
+  /* Safari 4-5, Chrome 1-9 */
+  /* Can't specify a percentage size? Laaaaaame. */
+  background: -webkit-gradient(radial, center center, 0, center center, 460, from(#ff3939), to(#A80000));
+  /* Safari 5.1+, Chrome 10+ */
+  background: -webkit-radial-gradient(circle, #ff3939, #A80000);
+  /* Firefox 3.6+ */ 
+  background: -moz-radial-gradient(circle, #ff3939, #A80000);
+  /* IE 10 */ 
+  background: -ms-radial-gradient(circle, #ff3939, #A80000);
+  /* Opera cannot do radial gradients yet */
+}
+#front_mktng_title {
+/*  text-align: center;*/
+  font-size: 32px;
+  line-height: 35px;
+  padding-bottom: 35px;
+}
+#front_mktng_copy {
+  text-align: justify;
+  color: white;
+
+}
+#front_mktng_image {
+height: 330px;
+width: 612px;
+}
+#front_mktng_list_thumb {
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
+#front_mktng_thumbs {
+  padding-right: 12px;
+}
+#front_hold {
+  width: 1153px;
+  height: 390px;
+}

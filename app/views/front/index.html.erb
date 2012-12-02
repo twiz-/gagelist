@@ -1,4 +1,65 @@
-<h1 style="margin-top:80px;">Because at the end of the day (sigh), What did you actually do by the end of the day?</h1>
-<div style="height:400px;width:400px;"></div>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gagelist</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js", "rails.js" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a href="#" class="brand">Shutup</a>
+        <ul class="nav pull-right">
+          <% if user_signed_in? %>
+            <li><%= link_to current_user.full_name, "#"%></li>
+            <li><%= link_to "My Projects", lists_path  %></li>
+            <li><%= link_to "Settings", edit_user_registration_path%></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete  %></li>
+          <% else %>  
+          <li><%= link_to "Login", user_session_path  %></li> 
+          <li><%= link_to "Sign Up", new_user_registration_path  %></li> 
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+<div class="container">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>  
+ <%= yield %>
+</div>
+<div class="row" id="front_container">
+  <div class="container" id="front_hold">
+    <div class="offset4">
+      This could be because at the end of the D
+    </div>
+    <div class="row offset1">
+      <div class="span4" id="front_mktng_copy">
+        <span id="front_mktng_title"><h1>Because at the end of the day...</h1></span><br>
+        <p><em>..sigh</em> What did you actually DO by the end of the day?Use this to call people out and actually see what you accomplished
+        Have you ever been blocked on a project by someone else and had to answer to someone why this thing wasn't done?
+        Well it's blame trail and productivity   time.
+        </p>
+        <ul class="nav nav-pills" id="front_mktng_list_thumb">
+          <li id="front_mktng_thumbs"><img src="http://placehold.it/57x57"></li>
+          <li id="front_mktng_thumbs"><img src="http://placehold.it/57x57"></li>
+          <li id="front_mktng_thumbs"><img src="http://placehold.it/57x57"></li>
+          <li id="front_mktng_thumbs"><img src="http://placehold.it/57x57"></li>
+        </ul>
+      </div>
+      <div class="span6" id="front_mktng_image"> 
+        <img src="http://placehold.it/612x330">
+      </div>
+    </div>
+  </div>
+</div>
 
-<img src="https://lh3.googleusercontent.com/-nhTefKLna2Y/UItsziqBNvI/AAAAAAAAACc/XX-UBX3SgQM/s986/Screen%2520Shot%25202012-10-26%2520at%252010.09.51%2520PM.png" />
+</body>
+</html>
+
+
+
