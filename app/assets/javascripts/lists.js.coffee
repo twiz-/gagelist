@@ -8,9 +8,9 @@ jQuery ->
 jQuery ->
   $('.best_in_place').best_in_place()
   
-jQuery -> 
-    $('#incomplete').sortable(
-      axis: 'y'
-      update: ->
-        $.post($(this).data('update-url'), $(this).sortable('serialize'))
-    );
+# jQuery -> 
+    # $('#incomplete').sortable(
+      # axis: 'y'
+      # update: ->
+        # $.post($(this).data('update-url'), $(this).sortable('serialize'))
+    # );

@@ -36,4 +36,16 @@ Gagelist::Application.configure do
   config.assets.debug = true
   #From Devise
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+#   
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => "smtp.gmail.com",
+    :port => "587",
+    :domain => "gmail.com",
+    :authentication => :plain,
+    :user_name => "luongtranduc@gmail.com",
+    :password => "10111985"
+  }
+
+  
 end

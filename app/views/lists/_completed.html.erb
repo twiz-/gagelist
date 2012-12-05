@@ -1,4 +1,12 @@
-<% @list.tasks.completed.each do |task| %> 
+<% 
+
+if current_user.id == @list.id
+	tasks = @list.tasks.completed
+else
+	tasks = @list.tasks.completes(@list.id, current_user.id)
+end
+#tasks = @list.tasks.completes(@list.id, current_user.id)
+tasks.each do |task| %> 
     <li id="incomp-task-<%= task.id %>">
     	<span>
 	    	<%= form_tag({:controller => 'tasks', :action => 'incomplete', :list_id => @list.id, :id => task.id}, :remote => true) do |f| %>

@@ -1,5 +1,22 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+		$('#invitation_form').bind("ajax:beforeSend",  function() {
+			$("#loading").toggle();
+			$('#frm_invite_user').hide();
+		}).bind("ajax:success", function(xhr, data, status) {
+			$("#loading").toggle()	
+			$('#frm_invite_user').hide();
+			$('#bt-invite-user').show();
+			$('#new_task_bt').show();
+			$('#notice').text('Invitation email has been sent successfully').css('color', 'green').fadeIn(300).delay(30000).fadeOut(300);
+		});
+	});
+</script>
+
 
 <h1 class="page-header">Who's next?</h1>
+<div class="notice" id="notice"></div>
 <span class="show_button btn affix"><%= link_to "Back To Projects", lists_url %></span>
 <div class="well row span9 offset2">
   <div class="span8" id="list_show_title">
@@ -12,14 +29,45 @@
   </div>  
   <div class="pull-right" id="smallbuddy" style="width:340px; height:200px;"></div>
 <!-- delete from 14 to 41 and restyle -->
-
+  
   <span class="show_button btn" id="new_task_bt"><%= link_to "Add New Task", '#' %></span>
+  
+  <% is_created_user =  current_user.id == @list.user_id ? true : false%>
+  <% if is_created_user %>
+  <%= button_tag 'Invite user', :id => 'bt-invite-user', :class => 'btn btn-info'  %>
+  		<div id="loading" style="display: none;">
+  			<%= image_tag 'loading12.gif' %>
+  		</div>
+  	  <div id="frm_invite_user" style="display: none;">
+  	  	<h3>Invite user join in your project</h3>
+  	  	<%= form_tag invite_user_path(@list), :id => 'invitation_form',:remote => true do %>
+  	  	<%= label_tag 'Firstname' %>
+  	  	<%= text_field_tag 'first_name' %>
+  	  	<%= label_tag 'Lastname' %>
+  	  	<%= text_field_tag 'last_name' %>
+  	  	<%= label_tag 'User email' %>
+  	  	<%= text_field_tag 'user_email' %><br/>
+  	  	<%= submit_tag 'Send invitation', :class => 'btn btn-info' %>
+  	  	<%= button_tag 'Cancel', :id => 'bt-cancel-invite', :class => 'btn', :type => 'button' %>
+  	  	<% end %>
+  	  	
+  	  </div>
+  	  <hr/>
+  <% end %>
   <!-- <%= button_tag "Add New Task", :id => "new_task_bt", :class => "btn" %> -->
   
   <!-- add :remote => true  for this to work via ajax again -->
   <div id="new_task_form">
+  	  
 	  <%= simple_form_for [@list, @list.tasks.new], :remote => true do |form| %>
-	    <%= form.input :user_id, collection: User.all, label_method: :full_name %>
+	  
+	  	<% if is_created_user %>
+		  	<%= form.label :user_id %>
+		  	<%= select("task", "user_id", @list_team_members.collect {|tm| [ tm.user.full_name, tm.user_id ] }, { :include_blank => true }) %>
+	    <% else %>
+	    <%= form.hidden_field :user_id, :value => current_user.id %>
+	    <% end %>
+	    
 	    <%= form.label :description %>
 	    <%= form.text_field :description %>
 	    <%= form.label :due_date %>

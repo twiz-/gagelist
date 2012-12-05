@@ -58,5 +58,16 @@ $(function() {
 	    return false;
 	  });
 
+	$('#bt-invite-user').click(function() {
+		$('#frm_invite_user').show();
+		$(this).hide();
+		$('#new_task_bt').hide();
+	});
+	
+	$('#bt-cancel-invite').click(function() {
+		$('#frm_invite_user').hide();
+		$('#bt-invite-user').show();
+		$('#new_task_bt').show();
+	});
 	
 });

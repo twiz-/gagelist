@@ -1,7 +1,12 @@
 
  	<% 
  	index = 0;
- 	tasks = @list.tasks.incomplete
+ 	if current_user.id == @list.id
+ 		tasks = @list.tasks.incomplete
+ 	else
+ 		tasks = @list.tasks.incompletes(@list.id, current_user.id)
+ 	end
+ 	
  	tasks.each do |task| 
  	%>
  		

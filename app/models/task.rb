@@ -11,10 +11,14 @@ class Task < ActiveRecord::Base
   
   acts_as_list
   
-def self.incompletes(list_id)
-  where('list_id =? AND completed  = ?', list_id, false).order('position')
+def self.incompletes(list_id, user_id)
+  where('list_id =? AND completed  = ? AND user_id = ?', list_id, false, user_id).order('position')
 end
-  
+
+def self.completes(list_id, user_id)
+  where('list_id =? AND completed  = ? AND user_id = ?', list_id, true, user_id).order('position')
+end
+
  def self.who_are_we_waiting_on(list)
    where(list_id: list).order('due_date ASC').incomplete.first
  end

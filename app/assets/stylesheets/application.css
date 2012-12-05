@@ -39,6 +39,15 @@ a {
   width: 60px;
 }
 
+.notice {
+	text-align: center;
+}
+
+#loading img {
+	width:100px;
+	height:100px;
+}
+
 /*.task-list li span, .task-list li div {
 	float:left;
 	width:100px;

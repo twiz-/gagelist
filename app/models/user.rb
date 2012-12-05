@@ -3,12 +3,15 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :invitable
          
-         has_many :tasks
-         has_many :lists
+ has_many :tasks
+ has_many :lists
+ 
+ has_many :list_team_members
          
-
+  #after_invitation_accepted :add_to_list_member
+  
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :profile_name
   # attr_accessible :title, :body
@@ -30,5 +33,6 @@ class User < ActiveRecord::Base
     #This will most likely need to take the task in ascending order and check if it is completed
     #id it's not complete render it on this page and show who it is assigned to. Baby
   end
+  
   
 end

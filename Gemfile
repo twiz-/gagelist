@@ -9,9 +9,12 @@ gem 'devise'
 gem 'simple_form'
 gem 'best_in_place'
 
-group :development, :test do
-  gem 'sqlite3'
-end
+# group :development, :test do
+  # gem 'sqlite3'
+# end
+
+gem "mysql2"
+
 
 # group :production do 
   # gem 'pg'
@@ -39,6 +42,8 @@ gem 'execjs'
 gem 'therubyracer'
 
 gem "acts_as_list", "~> 0.1.8"
+
+gem "devise_invitable", "~> 1.1.3"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
