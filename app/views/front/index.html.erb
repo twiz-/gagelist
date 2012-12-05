@@ -136,10 +136,41 @@
         In the meantime start using the free version to gather your stats.
       </div>
     </div> 
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="first_step">
+      <%= f.text_field :first_name, :placeholder => "First Name" %></div>
+
+      <div class="first_step">
+      <%= f.text_field :last_name, :placeholder => "Last Name" %></div>
+
+      <div class="second_step">
+      <%= f.text_field :profile_name, :placeholder => "Profile Name" %></div>
+
+      <div class="second_step">
+      <%= f.email_field :email, :placeholder => "Email" %></div>
+
+      <div class="third_step">
+      <%= f.password_field :password, :placeholder => "Password" %></div>
+
+      <div class="third_step">
+      <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %></div>
+
+
+      <div id="submit_front_button"><%= f.submit "Sign up" %></div>
+    <% end %>
+            <button id="next_step" class="btn btn-info">Just let me know</button>
   </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
 </div>
 </body>
-
 </html>
 
 
