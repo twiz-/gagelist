@@ -26,7 +26,6 @@
   line-height: 35px;
 }
 #front_mktng_copy {
-  padding-top: 15px;
   text-align: justify;
   color: #272727;
   font-size: 21px;
@@ -34,19 +33,50 @@
 
 }
 #front_mktng_image {
-  padding-top: 27px;
-  height: 330px;
+  margin-left: 35px;	
+  height: 310px;
   width: 612px;
 }
 #front_mktng_list_thumb {
-  padding-top: 15px;
-  padding-left: 15px;
+  display: inline;
+  margin-left: 0px;
+  list-style: none;	
+  padding-top: 5px;
+  padding-left: 12px;
 }
 
 #front_mktng_thumbs {
-  padding-right: 12px;
+  display: inline;	
+  padding-right: 3px;
+}
+.thumb_mktng_border {
+	border-width: 4px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #A80000;
+}
+.carousel.carousel-fade .item {
+  -webkit-transition: opacity .6s ease-in-out;
+  -moz-transition: opacity .6s ease-in-out;
+  -ms-transition: opacity .6s ease-in-out;
+  -o-transition: opacity .6s ease-in-out;
+  transition: opacity .6s ease-in-out;
+}
+.carousel.carousel-fade .active.left,
+.carousel.carousel-fade .active.right {
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.image_mktng_border {
+    border-width: 8px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #A80000;
 }
 #front_hold {
+  padding-top: 55px;	
   width: 1153px;
   height: 430px;
 }
