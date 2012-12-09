@@ -16,7 +16,6 @@
 //= require jquery.ui.datepicker
 //= require justgage
 //= require raphael.min
-//= require anything_slider
 //= require jquery.purr
 //= require best_in_place
 //= require_tree .
