@@ -1,4 +1,24 @@
 jQuery ->
- $("#user_first_name").blur (event) ->
-  $("#front_gage").refresh "value", 16 
+	$("#user_first_name").blur (event) ->
+	  if $(this).val().length > 1
+	    setInterval (-> front_index_gage.refresh 16), 500
+	  else
 
+jQuery -> 
+	$("#user_last_name").blur (event) -> 
+	  if front_index_gage.val == 16 && $(this).val().length > 1 
+	    setInterval (-> front_index_gage.refresh 33 ), 500 
+	  else
+	
+
+
+
+
+
+
+
+
+
+	
+	
+	
