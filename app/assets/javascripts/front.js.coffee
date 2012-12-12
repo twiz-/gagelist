@@ -9,16 +9,9 @@ jQuery ->
 	  if front_index_gage.val == 16 && $(this).val().length > 1 
 	    setInterval (-> front_index_gage.refresh 33 ), 500 
 	  else
-	
 
-
-
-
-
-
-
-
-
-	
-	
-	
+jQuery -> 
+	$("button").click ->
+	  $("ul").toggle "drop",
+	    direction: "down"
+	  , "slow"	
