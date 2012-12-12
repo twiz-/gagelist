@@ -12,6 +12,6 @@ jQuery ->
 
 jQuery -> 
 	$("button").click ->
-	  $("ul").toggle "drop",
+	  $("ul:last").toggle "drop",
 	    direction: "down"
 	  , "slow"	
