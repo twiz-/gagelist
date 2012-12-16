@@ -41,10 +41,10 @@
         
         </p>
         <ul class="carousel-linked-nav" id="front_mktng_list_thumb">
-          <li class="active" id="front_mktng_thumbs"><a href="#1"><img class="thumb_mktng_border" src="https://lh6.googleusercontent.com/--du4_B7f7P4/UMPCbHTWfdI/AAAAAAAAAEs/4N6Jo6ddWsM/s57/index_small.png"></a></li>
-          <li id="front_mktng_thumbs"><a href="#2"><img class="thumb_mktng_border" src="https://lh3.googleusercontent.com/-dYq06W0Cj-Q/UMPEUzqErCI/AAAAAAAAAFI/SBUXaSXJ0Iw/s57/front_2_small.png"></a></li>
-          <li id="front_mktng_thumbs"><a href="#3"><img class="thumb_mktng_border" src="https://lh5.googleusercontent.com/-MWqqFIXOnvg/UMPP7YE4JaI/AAAAAAAAAF4/QXgHiU17Bsc/s57/help_list.png"></a></li>
-          <li id="front_mktng_thumbs"><a href="#4"><img class="thumb_mktng_border" src="http://placehold.it/57x57"></a></li>
+          <li class="active front_mktng_thumbs"><a href="#1"><img class="thumb_mktng_border" src="https://lh6.googleusercontent.com/--du4_B7f7P4/UMPCbHTWfdI/AAAAAAAAAEs/4N6Jo6ddWsM/s57/index_small.png"></a></li>
+          <li class="front_mktng_thumbs"><a href="#2"><img class="thumb_mktng_border"  src="https://lh3.googleusercontent.com/-dYq06W0Cj-Q/UMPEUzqErCI/AAAAAAAAAFI/SBUXaSXJ0Iw/s57/front_2_small.png"></a></li>
+          <li class="front_mktng_thumbs"><a href="#3"><img class="thumb_mktng_border" src="https://lh5.googleusercontent.com/-MWqqFIXOnvg/UMPP7YE4JaI/AAAAAAAAAF4/QXgHiU17Bsc/s57/help_list.png"></a></li>
+          <li class="front_mktng_thumbs"><a href="#4"><img class="thumb_mktng_border" src="http://placehold.it/57x57"></a></li>
         </ul>
       </div>
        <div id="myCarousel" class="carousel slide carousel-fade">
@@ -56,7 +56,16 @@
          </div>  
        </div>  
       </div>
-    </div>    
+    </div>
+    <div class="row">
+      <!-- <div class="offset2">
+        <div id="first_description">Quick list everything town</div><br>
+        <div id="second_description">View of what's been done, what's next and who we're waiting on.</div><br>
+        <div id="third_description">Have people do thing for you without looking like a jerk</div><br>
+        <div id="fourth_description">Here's how I muthloving use it</div><br>
+      </div>
+    </di -->>  
+  </div>
   </div>
 </div>
 <div class="row" id="next_front_container">
@@ -103,6 +112,13 @@
 <div class="row" id="third_front_container">
   <div class="container" id="front_hold">
     <div class="container" id="second_front_hold">
+      <div class="row">
+        <div class="final_headline">
+          <hr>
+          <h2>Your free trial starts below.<br> Sign up to start using in 30 seconds.</h2>
+          <hr>
+        </div>  
+      </div>  
       <section class="front_pricing_box">
          <div class="row">
            <div class="span5 offset1">
@@ -160,7 +176,9 @@
             </div>  
           </div> -->
           <div class="signup_well span4">
-            <div class="row front_signup_lead">Sign up today!</div>
+            <div class="row front_signup_lead">
+              <p>Fill out the form below and get 60-days for free to start messing around</p>
+            </div>
             <div class="row actual_signup_form" id="from_the_top">
               <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
                 <%= devise_error_messages! %>
@@ -209,6 +227,22 @@
     
   </div>
 </div>
+<div class="container">
+  <footer class="footer">
+    <small>
+      <a href="http://railstutorial.org/">54footy,</a>
+      2012 LLC
+    </small>
+    <nav>
+      <ul>
+        <li><%= link_to "About",   '#' %></li>
+        <li><%= link_to "Contact", '#' %></li>
+        <li><%= link_to "Terms", '#' %></li>
+        <li><a href="blog.54footy.com">Blog</a></li>
+      </ul>
+    </nav>
+  </footer>
+</div>  
 <script>
   $('#myCarousel').carousel({
     interval: 444000,
@@ -216,15 +250,10 @@
   });
   
   $('.carousel-linked-nav > li > a').click(function() {
-      // grab href, remove pound sign, convert to number
       var item = Number($(this).attr('href').substring(1));
-      // slide to number -1 (account for zero indexing)
       $('#myCarousel').carousel(item - 1);
-      // remove current active class
       $('.carousel-linked-nav .active').removeClass('active');
-      // add active class to just clicked on item
       $(this).parent().addClass('active');
-      // don't follow the link
       return false;
     });
 </script>

@@ -46,8 +46,10 @@
   padding-top: 5px;
   padding-left: 12px;
 }
-
-#front_mktng_thumbs {
+.hideTown {
+	display: none;
+}
+.front_mktng_thumbs {
   display: inline;	
   padding-right: 3px;
 }
@@ -64,6 +66,7 @@
   -o-transition: opacity .6s ease-in-out;
   transition: opacity .6s ease-in-out;
 }
+
 .carousel.carousel-fade .active.left,
 .carousel.carousel-fade .active.right {
   left: 0;
@@ -81,16 +84,22 @@
 #front_hold {
   padding-top: 55px;	
   width: 1153px;
-  height: 430px;
+  height: 400px;
 }
-
+.tool_desc {
+	height: 100px;
+	width: 100px;
+	background-color: black;
+	opacity: .4;
+}
 /* Start Second Section */
 #next_front_container {
+	height: 400px;
 
 }
 #second-front_hold {
   width: 1153px;
-  height:303px;
+  height:403px;
 }
 .front_pricing_box {
 	padding-top: 20px;
@@ -164,9 +173,9 @@
 	     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 	          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05)
 }
+
 .front_signup_lead {
 	width: 225px;
-	text-align: center;
 	padding-top: 12px;
 	padding-bottom: 10px;
 	font-weight: bold;
@@ -179,7 +188,16 @@
 	
 }
 .actual_button {
-	background-color: red;
+	background-color: #00c8c8; 
+	background-image: url(images/fallback-gradient.png); 
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#008100), to(#005a00));
+	background-image: -webkit-linear-gradient(top, #008100, #005a00); 
+	background-image:    -moz-linear-gradient(top, #008100, #005a00);
+	background-image:     -ms-linear-gradient(top, #008100, #005a00);
+	background-image:      -o-linear-gradient(top, #008100, #005a00);
+	-moz-box-shadow:    inset 0 0 10px #AEAEAE;
+	-webkit-box-shadow: inset 0 0 10px #AEAEAE;
+	box-shadow:         inset 0 0 10px #AEAEAE;
 	color: white;
 	letter-spacing: 1px;
 	font-family: helvetica;
@@ -187,8 +205,17 @@
 	font-size: 16px;
 	width: 100px;
 	border: none;
-	border-radius: 3px;
-	
+	border-radius: 3px;	
+}
+
+.actual_button:hover {
+	background-color: #00c8c8; 
+	background-image: url(images/fallback-gradient.png); 
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#00cf00), to(#005a00));
+	background-image: -webkit-linear-gradient(top, #00cf00, #005a00); 
+	background-image:    -moz-linear-gradient(top, #00cf00, #005a00);
+	background-image:     -ms-linear-gradient(top, #00cf00, #005a00);
+	background-image:      -o-linear-gradient(top, #00cf00, #005a00);
 	
 }
 
@@ -197,6 +224,7 @@
 }
 #third_front_container {
 	background-color: white;
+	height: 640px;
 }
 /*.second_step {
   display: none;
@@ -212,11 +240,10 @@
 	margin-top: -40px;
 	margin-left: 40px;
 }
-/*Start Third section */
-
 #next_front_container {
 	background-image: url("https://lh3.googleusercontent.com/-PS_zDMBiB0Q/UMUAmkFjIpI/AAAAAAAAAG0/NB1FQ03mYEw/s200/noisy-texture-200x200-o9-d36-c-deffff-t1.png");
 }
+/*Start Third section */
 .top_left{
 	width: 300px;
 	margin-left: 0px;
@@ -320,11 +347,42 @@
 	font-size: 16px;
 	margin: 0;
 	padding: 0;
+}	
+/*footer*/
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #999;
+}
+
+footer a {
+  color: #555;
+}  
+
+footer a:hover { 
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 10px;
+}
+.final_headline {
+	font-family: helvetica;
+	text-align: center;
+	margin-top: -30px;
+	margin-bottom: 40px;
 	
 }
-/*<div class="switch_bottom_right span4">
-  <div class="span3">
-    <h4>Infinite for free</h4>
-    <p>Use as many projects as you need and invite as many people you want to help you get your projects done.<br><br> Why free? Well, we support people who want to get stuff done. We'll collect productivity stats and charge if you want access to these.</p>
-  </div>
-</div>*/
