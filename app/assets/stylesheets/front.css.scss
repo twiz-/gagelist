@@ -20,6 +20,18 @@
   /* Opera cannot do radial gradients yet */
 }
 
+.tour_how {
+	font-family: 'Handlee', cursive;
+	font-size: 20px;
+	font-weight: bold;
+}
+#right_side {
+	margin-left: 890px;
+	margin-top: -90px;
+}
+#left_side {
+	margin-left: 355px;
+}
 #top_link_signup {
 	background-color: #00c8c8; 
 	background-image: url(images/fallback-gradient.png); 
@@ -37,8 +49,12 @@
 	border-radius: 4px;
 	text-decoration: none;
 }
-
-
+.carousel-caption {
+	background-color: rgba(0,0,0,0.85);
+}
+.carousel_header {
+	letter-spacing: 1px;
+}
 #top_link_signup:hover {
 	background-color: #00c8c8; 
 	background-image: url(images/fallback-gradient.png); 
@@ -217,6 +233,8 @@
 }
 
 .front_signup_lead {
+	text-align: center;
+	margin-left: 45px;
 	width: 225px;
 	padding-top: 12px;
 	padding-bottom: 10px;
@@ -224,6 +242,11 @@
 	opacity: .8;
 	color: #A80000;
 }
+
+.signup_well h4 {
+	text-align: center;
+}
+	
 #submit_front_button {
 	margin-top: 5px;
 	margin-left: 40px;
@@ -266,7 +289,7 @@
 }
 #third_front_container {
 	background-color: white;
-	height: 640px;
+	height: 680px;
 }
 /*.second_step {
   display: none;

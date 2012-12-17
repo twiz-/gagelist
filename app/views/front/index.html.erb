@@ -6,6 +6,7 @@
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js", "rails.js" %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <div class="navbar navbar-fixed-top">
@@ -37,7 +38,7 @@
     <div class="row">
       <div class="span4" id="front_mktng_copy">
         <span id="front_mktng_title"><h1>Because at the end of the day...</h1></span>
-        <p><em>..sigh</em> What did you actually DO by the end of the day? Use this to call people out and actually see what you accomplished.
+        <p><em>..sigh</em> What did you actually DO by the end of the day? Forget all the inertia surrounding your projects and focus on getting them done.
         
         </p>
         <a href="#from_the_top" id="no_underline">
@@ -50,17 +51,17 @@
           <div class="carousel-inner span6 image_mktng_border" id="front_mktng_image" > 
             <div class="active item"><img src="https://lh6.googleusercontent.com/-tiE0xjfFkZo/UMPBiQWFwkI/AAAAAAAAAEU/WHkGnEgo4ps/s612/Screen%2520Shot%25202012-12-08%2520at%25202.37.00%2520PM.png">
               <div class="carousel-caption">
-                <p>I let it fall my hear it was dark and I was over</p>
+                <h4 class="carousel_header">Quickly view the status on all personal and collaborative projects</h4>
               </div>
             </div>
             <div class="item"><img src="https://lh3.googleusercontent.com/-x4i5P8MrDBk/UMPP7f3aOoI/AAAAAAAAAGA/aEI9EE8Bmx4/s612/second_front_large.png">
               <div class="carousel-caption">
-                <p>I let it fall my hear it was dark adn I was over</p>
+                <h4 class="carousel_header">Easily view WHO needs to do WHAT for completion</h4>
               </div>
             </div>
             <div class="item"><img src="https://lh3.googleusercontent.com/-bPTFqazKrpE/UMPP7QRe4lI/AAAAAAAAAF8/2e7MrS-Sfxs/s612/help.png">
               <div class="carousel-caption">
-                <p>I let it fall my hear it was dark adn I was over</p>
+                <h4 class="carousel_header">Need help? Assign anyone by email to help you complete your project</h4>
               </div>
             </div>
             <div class="item"><iframe width="610" height="315" src="http://www.youtube.com/embed/xW7AAKjDclQ" frameborder="0" allowfullscreen></iframe>
@@ -75,6 +76,8 @@
             <li class="front_mktng_thumbs"><a href="#3"><img class="thumb_mktng_border" src="https://lh5.googleusercontent.com/-MWqqFIXOnvg/UMPP7YE4JaI/AAAAAAAAAF4/QXgHiU17Bsc/s57/help_list.png"></a></li>
             <li class="front_mktng_thumbs"><a href="#4"><img class="thumb_mktng_border" src="http://placehold.it/57x57"></a></li>
           </ul>
+          <p class="tour_how" id="left_side">See how it works</p>
+          <p class="tour_how" id="right_side">Heres how I use it</p>
       </div>
     </div>    
   </div>
@@ -84,7 +87,7 @@
     <div class="container" id="geez_front_hold">
       <div class="row">
        <div class="span7">
-          <h3>Get that shit done in a big way</h3>
+          <h3>Shutup is about ensuring project productivity</h3>
        </div>  
         <a href="#from_the_top" id="no_underline">
           <div id="link_to_signup_section">
@@ -107,13 +110,13 @@
         <div class="top_middle span4">
           <div class="span3">
             <h4>Different Planet</h4>
-            <p> You will be amazed at how well this workflow will help you get back to the fundamentals of completing meaningful projects. Careful though because it forces you to be good. </p>
+            <p> You will be amazed at how well this workflow will help you get back to the fundamentals of completing meaningful projects. Careful though, because it forces you to be good. </p>
           </div>
         </div>
         <div class="top_right span4">
           <div class="span3">
             <h4>Take the pressure off you</h4>
-            <p>Asking someone for something is worse than pulling teeth. Use shutup and suddenly, it's not me asking you to do something for me, it's you and me trying to pull this tooth out together.  </p>
+            <p>Asking someone for something is worse than pulling teeth. Use shutup and suddenly, it's not me asking you for something, it's you and I trying to pull this tooth out together.  </p>
           </div>
         </div>  
       </div>
@@ -188,8 +191,9 @@
             </div>  
           </div> -->
           <div class="signup_well span4">
+            <h4>Get closer to "Done" <br>by signing up below.</h4>
             <div class="row front_signup_lead">
-              <p>Fill out the form below and get 60-days for free to start messing around</p>
+              <p>This form gets you 45 days to try free.</p>
             </div>
             <div class="row actual_signup_form">
               <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
