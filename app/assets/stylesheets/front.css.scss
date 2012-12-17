@@ -19,6 +19,44 @@
   background: -ms-radial-gradient(circle, #ff3939, #A80000);
   /* Opera cannot do radial gradients yet */
 }
+
+#top_link_signup {
+	background-color: #00c8c8; 
+	background-image: url(images/fallback-gradient.png); 
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#00e3e3), to(#00c8c8));
+	background-image: -webkit-linear-gradient(top, #00e3e3, #00c8c8); 
+	background-image:    -moz-linear-gradient(top, #00e3e3, #00c8c8);
+	background-image:     -ms-linear-gradient(top, #00e3e3, #00c8c8);
+	background-image:      -o-linear-gradient(top, #00e3e3, #00c8c8);
+	-moz-box-shadow:    inset 0 0 10px #AEAEAE;
+	-webkit-box-shadow: inset 0 0 10px #AEAEAE;
+	box-shadow:         inset 0 0 10px #AEAEAE;
+	margin-top: 20px;
+	height: 65px;
+	width: 300px;
+	border-radius: 4px;
+	text-decoration: none;
+}
+
+
+#top_link_signup:hover {
+	background-color: #00c8c8; 
+	background-image: url(images/fallback-gradient.png); 
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#16ffff), to(#00c8c8));
+	background-image: -webkit-linear-gradient(top, #16ffff, #00c8c8); 
+	background-image:    -moz-linear-gradient(top, #2F2727, #00c8c8);
+	background-image:     -ms-linear-gradient(top, #2F2727, #00c8c8);
+	background-image:      -o-linear-gradient(top, #2F2727, #00c8c8);
+}
+
+
+#stubborn_text {
+	margin-left: 75px;
+	font-size: 21px;
+	color: white;
+	font-family: helvetica;
+}
+
 #front_mktng_title {
   font-family: helvetica;
   font-size: 32px;
@@ -26,29 +64,33 @@
   line-height: 35px;
 }
 #front_mktng_copy {
-  margin-left: 120px;
+  margin-top: 10px;	
+  margin-left: 150px;
   text-align: justify;
   color: #272727;
   font-size: 21px;
   line-height: 25px;
 
 }
+#front_mktng_copy p {
+	padding-top: 20px;
+}
 #front_mktng_image {
   margin-top: 18px;	
-  margin-left: 125px;	
+  margin-left: 80px;	
   height: 310px;
   width: 612px;
 }
+.whole_row {
+	margin-top: 15px;
+}
 #front_mktng_list_thumb {
   display: inline;
-  margin-left: 0px;
+  margin-left: 550px;
   list-style: none;	
-  padding-top: 5px;
   padding-left: 12px;
 }
-.hideTown {
-	display: none;
-}
+
 .front_mktng_thumbs {
   display: inline;	
   padding-right: 3px;
@@ -84,7 +126,7 @@
 #front_hold {
   padding-top: 55px;	
   width: 1153px;
-  height: 400px;
+  height: 455px;
 }
 .tool_desc {
 	height: 100px;
