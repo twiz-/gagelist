@@ -273,6 +273,40 @@
       return false;
     });
 </script>
+<script>
+  $(document).ready(function(){
+
+          var front_index_gage = new JustGage({
+    	    id: "front_gage", 
+    	    value: 0, 
+    	    min: 0,
+    	    max: 100,
+    	    title: "Your Next Project",
+    	    startAnimationType: "bounce",
+    	    refreshAnimationType: "bounce",
+    	    refreshAnimationTime: 700,
+    	    startAnimationTime: 500,
+    	    levelColors: [
+              	"#ff0000",
+              	"#999900",
+              	"#00ff00"
+            ]
+    	  });
+    	   $("#new_user input[type=text],#new_user input[type=password],#new_user input[type=email]").blur(function(){
+    	   var counter=0;
+    		   $("#new_user input[type=text],#new_user input[type=password],#new_user input[type=email]").each(function() {
+
+    	                if(this.value.length>1) {
+    	                    counter=counter+16;
+    	                    counter=counter>90?100:counter;
+    	                    front_index_gage.refresh(counter);
+
+    	                }
+    	            });
+    	   });
+    });
+  
+</script>
 </body>
 </html>
 
