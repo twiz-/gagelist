@@ -22,15 +22,21 @@
 
 .tour_how {
 	font-family: 'Handlee', cursive;
-	font-size: 20px;
+	font-size: 23px;
 	font-weight: bold;
 }
-#right_side {
-	margin-left: 890px;
-	margin-top: -90px;
+.works_div {
+	padding-top:20px;
+	margin-left:170px;
+}
+#works_arrow {
+	opacity: .69;
+}
+.works_arrow_class {
+	padding-top:20px;
 }
 #left_side {
-	margin-left: 355px;
+	margin-left: 25px;
 }
 #top_link_signup {
 	background-color: #00c8c8; 
@@ -49,12 +55,7 @@
 	border-radius: 4px;
 	text-decoration: none;
 }
-.carousel-caption {
-	background-color: rgba(0,0,0,0.85);
-}
-.carousel_header {
-	letter-spacing: 1px;
-}
+
 #top_link_signup:hover {
 	background-color: #00c8c8; 
 	background-image: url(images/fallback-gradient.png); 
@@ -100,9 +101,11 @@
 .whole_row {
 	margin-top: 15px;
 }
+.thumb_div {
+	margin-left:40px;
+}
 #front_mktng_list_thumb {
   display: inline;
-  margin-left: 550px;
   list-style: none;	
   padding-left: 12px;
 }
