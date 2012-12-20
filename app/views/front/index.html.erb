@@ -262,7 +262,7 @@
     pause: true
   });
   
-  $('.carousel-linked-nav > li > a').click(function() {
+  $('.carousel-linked-nav > li > a').hover(function() {
       var item = Number($(this).attr('href').substring(1));
       $('#myCarousel').carousel(item - 1);
       $('.carousel-linked-nav .active').removeClass('active');
