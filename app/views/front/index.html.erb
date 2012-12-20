@@ -69,10 +69,10 @@
          </div>   
          <div class="span4 thumb_div">
           <ul class="carousel-linked-nav" id="front_mktng_list_thumb">
-            <li class="active front_mktng_thumbs"><a href="#1"><img class="thumb_mktng_border" src="https://lh6.googleusercontent.com/--du4_B7f7P4/UMPCbHTWfdI/AAAAAAAAAEs/4N6Jo6ddWsM/s57/index_small.png"></a></li>
-            <li class="front_mktng_thumbs"><a href="#2"><img class="thumb_mktng_border"  src="https://lh3.googleusercontent.com/-dYq06W0Cj-Q/UMPEUzqErCI/AAAAAAAAAFI/SBUXaSXJ0Iw/s57/front_2_small.png"></a></li>
-            <li class="front_mktng_thumbs"><a href="#3"><img class="thumb_mktng_border" src="https://lh5.googleusercontent.com/-MWqqFIXOnvg/UMPP7YE4JaI/AAAAAAAAAF4/QXgHiU17Bsc/s57/help_list.png"></a></li>
-            <li class="front_mktng_thumbs"><a href="#4"><img class="thumb_mktng_border" src="http://placehold.it/57x57"></a></li>
+            <li class="active front_mktng_thumbs"><a href="#1" id="blob" data-content="Quickly view the status on all personal and collaborative projects"><img class="thumb_mktng_border" src="https://lh6.googleusercontent.com/--du4_B7f7P4/UMPCbHTWfdI/AAAAAAAAAEs/4N6Jo6ddWsM/s57/index_small.png"></a></li>
+            <li class="front_mktng_thumbs"><a href="#2" id="blob2" data-content="Easily view WHO needs to do WHAT for completion"><img class="thumb_mktng_border"  src="https://lh3.googleusercontent.com/-dYq06W0Cj-Q/UMPEUzqErCI/AAAAAAAAAFI/SBUXaSXJ0Iw/s57/front_2_small.png"></a></li>
+            <li class="front_mktng_thumbs"><a href="#3" id="blob3" data-content="Need help? Assign anyone by email to help you complete your project"><img class="thumb_mktng_border" src="https://lh5.googleusercontent.com/-MWqqFIXOnvg/UMPP7YE4JaI/AAAAAAAAAF4/QXgHiU17Bsc/s57/help_list.png"></a></li>
+            <li class="front_mktng_thumbs"><a href="#4" id="blob4" data-content="Here's how I use it"><img class="thumb_mktng_border" src="http://placehold.it/57x57"></a></li>
           </ul>
          </div>
       </div>
@@ -303,6 +303,9 @@
     	   });
     });
   
+</script>
+<script>
+  $("#blob, #blob2, #blob3, #blob4").popover({ title: 'Racks', trigger: 'hover', placement: 'bottom' });
 </script>
 </body>
 </html>
