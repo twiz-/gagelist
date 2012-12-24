@@ -1,27 +1,69 @@
-<h2>Sign up</h2>
+<div class="row">
+  <div class="span3 pull-right pill_nav_simple">
+    <ul class="nav nav-pills">
+      <li class="active">
+        <a href="#">Home</a>
+      </li>
+      <li><a href="#" style="color: #A80000;">Benefits</a></li>
+      <li><a href="#" style="color: #A80000;">Pricing</a></li>
+    </ul>
+  </div>  
+</div>  
+<div class="row">
+  <div class="span3">
+    <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>       
+      <h5><%= devise_error_messages! %></h5>
+    <div class="signup_well span3">
+      <legend>Sign up</legend>
+      <%= f.text_field :first_name, :placeholder => "First Name" %>
+      <%= f.text_field :last_name, :placeholder => "Last Name" %>
+      <%= f.text_field :profile_name, :placeholder => "Pick a User Name" %>
+      <%= f.email_field :email, :placeholder => "Your Email" %>
+      <%= f.password_field :password, :placeholder => "Password" %>
+      <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %><br>
+      <%= f.submit "Sign up" %>
+    <% end %>
+    <br>
+    <%= render "devise/shared/links" %>
+    </div>
+  </div>
+  <div class="span6 offset3">
+    Here is the gage that reps the other nish! ..maybe
+    <div id="signup_gage" style="height:240px; width:300px;">
+    
+  </div>  
+</div>
+<script>
+  $(document).ready(function(){
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+          var new_signup_gage = new JustGage({
+    	    id: "signup_gage", 
+    	    value: 0, 
+    	    min: 0,
+    	    max: 100,
+    	    title: "Your Next Project",
+    	    startAnimationType: "bounce",
+    	    refreshAnimationType: "bounce",
+    	    refreshAnimationTime: 700,
+    	    startAnimationTime: 500,
+    	    levelColors: [
+              	"#ff0000",
+              	"#999900",
+              	"#00ff00"
+            ]
+    	  });
+    	   $("#new_user input[type=text],#new_user input[type=password],#new_user input[type=email]").blur(function(){
+    	   var counter=0;
+    		   $("#new_user input[type=text],#new_user input[type=password],#new_user input[type=email]").each(function() {
+
+    	                if(this.value.length>1) {
+    	                    counter=counter+16;
+    	                    counter=counter>90?100:counter;
+    	                    new_signup_gage.refresh(counter);
+
+    	                }
+    	            });
+    	   });
+    });
   
-  <div><%= f.label :first_name %><br />
-  <%= f.text_field :first_name %></div>
-
-  <div><%= f.label :last_name %><br />
-  <%= f.text_field :last_name %></div>
-  
-  <div><%= f.label :profile_name %><br />
-  <%= f.text_field :profile_name %></div>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</script>
