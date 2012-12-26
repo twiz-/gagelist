@@ -2,7 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+.nav_for_info li a {
+    color: white;
+}
+.nav_for_info li.active {
+	background-color: none;
+}
 /* First Section */
 #front_container {
   margin-top: -7px;
