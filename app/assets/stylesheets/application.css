@@ -13,7 +13,6 @@
  *= require_tree .
  *= bootstrap
  */
-
 .well {
  min-height: 340px;
 }

@@ -20,13 +20,9 @@
             <li><%= link_to "Settings", edit_user_registration_path%></li>
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete  %></li>
           <% else %>  
-          <li class="active">
-            <a href="/">Home</a>
-          </li>
-          <li><a href="#">Benefits</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><%= link_to "Login", user_session_path  %></li> 
-          <li><%= link_to "Sign Up", new_user_registration_path  %></li> 
+          <li><%= link_to "What it does", benefits_path  %></li>
+          <li><%= link_to "Benefits of using", benefits_path  %></li>
+          <li><%= link_to "What it costs", pricing_path  %></li>
           <% end %>
         </ul>
       </div>
@@ -37,6 +33,16 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>  
  <%= yield %>
+</div>
+<div class="span2">
+  <ul class="nav nav-list affix">
+    <% if user_signed_in? %>
+    <% else %>  
+    <li><%= link_to "Sign Up", new_user_registration_path %></li>
+    <li><%= link_to "Login", user_session_path %></li> 
+     
+    <% end %>
+  </ul>
 </div>
 <div class="row" id="front_container">
   <div class="container" id="front_hold">
@@ -136,62 +142,11 @@
           <hr>
         </div>  
       </div>  
-      <section class="front_pricing_box">
          <div class="row">
            <div class="span5 offset1">
             <div id="front_gage" style="height:240px; width:300px;">
             </div>
            </div>  
-          <!-- </div>
-          <div class="well span3">
-            <div class="row front_pricing_header">
-                <icon class="icon-gift"></icon>This has got to be the header with a div inside
-            </div>
-            <div class="front_pricing_lead">Ideal for folks and teams that want to be more productive.</div>
-            <div class="row front_copy_icon">
-              <div class="front_icon_space"><icon class="icon-ok"></icon></div>
-              <div class="front_pricing_copy">Infinite Projects</div>
-            </div>
-            <div class="row front_copy_icon">
-              <div class="front_icon_space"><icon class="icon-ok"></icon></div>
-              <div class="front_pricing_copy">Infinite Collaborators</div>
-            </div>
-            <div class="row front_copy_icon">
-              <div class="front_icon_space"><icon class="icon-ban-circle"></icon></div>
-              <div class="front_pricing_copy">NO Statistics</div>
-            </div>
-            <div class="row front_actual_price">
-              <div><h1>Free</h1></div>
-            </div>
-            <div class="row front_price_button">
-              <button type="button" class="btn btn-info">Track Doing</button>
-            </div>  
-          </div>  
-          <div class="well span3">
-            <div class="row front_pricing_header">
-                <icon class="icon-heart"></icon>This has got to be the header with a div inside
-            </div>
-            <div class="front_pricing_lead">Ideal for folks and teams wanting hard #&rsquo;s for productivity.</div>
-            <div class="row front_copy_icon">
-              <div class="front_icon_space"><icon class="icon-ok"></div>
-              <div class="front_pricing_copy">Infinite Projects</div>
-            </div>
-            <div class="row front_copy_icon">
-              <div class="front_icon_space"><icon class="icon-ok"></div>
-              <div class="front_pricing_copy">Infinite Collaborators</div>
-            </div>
-            <div class="row front_copy_icon">
-              <div class="front_icon_space"><icon class="icon-ok"></div>
-              <div class="front_pricing_copy">Productivity Stats</div>
-            </div>
-            <div class="row front_actual_price">
-              <div><h1>15/month</h1></div>
-            </div>
-            <div class="row front_price_button">
-
-              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-info">Get Productivity Stats</button>
-            </div>  
-          </div> -->
           <div class="signup_well span4">
             <h4>Get closer to Done and sign up below.</h4>
             <div class="row front_signup_lead">
@@ -218,31 +173,7 @@
             </div>    
           </div>
          </div>
-      </section>
-      <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3 id="myModalLabel">Thanks for your interest</h3>
-        </div>
-        <div class="modal-body">
-          Thanks, if there is enough interest we'll surface this feature to everybody. Leave your email below
-          and we'll let you know when it becomes live.<br><br> 
-          <form action="http://54footy.us6.list-manage.com/subscribe/post?u=75be350a2fc163133d4fc6382&amp;id=b80fb22f82" class="form-horizontal" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate">
-            <div class="control-group">
-              <div class="controls">
-                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email" required>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="controls">
-              </div>
-            </div>
-          </form>
-          In the meantime start using the free version to gather your stats.
-        </div>
-      </div> 
     </div>
-    
   </div>
 </div>
 <div class="container">
@@ -252,12 +183,14 @@
       2012 LLC
     </small>
     <nav>
-      <ul>
-        <li><%= link_to "About",   '#' %></li>
-        <li><%= link_to "Contact", '#' %></li>
-        <li><%= link_to "Terms", '#' %></li>
-        <li><a href="blog.54footy.com">Blog</a></li>
-      </ul>
+      <small class="pull-right">
+        <ul>
+          <li><%= link_to "About",   '#' %></li>
+          <li><%= link_to "Contact", '#' %></li>
+          <li><%= link_to "Terms", '#' %></li>
+          <li><a href="blog.54footy.com">Blog</a></li>
+        </ul>
+      </small>
     </nav>
   </footer>
 </div>  

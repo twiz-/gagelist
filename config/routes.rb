@@ -11,6 +11,8 @@ Gagelist::Application.routes.draw do
   #resources :lists, :collection => { :sort => :post }, :as => 'sort_lists'
 
   root :to => 'front#index'
+  match '/benefits' => 'front#benefits'
+  match '/pricing' => 'front#pricing'
   
   match 'lists/:list_id/tasks/:id/complete' => 'tasks#complete', :as => :complete_task
   match 'lists/:list_id/tasks/:id/remove' => 'tasks#destroy', :as => :remove_task
