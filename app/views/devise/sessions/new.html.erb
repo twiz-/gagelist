@@ -1,5 +1,5 @@
 
-<div class="row">
+<div class="row" style="margin-top: 60px;">
   <div class="span4 offset4">
     <div class="span4 signup_well">
       <legend> Sign in</legend>
@@ -7,9 +7,9 @@
         <%= f.email_field :email, :placeholder => "Your email" %>
         <%= f.password_field :password, :placeholder => "Your Password" %><br>
         <% if devise_mapping.rememberable? -%>
-         <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+         <%= f.check_box :remember_me %> <span class="help-inline"><%= f.label :remember_me %></span><br><br>
         <% end -%>
-        <%= f.submit "Sign in" %>
+        <%= f.submit "Sign in", :class => "btn" %>
       <% end %>
     </div>  
   </div>  

@@ -1,4 +1,7 @@
 <div class="row">
+  This is where the hot nav will go
+</div>
+<div class="row">
   <div class="span3">
     <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>       
       <h5><%= devise_error_messages! %></h5>
@@ -10,16 +13,16 @@
       <%= f.email_field :email, :placeholder => "Your Email" %>
       <%= f.password_field :password, :placeholder => "Password" %>
       <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %><br>
-      <%= f.submit "Sign up" %>
+      <%= f.submit "Use for my next project", :class => "btn btn-success" %>
     <% end %>
     <br>
-    <%= render "devise/shared/links" %>
     </div>
+    <small class="offset1"><%= render "devise/shared/links" %></small>
   </div>
   <div class="span6 offset3">
-    Here is the gage that reps the other nish! ..maybe
+    <h2>Results are addicting</h2>  
     <div id="signup_gage" style="height:240px; width:300px;">
-    
+     <h4><small>Your 45-day <span style="color: green;"><strong>free</strong></span> trial starts after filling out the form.</small></h4>
   </div>  
 </div>
 <script>
