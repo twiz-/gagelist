@@ -34,12 +34,12 @@
   </ul>
   
   <div id="bootstrap_fix">
-      <button type="button" class="btn btn-info offset3">
+      <button type="button" class="btn btn-info offset3" data-toggle="collapse" data-target="#demo" >
        Show completed tasks
       </button><br>
-    <div class="pull-left offset2" style="width:760px;margin-top:20px;margin-left:0px;padding-right:1px;">
+    <div class="pull-left offset2 collapse in" id="demo" style="width:760px;margin-top:20px;margin-left:0px;padding-right:1px;">
       <ul class="task-list" id="completed">
-         <table class="demo">
+         <table>
            <tbody>
              <tr>
                <td><%= render "completed" %>
@@ -68,13 +68,6 @@
     
   }); 
 </script>
-
 <script>
-jQuery(function() {
-  return $("#bootstrap_fix button").click(function() {
-    return $("table.demo").toggle("drop", {
-      direction: "down"
-    }, "slow");
-  });
-});
+  $(".collapse").collapse()
 </script>
