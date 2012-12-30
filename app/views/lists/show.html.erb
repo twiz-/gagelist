@@ -33,21 +33,23 @@
     <%= render 'incompletes' %>
   </ul>
   
-  <button type="button" class="btn btn-info offset3" data-toggle="collapse" data-target="#demo">
-   Show completed tasks
-  </button><br>
-  <div class="pull-left offset2 collapse" id="demo" style="height:600px;width:760px;margin-top:20px;margin-left:0px;padding-right:1px;">
-    <ul class="task-list" id="completed">
-       <table>
-         <tbody>
-           <tr>
-             <td><%= render "completed" %>
-             </td>
-           </tr>
-         </tbody>   
-        <table>
-    </ul>
-  </div>
+  <div id="bootstrap_fix">
+      <button type="button" class="btn btn-info offset3">
+       Show completed tasks
+      </button><br>
+    <div class="pull-left offset2" style="width:760px;margin-top:20px;margin-left:0px;padding-right:1px;">
+      <ul class="task-list" id="completed">
+         <table class="demo">
+           <tbody>
+             <tr>
+               <td><%= render "completed" %>
+               </td>
+             </tr>
+           </tbody>   
+          <table>
+      </ul>
+    </div>
+  </div>  
 </div>    
 <div>
 </div>
@@ -67,6 +69,12 @@
   }); 
 </script>
 
-<script type="text/javascript">
-    $("#demo").collapse("hide");
+<script>
+jQuery(function() {
+  return $("#bootstrap_fix button").click(function() {
+    return $("table.demo").toggle("drop", {
+      direction: "down"
+    }, "slow");
+  });
+});
 </script>

@@ -61,4 +61,4 @@ $(function() {
 
 	
 });
-$(.'second_step').hide();
+$('.second_step').hide();

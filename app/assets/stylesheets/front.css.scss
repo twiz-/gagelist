@@ -2,6 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+h5.faq_header {
+	border-radius: 3px;
+	cursor: pointer;
+	color: #A80000;
+	border: solid 1px #eee;
+	padding: 10px;
+}
+
+h5.faq_header:hover{
+	text-decoration: underline;
+}
+
+div.content { 
+    padding-bottom:10px; 
+    display:none; 
+}
 .nav_for_info li a {
     color: white;
 }
@@ -24,7 +40,9 @@
   background: -ms-radial-gradient(circle, #ff3939, #A80000);
   /* Opera cannot do radial gradients yet */
 }
-
+.the_answer {
+	display: none;
+}
 .tour_how {
 	font-family: 'Handlee', cursive;
 	font-size: 23px;
