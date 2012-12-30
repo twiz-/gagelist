@@ -1,3 +1,12 @@
+<div class="row nav-under-wrapper">
+  <% if !user_signed_in? %>
+    <ul class="nav-under-not-home pull-right">
+     <li><%= link_to "What it does", benefits_path  %></li>
+     <li id="youarehere"><%= link_to "Benefits of using", benefits_path  %></li>
+     <li><%= link_to "What it costs", pricing_path  %></li>
+    <% end %>
+  </ul>
+</div>
 <div>
   <h3 class="page-header">If any of these scenarios below makes sense to you, try out the solution. If not, theres no value here move along</h3>
 </div>

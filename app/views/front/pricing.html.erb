@@ -1,10 +1,9 @@
-<div class="span2">
-  <ul class="nav nav-list affix">
-    <% if user_signed_in? %>
-    <% else %>  
-    <li><%= link_to "Sign Up", new_user_registration_path %></li>
-    <li><%= link_to "Login", user_session_path %></li> 
-     
+<div class="row nav-under-wrapper">
+  <% if !user_signed_in? %>
+    <ul class="nav-under-not-home pull-right">
+     <li><%= link_to "What it does", benefits_path  %></li>
+     <li><%= link_to "Benefits of using", benefits_path  %></li>
+     <li><%= link_to "What it costs", pricing_path  %></li>
     <% end %>
   </ul>
 </div>

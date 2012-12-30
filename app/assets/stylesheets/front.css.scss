@@ -1,6 +1,30 @@
 // Place all the styles related to the front controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.nav-under-not-home li a {
+	color: #A80000;
+	padding-right: 5px;
+	border-right: solid 1px #aeaeae;
+}
+.nav-under-not-home li {
+	display: inline;
+}
+
+.nav-under {	
+	list-style: none;
+	margin-right: 25px;
+}
+.nav-under li {
+	display: inline;
+}
+.nav-under li a {
+	color: white;
+	padding-right: 5px;
+	border-right: solid 1px #eee;
+}
+.nav-under-wrapper {
+	margin-top: 0px;
+}
 
 h5.faq_header {
 	border-radius: 3px;
@@ -191,9 +215,9 @@ div.content {
     border-color: #A80000;
 }
 #front_hold {
-  padding-top: 55px;	
+  padding-top: 25px;	
   width: 1153px;
-  height: 455px;
+  height: 485px;
 }
 .tool_desc {
 	height: 100px;
