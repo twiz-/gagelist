@@ -2,11 +2,14 @@
   <% if !user_signed_in? %>
     <ul class="nav-under-not-home pull-right">
       <li><%= link_to "Home", root_path  %></li>
-     <li><%= link_to "What it does", benefits_path  %></li>
+     <li><%= link_to "What it does", does_path  %></li>
      <li><%= link_to "Benefits of using", benefits_path  %></li>
-     <li class='imhere'><%= link_to "What it costs", pricing_path  %></li>
+     <li class='imhere' id="right-link"><%= link_to "What it costs", pricing_path  %></li>
     <% end %>
   </ul>
+</div>
+<div class="row">
+  <h2 class="page-header">Pay once and use as you please</h2>
 </div>
 <div class="container">
   <div class="well span3">

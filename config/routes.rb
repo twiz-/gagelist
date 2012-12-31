@@ -13,6 +13,7 @@ Gagelist::Application.routes.draw do
   root :to => 'front#index'
   match '/benefits' => 'front#benefits'
   match '/pricing' => 'front#pricing'
+  match '/does' => 'front#does'
   
   match 'lists/:list_id/tasks/:id/complete' => 'tasks#complete', :as => :complete_task
   match 'lists/:list_id/tasks/:id/remove' => 'tasks#destroy', :as => :remove_task
