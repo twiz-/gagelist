@@ -1,6 +1,18 @@
 // Place all the styles related to the front controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.icon-ok {
+	display: none;
+    float:left;
+    padding-right: 5px;
+}
+.frustrate_topside {
+	cursor: pointer;
+	background-color: rgba(0,0,0,0.3);
+	border-radius: 3px;
+	height: 100px;
+}
+
 .does_description_text {
 	padding-right: 30px;
 }

@@ -8,56 +8,94 @@
     <% end %>
   </ul>
 </div>
-<div>
-  <h3 class="page-header">If any of these scenarios below makes sense to you, try out the solution. If not, theres no value here move along</h3>
+<br>
+<h1 style="text-align: center;">Which one of these frustrates you the most?</h1><br>
+<div class="row container">
+  <div class="row offset1">
+    <div class="span3 frustrate_topside" for='q1 q7 q4'>  
+      <div>
+        <p>When I work on stuff that doesn't actually matter.</p>
+      </div>
+    </div>
+    <div class="span3 frustrate_topside" for="q2 q4">
+        <div>
+          <p>10 people asking me the same question 10 times.</p>
+        </div>
+    </div>
+    <div class="span3 frustrate_topside" for="q9 q6 q7">
+      <div>
+        <p>Not being able to hold myself and others accountable.</p>
+      </div>
+    </div>
+  </div>
 </div>
+<br>
+<div class="row container">
+  <div class="row offset1">
+    <div class="span3 frustrate_topside" for="q1 q2 q3">  
+      <div>
+        <p>Working extra hard to pick up the slack of others.</p>
+      </div>
+    </div>
+    <div class="span3 frustrate_topside" for="q6 q9 q5">
+        <div>
+          <p>Talking endless circles about the things we should be doing instead of actually doing them.</p>
+        </div>
+    </div>
+    <div class="span3 frustrate_topside" for="q7">
+      <div>
+        <p>Not being appreciated for how much I actually accomplish.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
 <div class="offset2 span6" id='container'>
-  <h5 class="faq_header">First anecdote</h5>
-  <div class='content'>Knew you were trouble </div>
+  <h5 class="faq_header"><icon class="icon-ok" id="q1"><icon class="icon-ok" id="q1"></icon></icon> Hey, it would be cool if..</h5>  
+  <div class='content'>trouble</div>
   <hr>
-  <h5 class="faq_header">Second anecdote</h5>
-  <div class='content'> he was long gone </div>
+  <h5 class="faq_header"><icon class="icon-ok" id="q2"></icon> The kick is up! And..</h5>
+  <div class='content'> 80% completion ra.</div>
   <hr>
-  <h5 class="faq_header">Third anecdote</h5>
+  <h5 class="faq_header"><icon class="icon-ok" id="q3"></icon> Third anecdote</h5>
   <div class='content'>joke on me</div> 
   <hr>
-  <h5 class="faq_header">First anecdote</h5>
+  <h5 class="faq_header"><icon class="icon-ok" id="q4"></icon> First anecdote</h5>
   <div class='content'>Knew you were trouble </div>
   <hr>
-  <h5 class="faq_header">Second anecdote</h5>
+  <h5 class="faq_header"><icon class="icon-ok" id="q5"></icon> Second anecdote</h5>
   <div class='content'> he was long gone </div>
   <hr>
-  <h5 class="faq_header">Third anecdote</h5>
+  <h5 class="faq_header"><icon class="icon-ok" id="q6"></icon> Third anecdote</h5>
   <div class='content'>joke on me</div>
   <hr>
-  <h5 class="faq_header">First anecdote</h5>
+  <h5 class="faq_header"><icon class="icon-ok" id="q7"></icon> First anecdote</h5>
   <div class='content'>Knew you were trouble </div>
   <hr>
-  <h5 class="faq_header">Second anecdote</h5>
+  <h5 class="faq_header"><icon class="icon-ok" id="q8"></icon> Second anecdote</h5>
   <div class='content'> he was long gone </div>
   <hr>
-  <h5 class="faq_header">Third anecdote</h5>
+  <h5 class="faq_header"><icon class="icon-ok" id="q9"></icon> Third anecdote</h5>
   <div class='content'>joke on me</div>
   <hr>
-  <h5 class="faq_header">First anecdote</h5>
+  <h5 class="faq_header"><icon class="icon-ok" id="q10"></icon> First anecdote</h5>
   <div class='content'>Knew you were trouble </div>
   <hr>
-  <h5 class="faq_header">Second anecdote</h5>
+  <h5 class="faq_header"><icon class="icon-ok" id="q11"></icon> Second anecdote</h5>
   <div class='content'> he was long gone </div>
   <hr>
-  <h5 class="faq_header">Third anecdote</h5>
+  <h5 class="faq_header"><icon class="icon-ok" id="q12"></icon> Third anecdote</h5>
   <div class='content'>joke on me</div>
   <hr>
-  <h5 class="faq_header">First anecdote</h5>
+  <h5 class="faq_header"><icon class="icon-ok" id="q13"></icon> First anecdote</h5>
   <div class='content'>Knew you were trouble </div>
   <hr>
-  <h5 class="faq_header">Second anecdote</h5>
+  <h5 class="faq_header"><icon class="icon-ok" id="q14"></icon> Second anecdote</h5>
   <div class='content'> he was long gone </div>
   <hr>
-  <h5 class="faq_header">Third anecdote</h5>
+  <h5 class="faq_header"><icon class="icon-ok" id="q15"></icon> Third anecdote</h5>
   <div class='content'>joke on me</div> 
 </div>
-
 <script>
 //On click any <h3> within the container
 $('#container h5').click(function(e) {
@@ -68,4 +106,16 @@ $('#container h5').click(function(e) {
     //Toggle open/close on the <div> after the <h3>, opening it if not open.
     $(e.target).next('div').slideToggle('fast');
 });
-    </script>
+</script>
+<script>
+$('div.frustrate_topside').click(function(){
+  var elt = $(this).attr('for');
+  var multElts = elt.split(" ");
+  $('.icon-ok').hide();
+      for(var i=0; i< multElts.length; i++)
+      {
+          $("#" + multElts[i]).toggle();
+          
+      }
+});
+</script>
