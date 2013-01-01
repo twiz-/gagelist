@@ -1,7 +1,7 @@
 <%= simple_form_for @list do |f| %>
   
-    <p><%= f.input :name %></p>
-    <p><%= f.input :description %></p>
+    <%= f.input :name %>
+    <%= f.input :description %>
   
-  <p><%= f.submit %></p>
+  <%= f.submit :class => "btn btn-success", :value => "Create Project" %>
 <% end %>
