@@ -70,7 +70,7 @@
     </div>
   </div>  
 </div>
-<div class="row does_description_whole">
+<div class="row does_description_whole" style="border-bottom:none;">
   <div class="row offset3">
     <div class="span9">
        <h2>Simple. <small> See the rest on the <%= link_to "inside", new_user_registration_path %> or see <%= link_to "why it exists.", benefits_path %></small></h2> 
@@ -83,4 +83,22 @@
       <%= link_to "Exists.", benefits_path, :class => "btn btn-info"  %>
     </div>
   </div>
+</div>
+<div class="container">
+  <footer class="footer">
+    <small>
+      <a href="http://railstutorial.org/">54footy,</a>
+      2012 LLC
+    </small>
+    <nav>
+      <small class="pull-right">
+        <ul>
+          <li><%= link_to "About",   '#' %></li>
+          <li><%= link_to "Contact", '#' %></li>
+          <li><%= link_to "Terms", '#' %></li>
+          <li><a href="blog.54footy.com">Blog</a></li>
+        </ul>
+      </small>
+    </nav>
+  </footer>
 </div>
