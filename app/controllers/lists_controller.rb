@@ -34,6 +34,8 @@ class ListsController < ApplicationController
     @list.user_id = current_user.id
     if @list.save
       flash[:notice] = "List created"
+      list_team_member = ListTeamMember.new({:user_id => current_user.id, :list_id => @list.id, :active => true})
+      list_team_member.save
       redirect_to list_url(@list)
     else
       flash[:error] = "Could not post list"
