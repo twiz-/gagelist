@@ -9,9 +9,9 @@
   </ul>
 </div>
 <br>
-<h1 style="text-align: center;">Which one of these frustrates you the most?</h1><br>
+<h1>Which one of these frustrates you the most?</h1><br>
 <div class="row container">
-  <div class="row offset1">
+  <div class="row">
     <div class="span3 frustrate_topside" for='q1 q7 q4'>  
       <div>
         <p>When I work on stuff that doesn't actually matter.</p>
@@ -31,7 +31,7 @@
 </div>
 <br>
 <div class="row container">
-  <div class="row offset1">
+  <div class="row">
     <div class="span3 frustrate_topside" for="q1 q2 q3">  
       <div>
         <p>Working extra hard to pick up the slack of others.</p>
@@ -50,8 +50,8 @@
   </div>
 </div>
 <br>
-<div class="offset1 span5" id='container'>
-  <h5 class="faq_header"><icon class="icon-ok" id="q1"><icon class="icon-ok" id="q1"></icon></icon> Hey, it would be cool if..</h5>  
+<div class="span6" id='container'>
+  <h5 class="faq_header"><icon class="icon-ok" id="q1"></icon></icon> Hey, it would be cool if..</h5>  
   <div class='content'>
     <p>Self starters are great, but not when they consume your most valuable resource - Your attention.</p>
     <p>Hold their whims in check by tracking what you're working on for them and see if it really mattered in the end.</p>
@@ -79,7 +79,9 @@
   <div class='content'>
     <p>Easily see what work wouldn't get done if you didn't do that voodoo that you do so well</p>
   </div>
-  <hr>
+</div> 
+ 
+<div class="span6" id="container">
   <h5 class="faq_header"><icon class="icon-ok" id="q7"></icon>I need a map</h5>
   <div class='content'>
     <p>Where are we at on that Johnson Report?</p>
@@ -103,26 +105,17 @@
   <hr>
   <h5 class="faq_header"><icon class="icon-ok" id="q12"></icon> Third anecdote</h5>
   <div class='content'>joke on me</div>
-  <hr>
-  <h5 class="faq_header"><icon class="icon-ok" id="q13"></icon> First anecdote</h5>
-  <div class='content'>Knew you were trouble </div>
-  <hr>
-  <h5 class="faq_header"><icon class="icon-ok" id="q14"></icon> Second anecdote</h5>
-  <div class='content'> he was long gone </div>
-  <hr>
-  <h5 class="faq_header"><icon class="icon-ok" id="q15"></icon> Third anecdote</h5>
-  <div class='content'>joke on me</div> 
 </div>
-</div>
+
 <div class="row does_description_whole" style="border-bottom:none;">
-  <div class="row offset5">
+  <div class="row">
     <div class="span9">
        <h2>Simple. <small> See the rest on the <%= link_to "inside", new_user_registration_path %> or see <%= link_to "how much it costs.", pricing_path %></small></h2> 
     </div>
   </div>  
   <br>
   <div class="row">
-    <div class="offset8">
+    <div>
       <%= link_to "Inside.", new_user_registration_path, :class => "btn btn-success" %>
       <%= link_to "Costs.", pricing_path, :class => "btn btn-info"  %>
     </div>
