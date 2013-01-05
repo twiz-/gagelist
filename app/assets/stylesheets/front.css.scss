@@ -92,16 +92,16 @@ div.content {
 #front_container {
   margin-top: -7px;
   /* fallback */
-  background-color: red;
+  background-color: #006394;
   /* Safari 4-5, Chrome 1-9 */
   /* Can't specify a percentage size? Laaaaaame. */
-  background: -webkit-gradient(radial, center center, 0, center center, 460, from(#ff3939), to(#A80000)); /* hot probably replace #006394*/
+  background: -webkit-gradient(radial, center center, 0, center center, 460, from(#80d5ff), to(#006394)); /* hot probably replace #006394*/
   /* Safari 5.1+, Chrome 10+ */
-  background: -webkit-radial-gradient(circle, #ff3939, #A80000);
+  background: -webkit-radial-gradient(circle, #80d5ff, #006394);
   /* Firefox 3.6+ */ 
-  background: -moz-radial-gradient(circle, #ff3939, #A80000);
+  background: -moz-radial-gradient(circle, #80d5ff, #006394);
   /* IE 10 */ 
-  background: -ms-radial-gradient(circle, #ff3939, #A80000);
+  background: -ms-radial-gradient(circle, #80d5ff, #006394);
   /* Opera cannot do radial gradients yet */
   height: 585px;
 }
@@ -231,7 +231,7 @@ div.content {
 	border-width: 4px;
     border-radius: 5px;
     border-style: solid;
-    border-color: #A80000;
+    border-color: #006394;
 }
 .carousel.carousel-fade .item {
   -webkit-transition: opacity .6s ease-in-out;
@@ -253,7 +253,7 @@ div.content {
     border-width: 8px;
     border-radius: 5px;
     border-style: solid;
-    border-color: #A80000;
+    border-color: #006394;
 }
 #front_hold {
   padding-top: 25px;	
