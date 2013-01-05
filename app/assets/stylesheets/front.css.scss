@@ -26,6 +26,7 @@
 	color: rgba(168,0,0,0.8);
 }
 .does_description_whole {
+  margin-left: 3px;
 	padding-top: 30px;
 	padding-bottom: 30px;
 	border-bottom: solid 1px rgba(168,0,0,0.2);
@@ -94,7 +95,7 @@ div.content {
   background-color: red;
   /* Safari 4-5, Chrome 1-9 */
   /* Can't specify a percentage size? Laaaaaame. */
-  background: -webkit-gradient(radial, center center, 0, center center, 460, from(#ff3939), to(#A80000));
+  background: -webkit-gradient(radial, center center, 0, center center, 460, from(#ff3939), to(#A80000)); /* hot probably replace #006394*/
   /* Safari 5.1+, Chrome 10+ */
   background: -webkit-radial-gradient(circle, #ff3939, #A80000);
   /* Firefox 3.6+ */ 
