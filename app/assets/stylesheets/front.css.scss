@@ -1,28 +1,40 @@
 // Place all the styles related to the front controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.whole_frustrate_topside {
+  margin-left: 60px;
+}
 .does_pictures {
 	border: solid 2px #eee;
 	border-radius: 3px;
 }
 
 .icon-ok {
-	display: none;
+	  display: none;
     float:left;
     padding-right: 5px;
 }
 .frustrate_topside {
 	cursor: pointer;
-	background-color: rgba(0,0,0,0.3);
+	background-color: #f6fcff;
+	border: solid 1px #006394;
 	border-radius: 3px;
 	width: 260px;
 	height: 100px;
+	font-size: 18px;
+	padding: 5px;
 }
-
+.frustrate_topside:hover {
+  color: white;
+  background-color: #0097e2;
+}
 .does_description_text {
 	padding-right: 30px;
 }
-
+.beneifts_description_whole {
+  margin-top: 50px;
+  margin-left: 220px;
+}
 .does_description_text h4 {
 	color: rgba(168,0,0,0.8);
 }
@@ -73,6 +85,7 @@ h5.faq_header {
 	cursor: pointer;
 	color: #A80000;
 	padding: 3px;
+	text-align: center;
 }
 
 h5.faq_header:hover{
@@ -80,7 +93,10 @@ h5.faq_header:hover{
 }
 
 div.content { 
-    padding-bottom:3px; 
+    padding-bottom:3px;
+    margin-left: 80px;
+    width: 300px; 
+    text-align:center;
     display:none; 
 }
 .nav_for_info li a {
@@ -105,6 +121,7 @@ div.content {
   background: -ms-radial-gradient(circle, #80d5ff, #006394);
   /* Opera cannot do radial gradients yet */
   height: 585px;
+  border-bottom: solid 5px #006394;
 }
 .the_answer {
 	display: none;
@@ -270,7 +287,6 @@ div.content {
 /* Start Second Section */
 #next_front_container {
 	height: 400px;
-
 }
 #second-front_hold {
   width: 1153px;
