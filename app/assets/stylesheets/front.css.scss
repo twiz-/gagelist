@@ -45,13 +45,13 @@
 }
 .nav-under-not-home {
 	padding-top: 25px;
-	font-size: 18px;
+	font-size: 16px;
 }
 
 .nav-under {	
 	list-style: none;
 	margin-right: 25px;
-	font-size: 18px;
+	font-size: 16px;
 }
 .nav-under li {
 	display: inline;
@@ -102,6 +102,7 @@ div.content {
   /* IE 10 */ 
   background: -ms-radial-gradient(circle, #ff3939, #A80000);
   /* Opera cannot do radial gradients yet */
+  height: 585px;
 }
 .the_answer {
 	display: none;
@@ -167,13 +168,13 @@ div.content {
   line-height: 35px;
 }
 #front_mktng_copy {
-  margin-top: 10px;	
+  font-family: helvetica;
+  margin-top: 25px;	
   margin-left: 150px;
   text-align: justify;
-  color: #272727;
-/*  opacity: .9;*/
-  font-size: 21px;
+  font-size: 23px;
   line-height: 25px;
+  color: rgba(0,0,0,0.75);
 
 }
 #front_mktng_copy p {
