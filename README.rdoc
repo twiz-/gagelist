@@ -1,14 +1,4 @@
-This is a simple to do list that promotes productivity in a cheeky way. 
-Everybody knows cheekiness is needed to finish things. 
+Accountability and meaningful work win out with this task manager
 
 
-The gage acts as a psychological incentive to get the project done! The
-index view gives managers a quick view of the status of each project. 
-
-It should answer the question "Why is this not done yet!" and hold accountability
-to individuals in the show view. 
-
-Ask me if you want to commercially use it or use it with your team!
-
-
-      <!-- <%= # link_to "Edit", edit_list_url(list) %> | <%= # link_to "Delete", list_url(list), :method => :delete, data: { confirm: "You Sure?" } %>       -->
+    
