@@ -15,7 +15,6 @@ class User < ActiveRecord::Base
   
   def full_name
     first_name + " " + last_name
-    # I think that graavatar shit goes here!!!!
   end
   
   def gravatar_url
@@ -24,11 +23,6 @@ class User < ActiveRecord::Base
     hash            = Digest::MD5.hexdigest(downcased_email)
     
     "http://gravatar.com/avatar/#{hash}"
-  end
-    
-  def on_deck
-    #This will most likely need to take the task in ascending order and check if it is completed
-    #id it's not complete render it on this page and show who it is assigned to. Baby
   end
   
 end
