@@ -11,7 +11,9 @@
  *= require jquery.ui.datepicker
  *= require_self
  *= require bootstrap
- *= require_tree .
+ *= require front
+ *= require lists
+ *= require tasks
  */
 .well {
  min-height: 340px;
