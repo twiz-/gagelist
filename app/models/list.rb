@@ -5,6 +5,7 @@ class List < ActiveRecord::Base
   belongs_to :user
   
   validates :name, :presence => true
+  validates :description, :presence => true
   
   def percent_complete
     (self.tasks.completed.count.to_f / self.tasks.all.count.to_f) * 100
