@@ -1,8 +1,12 @@
 ActiveAdmin.register AdminUser do     
   index do                            
     column :email                     
-    column :current_sign_in_at        
-    column :last_sign_in_at           
+    column :current_sign_in_at do |user|
+      Time.now.in_time_zone("Pacific Time (US & Canada)")
+    end        
+    column :last_sign_in_at do |user|
+      Time.now.in_time_zone("Pacific Time (US & Canada)")
+    end           
     column :sign_in_count             
     default_actions                   
   end                                 
