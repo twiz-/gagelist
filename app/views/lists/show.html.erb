@@ -1,4 +1,5 @@
-
+<%= link_to 'Destroy', list_path(@list),
+            :confirm => 'Are you sure?', :method => :delete %>
 <h1 class="page-header">Who's next?</h1>
 <span class="show_button btn affix"><%= link_to "Back To Projects", lists_url %></span>
 <div class="well row span9 offset2">
@@ -55,6 +56,7 @@
 <div>
 </div>
 
+            
 <script>
   var gage<%= @list.id %> = new JustGage({
     id: "smallbuddy", 
