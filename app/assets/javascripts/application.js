@@ -18,6 +18,7 @@
 //= require raphael.min
 //= require jquery.purr
 //= require best_in_place
+//= require lightbox
 //= require_tree .
 
 

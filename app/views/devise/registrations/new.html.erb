@@ -35,9 +35,13 @@
 </div>
 <div class="container">
   <footer class="footer">
-    <small>
-      <a href="http://railstutorial.org/">54footy,</a>
-      2012 LLC
+    <small class="pull-left">
+      <ul>
+        <li><a href="http://railstutorial.org/">fivefourfooty,</a> 2012 LLC</li><br>
+        <li><%= link_to image_tag("/assets/twitter.png"), "#twitter", :data => { :toggle =>"modal" } %></li>
+        <li><%= link_to image_tag("/assets/facebook.png"), "#facebook", :data => { :toggle =>"modal" } %></li>
+        <li><%= link_to image_tag("/assets/linkedin.png"), "#linkedin", :data => { :toggle => "modal" }%></li>
+      </ul>
     </small>
     <nav>
       <small class="pull-right">
@@ -45,11 +49,48 @@
           <li><%= link_to "About",   '#' %></li>
           <li><a href="mailto:tony@54footy.com">Contact</a></li>
           <li><%= link_to "Terms", '#' %></li>
+          <li><%= link_to "Privacy", '#' %></li>
           <li><a href="blog.54footy.com">Blog</a></li>
         </ul>
       </small>
     </nav>
   </footer>
+</div>
+<div id="twitter" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Hey!</h3>
+  </div>
+  <div class="modal-body">
+    <p>Put the twitter down and get back to meaningful work</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+<div id="facebook" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Hey!</h3>
+  </div>
+  <div class="modal-body">
+    <p>When did their design and experience get so messy? Oh right when they didn't charge for using'</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+<div id="linkedin" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Hey!</h3>
+  </div>
+  <div class="modal-body">
+    <p>Their CEO wrote a book called "The startup of you". I mean come on.</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
 </div>
 <script>
   $(document).ready(function(){

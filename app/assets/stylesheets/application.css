@@ -14,6 +14,7 @@
  *= require front
  *= require lists
  *= require tasks
+ *= require lightbox
  */
 .well {
  min-height: 340px;
