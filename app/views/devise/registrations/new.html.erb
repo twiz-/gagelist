@@ -26,6 +26,12 @@
     <br>
     </div>
     <small class="offset1"><%= render "devise/shared/links" %></small>
+    <br>
+    <h5 style="margin-left:35px;width:300px; text-align: center;">
+      <small>
+        By signing up you have read and<br> agree to our <%= link_to "terms", terms_path %> and <%= link_to "privacy policy", terms_path %>.
+      </small>
+    </h5>
   </div>
   <div class="span6 offset3">
     <div id="signup_gage" style="height:240px; width:300px;">
@@ -48,8 +54,8 @@
         <ul>
           <li><%= link_to "About",   '#' %></li>
           <li><a href="mailto:tony@54footy.com">Contact</a></li>
-          <li><%= link_to "Terms", '#' %></li>
-          <li><%= link_to "Privacy", '#' %></li>
+          <li><%= link_to "Terms", terms_path %>
+          <li><%= link_to "Privacy", terms_path %>
           <li><a href="blog.54footy.com">Blog</a></li>
         </ul>
       </small>

@@ -59,7 +59,7 @@
     </div>
     <div class="row">
       <div class="span4" id="front_mktng_copy">
-        <p>Accountability and meaningful work win out with our take the outdated task manager.<br><br> Forget the inertia surrounding your projects and just focus on getting them done.       
+        <p>Accountability and meaningful work win out with our take on the outdated task manager.<br><br> Forget the inertia surrounding your projects and just focus on getting them done.       
         </p>
         <a href="#from_the_top" id="no_underline">
           <div id="top_link_signup">
@@ -116,7 +116,7 @@
         <div class="top_left span4">
           <div class="span3">
             <h4>Cut the chit chat</h4>
-            <p>No comments, file uploads, email threads, or countless meetings. Quickly answer the <button class="btn btn-link custom_btn_link">3 most important questions</button> surrounding any personal or collaborative thing to be done.</p>
+            <p>No comments, file uploads, email threads, or countless meetings. Quickly answer the <button class="btn btn-link custom_btn_link">3 most important questions</button> surrounding any personal or collaborative thing to be done <%= link_to "..more", benefits_path, :class => "more_links"  %></p>
               <ul id="three_questions">
                 <li>Where are we at on this?</li>
                 <li>Who/What are we waiting on?</li>
@@ -127,13 +127,13 @@
         <div class="top_middle span4">
           <div class="span3">
             <h4>Different Planet</h4>
-            <p> You will be amazed at how well this workflow will help you get back to the fundamentals of completing meaningful projects. Careful though, because it forces you to be good. </p>
+            <p> You will be amazed at how well this workflow will help you get back to the fundamentals of completing meaningful projects. Careful though, because it forces you to be good <%= link_to "..more", benefits_path, :class => "more_links"  %> </p>
           </div>
         </div>
         <div class="top_right span4">
           <div class="span3">
             <h4>Take the pressure off you</h4>
-            <p>Asking someone for something is worse than pulling teeth. Use shutup and suddenly, it's not me asking you for something, it's you and I trying to pull this tooth out together.  </p>
+            <p>Asking someone for something is worse than pulling teeth. Use shutup and suddenly, it's not me asking you for something, it's you and I trying to pull this tooth out together <%= link_to "..more", benefits_path, :class => "more_links"  %></span>  </p>
           </div>
         </div>  
       </div>
@@ -147,7 +147,7 @@
       <div class="row">
         <div class="final_headline">
           <hr>
-          <h2>Your free trial starts below.<br> Sign up to start using in 30 seconds.</h2>
+          <h2>Your free trial starts below.<br> Start using after the green button.</h2>
           <hr>
         </div>  
       </div>  
@@ -178,8 +178,8 @@
                 <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %></div>
                 <div id="submit_front_button"><%= f.submit "Get Things Done", :class => "actual_button" %></div>
               <% end %>
-              <!-- <button id="next_step" class="btn btn-info">Just let me know</button> -->
             </div>    
+            <h5 style="text-align:center;"><small>By signing up you have read and<br> agree to our <%= link_to "terms", terms_path %> and <%= link_to "privacy policy", terms_path %>  </small></h5>
           </div>
          </div>
     </div>
@@ -200,8 +200,8 @@
         <ul>
           <li><%= link_to "About",   '#' %></li>
           <li><a href="mailto:tony@54footy.com">Contact</a></li>
-          <li><%= link_to "Terms", '#' %></li>
-          <li><%= link_to "Privacy", '#' %></li>
+          <li><%= link_to "Terms", terms_path %>
+          <li><%= link_to "Privacy", terms_path %>
           <li><a href="blog.54footy.com">Blog</a></li>
         </ul>
       </small>

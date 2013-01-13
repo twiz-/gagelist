@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.more_links {
+	color: #A80000;
+}
+.more_links_top {
+	color: white;
+}
+
 .whole_frustrate_topside {
   margin-left: 60px;
 }
@@ -113,13 +120,13 @@ div.content {
   background-color: #006394;
   /* Safari 4-5, Chrome 1-9 */
   /* Can't specify a percentage size? Laaaaaame. */
-  background: -webkit-gradient(radial, center center, 0, center center, 460, from(#80d5ff), to(#006394)); /* hot probably replace #006394*/
+  background: -webkit-gradient(radial, center center, 0, center center, 460, from(#80d5ff), to(#00527b)); /* hot probably replace #006394*/
   /* Safari 5.1+, Chrome 10+ */
-  background: -webkit-radial-gradient(circle, #80d5ff, #006394);
+  background: -webkit-radial-gradient(circle, #80d5ff, #00527b);
   /* Firefox 3.6+ */ 
-  background: -moz-radial-gradient(circle, #80d5ff, #006394);
+  background: -moz-radial-gradient(circle, #80d5ff, #00527b);
   /* IE 10 */ 
-  background: -ms-radial-gradient(circle, #80d5ff, #006394);
+  background: -ms-radial-gradient(circle, #80d5ff, #00527b);
   /* Opera cannot do radial gradients yet */
   height: 635px;
   border-bottom: solid 5px #006394;
@@ -217,7 +224,16 @@ div.content {
   list-style: none;	
   padding-left: 12px;
 }
-
+#front_mktng_list_thumb_more {
+  color: #eee;	
+  font-size: 16px;	 
+  display: inline;	
+  padding-right: 3px;
+}
+#front_mktng_list_thumb_more:hover {
+	text-decoration: underline;
+	color: black;
+}
 #blob {
 	opacity: 0.4;
 }
@@ -327,7 +343,8 @@ div.content {
 }
 .front_actual_price {
 	font-family: helvetica;
-	padding-top: 30px;
+	margin-left: 3px;
+	padding-top: 15px;
     text-align: center;
 }
 .front_price_button {
@@ -337,7 +354,9 @@ div.content {
     text-align: center;
 }
 .front_pricing_header {
+	font-size: 20px;
 	background: black;
+	padding-top: 10px;
 	margin-top: -20px;
 	-webkit-border-top-left-radius: 4px;
 	-moz-border-top-left-radius: 4px;
@@ -349,6 +368,8 @@ div.content {
 	height: 75px;
 	width: 260px;
 	text-align: center;
+	line-height: 23px;
+	letter-spacing: 1px;
 }
 
 .signup_well {

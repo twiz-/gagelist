@@ -9,14 +9,14 @@
   </ul>
 </div><br>
 <div class="row">
-  <h1 class="page-header" style="text-align: center;">Pay once and use without limit.</h1>
+  <h1 class="page-header" style="text-align: center;">Pay once and use without limit.<br><small> One time charge of $50 to use as you please. </small></h1>
 </div>
 <div class="container">
   <div class="offset4 well span3">
     <div class="row front_pricing_header">
-        <icon class="icon-gift"></icon>This has got to be the header with a div inside
+        Upgrade the way you work and thoroughly impress
     </div>
-    <div class="front_pricing_lead">Ideal for folks and teams that want to be more productive.</div>
+    <div class="front_pricing_lead">Specifically designed for results-driven people and teams.</div>
     <div class="row front_copy_icon">
       <div class="front_icon_space"><icon class="icon-plus"></icon></div>
       <div class="front_pricing_copy">Infinite Tasks</div>
@@ -29,12 +29,14 @@
       <div class="front_icon_space"><icon class="icon-plus"></icon></div>
       <div class="front_pricing_copy">Infinite Collaborators</div>
     </div>
+    <div class="row front_copy_icon">
+      <div class="front_icon_space"><icon class="icon-plus"></icon></div>
+      <div class="front_pricing_copy">Infinite Accountability</div>
+    </div>
     <div class="row front_actual_price">
       <div><h1>$50 once</h1></div>
     </div>
-    <div class="row front_price_button">
-      <button type="button" class="btn btn-info">Pay to start using</button>
-    </div>  
+      <span style="margin-left:35px;"><%= link_to "Free Trial First", new_user_registration_path, :class => "btn btn-success btn-large" %></span>
   </div>  
   <!-- <div class="well span3">
       <div class="row front_pricing_header">
@@ -99,8 +101,8 @@
         <ul>
           <li><%= link_to "About",   '#' %></li>
           <li><a href="mailto:tony@54footy.com">Contact</a></li>
-          <li><%= link_to "Terms", '#' %></li>
-          <li><%= link_to "Privacy", '#' %></li>
+          <li><%= link_to "Terms", terms_path %>
+          <li><%= link_to "Privacy", terms_path %>
           <li><a href="blog.54footy.com">Blog</a></li>
         </ul>
       </small>
