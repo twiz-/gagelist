@@ -43,7 +43,7 @@
   <footer class="footer">
     <small class="pull-left">
       <ul>
-        <li><a href="http://railstutorial.org/">fivefourfooty,</a> 2013</li><br>
+        <li><a href="#about" data-toggle="modal">fivefourfooty,</a> 2013</li><br>
         <li><%= link_to image_tag("/assets/twitter.png"), "#twitter", :data => { :toggle =>"modal" } %></li>
         <li><%= link_to image_tag("/assets/facebook.png"), "#facebook", :data => { :toggle =>"modal" } %></li>
         <li><%= link_to image_tag("/assets/linkedin.png"), "#linkedin", :data => { :toggle => "modal" }%></li>
@@ -52,7 +52,7 @@
     <nav>
       <small class="pull-right">
         <ul>
-          <li><%= link_to "About",   '#' %></li>
+          <li><%= link_to "About", '#about', :data => { :toggle => "modal"}  %></li>
           <li><a href="mailto:tony@54footy.com">Contact</a></li>
           <li><%= link_to "Terms", terms_path %>
           <li><%= link_to "Privacy", terms_path %>
@@ -64,22 +64,16 @@
 <div id="twitter" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Hey!</h3>
   </div>
   <div class="modal-body">
-    <p>Put the twitter down and get back to meaningful work</p>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-  </div>
-</div>
-<div id="facebook" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Hey!</h3>
-  </div>
-  <div class="modal-body">
-    <p>When did their design and experience get so messy? Oh right when they didn't charge for using'</p>
+    <div class="row">
+      <div class="span2">
+        <%= image_tag "/assets/twitter_lrg.png" %> 
+      </div>
+      <div class="span4">
+        Hey! Put the twitter down and get back to <%= link_to "meaningful work", new_user_registration_path %>.
+      </div>  
+    </div>
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
@@ -88,10 +82,52 @@
 <div id="linkedin" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Hey!</h3>
   </div>
   <div class="modal-body">
-    <p>Their CEO wrote a book called "The startup of you". I mean come on.</p>
+    <%= image_tag "/assets/linkedin_lrg.png" %> 
+    " The startup of you"? I mean come on.
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+<div id="facebook" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="span2">
+       <%= image_tag "/assets/facebook_lrg.png" %> 
+      </div> 
+      <div class="span4">
+        You're not tired of facebook, you're tired of your friends. <br><br>
+        Avoid political views, sports opinions, pictures of babies and food, and get back to <%= link_to "YOUR stuff", new_user_registration_path %>.
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+<div id="about" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="span2">
+       <%= image_tag "/assets/about.png" %> 
+      </div> 
+      <div class="span4">
+        It's less about you or us and more about getting meaningful results.<br><br>
+        Whether we're preschoolers that know how to code, Harvard MBA's, or concerned citizens
+        that seek to unearth inefficiencies in how we spend our absolutely most valuable resource
+        as humans - attention - <%= link_to "we're looking to help", benefits_path %>. <br><br>
+        <a href="mailto:tony@54footy.com">Question?</a> We've got a lot of answers. 
+        
+      </div>
+    </div>
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
