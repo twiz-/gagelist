@@ -1,7 +1,9 @@
 // Place all the styles related to the front controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+.fix_this_btn {
+	text-align: center;
+}
 .more_links {
 	color: #A80000;
 }
@@ -104,7 +106,7 @@ div.content {
     padding-bottom:3px;
     margin-left: 80px;
     width: 300px; 
-    text-align:center;
+    text-align:left;
     display:none; 
 }
 .nav_for_info li a {
