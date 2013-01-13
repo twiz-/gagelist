@@ -40,6 +40,12 @@ a {
   height: 60px;
   width: 60px;
 }
+.gravatar_edit {
+	border-radius: 10px;
+  height: 200px;
+  width: 200px;
+}
+
 
 #error_explanation h2{
 	
