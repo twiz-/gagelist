@@ -184,7 +184,6 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   mysql2
-  rails (= 3.2.8)
   pg
   rails (= 3.2.11)
   rubylight
