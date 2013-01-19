@@ -3919,10 +3919,17 @@ input[type="submit"].btn.btn-mini {
           border-radius: 5px;
 }
 
+.nav-pills > li > a:hover {
+	background-color: transparent;
+	text-decoration: underline;
+}
+
+
 .nav-pills > .active > a,
 .nav-pills > .active > a:hover {
   color: #ffffff;
-  background-color: #0088cc;
+  text-decoration: underline;
+  background-color: transparent;
 }
 
 .nav-stacked > li {

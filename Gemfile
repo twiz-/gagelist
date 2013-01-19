@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.11'
+gem 'activeadmin'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -8,6 +9,7 @@ gem 'rails', '3.2.8'
 gem 'devise'
 gem 'simple_form'
 gem 'best_in_place'
+gem 'rubylight'
 
 # group :development, :test do
   # gem 'sqlite3'
@@ -16,10 +18,10 @@ gem 'best_in_place'
 gem "mysql2"
 
 
-# group :production do 
-  # gem 'pg'
-#   
-# end
+group :production do 
+  gem 'pg'
+  
+end
 
 gem 'httparty'
 # Gems used only for assets and not required

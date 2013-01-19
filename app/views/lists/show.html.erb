@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script type="text/javascript">
 	$(document).ready(function() {
 		
@@ -15,6 +16,10 @@
 </script>
 
 
+=======
+<%= link_to 'Destroy', list_path(@list),
+            :confirm => 'Are you sure?', :method => :delete %>
+>>>>>>> 53c9aed5d354399cf4f7b0a1a6b512e7b64b8e71
 <h1 class="page-header">Who's next?</h1>
 <div class="notice" id="notice"></div>
 <span class="show_button btn affix"><%= link_to "Back To Projects", lists_url %></span>
@@ -31,6 +36,7 @@
 <!-- delete from 14 to 41 and restyle -->
   
   <span class="show_button btn" id="new_task_bt"><%= link_to "Add New Task", '#' %></span>
+<<<<<<< HEAD
   
   <% is_created_user =  current_user.id == @list.user_id ? true : false%>
   <% if is_created_user %>
@@ -54,6 +60,9 @@
   	  </div>
   	  <hr/>
   <% end %>
+=======
+  <span class="show_button btn" id="new_task_bt"><%= link_to "Invite user", '#' %></span>
+>>>>>>> 53c9aed5d354399cf4f7b0a1a6b512e7b64b8e71
   <!-- <%= button_tag "Add New Task", :id => "new_task_bt", :class => "btn" %> -->
   
   <!-- add :remote => true  for this to work via ajax again -->
@@ -78,25 +87,28 @@
     <%= render 'incompletes' %>
   </ul>
   
-  <button type="button" class="btn btn-info offset3" data-toggle="collapse" data-target="#demo">
-   Show completed tasks
-  </button><br>
-  <div class="pull-left offset2 collapse" id="demo" style="height:600px;width:760px;margin-top:20px;margin-left:0px;padding-right:1px;">
-    <ul class="task-list" id="completed">
-       <table>
-         <tbody>
-           <tr>
-             <td><%= render "completed" %>
-             </td>
-           </tr>
-         </tbody>   
-        <table>
-    </ul>
-  </div>
+  <div id="bootstrap_fix">
+      <button type="button" class="btn btn-info offset3" data-toggle="collapse" data-target="#demo" >
+       Show completed tasks
+      </button><br>
+    <div class="pull-left offset2 collapse in" id="demo" style="width:760px;margin-top:20px;margin-left:0px;padding-right:1px;">
+      <ul class="task-list" id="completed">
+         <table>
+           <tbody>
+             <tr>
+               <td><%= render "completed" %>
+               </td>
+             </tr>
+           </tbody>   
+          <table>
+      </ul>
+    </div>
+  </div>  
 </div>    
 <div>
 </div>
 
+            
 <script>
   var gage<%= @list.id %> = new JustGage({
     id: "smallbuddy", 
@@ -107,11 +119,15 @@
     startAnimationType: "bounce",
     refreshAnimationType: "bounce",
     refreshAnimationTime: 1500,
-    startAnimationTime: 1500
+    startAnimationTime: 1500,
+    levelColors: [
+        	"#ff0000",
+        	"#999900",
+        	"#00ff00"
+      ]
     
   }); 
 </script>
-
-<script type="text/javascript">
-    $("#demo").collapse("hide");
+<script>
+  $(".collapse").collapse()
 </script>

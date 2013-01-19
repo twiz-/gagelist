@@ -1,7 +1,16 @@
 Gagelist::Application.routes.draw do
   
+<<<<<<< HEAD
   devise_for :users, :controllers => { :invitations => 'users/invitations' }
   
+=======
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
+  devise_for :users
+
+>>>>>>> 53c9aed5d354399cf4f7b0a1a6b512e7b64b8e71
   resources :lists do
     resources :tasks 
   end
@@ -11,6 +20,10 @@ Gagelist::Application.routes.draw do
   #resources :lists, :collection => { :sort => :post }, :as => 'sort_lists'
 
   root :to => 'front#index'
+  match '/benefits' => 'front#benefits'
+  match '/pricing' => 'front#pricing'
+  match '/does' => 'front#does'
+  match '/terms' => 'front#terms'
   
   match 'lists/:list_id/tasks/:id/complete' => 'tasks#complete', :as => :complete_task
   match 'lists/:list_id/tasks/:id/remove' => 'tasks#destroy', :as => :remove_task

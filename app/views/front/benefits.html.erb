@@ -1,0 +1,291 @@
+<div class="row nav-under-wrapper">
+  <% if !user_signed_in? %>
+    <ul class="nav-under-not-home pull-right">
+      <li><%= link_to "Home", root_path  %></li>
+     <li><%= link_to "What it does", does_path  %></li>
+     <li class="imhere"><%= link_to "Benefits of using", benefits_path  %></li>
+     <li id="right-link"><%= link_to "What it costs", pricing_path  %></li>
+    <% end %>
+  </ul>
+</div>
+<br>
+<h1 style="text-align: center;">Which one of these frustrates you the most?<br><small>Productivity has never been this simple, try it <%= link_to "for free", new_user_registration_path %> to see why. </small></h1><br>
+<div class="whole_frustrate_topside">
+  <div class="row container">
+    <div class="row">
+      <div class="span3 frustrate_topside" for='q1 q2'>  
+        <div>
+          <p>When I work on stuff that doesn't actually matter.</p>
+        </div>
+      </div>
+      <div class="span3 frustrate_topside" for="q7 q11">
+          <div>
+            <p>10 people asking me the same question 10 times.</p>
+          </div>
+      </div>
+      <div class="span3 frustrate_topside" for="q8 q10">
+        <div>
+          <p>Not being able to hold myself and others accountable.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row container">
+    <div class="row">
+      <div class="span3 frustrate_topside" for="q3 q5">  
+        <div>
+          <p>Working extra hard to pick up the slack of others.</p>
+        </div>
+      </div>
+      <div class="span3 frustrate_topside" for="q4 q9">
+          <div>
+            <p>Talking endless circles about the things we should be doing instead of actually doing them.</p>
+          </div>
+      </div>
+      <div class="span3 frustrate_topside" for="q6 q12">
+        <div>
+          <p>Not being appreciated for how much I actually accomplish.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+<br>
+<div class="row">
+  <div class="span6" id='container'>
+    <h5 class="faq_header"><i class="icon-ok" id="q1"></i> Hey, it would be cool if..</h5>  
+    <div class='content'>
+      <p>Everyone loves a self starter, except when they consume your most valuable resource - attention.</p>
+      <p>Hold their whims in check by tracking what you're working on for them and see if it really mattered in the end.</p>
+      <div style="text-align:center;"><%= link_to "Fix This", new_user_registration_path, :class => "btn btn-success fix_this_btn" %></div>
+    </div>
+    <hr>
+    <h5 class="faq_header"><icon class="icon-ok" id="q2"></icon> The kick is up! And..</h5>
+    <div class='content'> 
+      <p>Inspiration is great, but execution is 10x better.</p>
+      <p>Avoid 80% project completion syndrome by having the inspired put their name and a gauge to their initiatives.</p>
+      <div style="text-align:center;"><%= link_to "Fix This", new_user_registration_path, :class => "btn btn-success fix_this_btn" %></div>
+    </div>
+    <hr>
+    <h5 class="faq_header"><icon class="icon-ok" id="q3"></icon> Third night in a row</h5>
+    <div class='content'>
+      <p>#slack. Who is really responsible for what? Keep an ongoing record of how much you actually do for others and how much.</p>
+      <p>And how much of their salary you should be taking..</p>
+      <div style="text-align:center;"><%= link_to "Fix This", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
+      </div>
+    </div> 
+    <hr>
+    <h5 class="faq_header"><icon class="icon-ok" id="q4"></icon>Lets sit down and chat</h5>
+    <div class='content'>
+      <p>Set and execute on clear objectives about what needs to be done rather than talking about them to death.</p>
+      <div style="text-align:center;"><%= link_to "Fix This", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
+      </div>
+    </div>
+    <hr>
+    <h5 class="faq_header"><icon class="icon-ok" id="q5"></icon> You're on deck</h5>
+    <div class='content'> 
+      <p>The show view gives a quick look into the project completion percentage and who exactly it is we're waiting on for completion.</p>
+      <div style="text-align:center;"><%= link_to "Fix This", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
+      </div>
+    </div>
+    <hr>
+    <h5 class="faq_header"><icon class="icon-ok" id="q6"></icon>Indispensable</h5>
+    <div class='content'>
+      <p>Easily see what work wouldn't get done if you didn't do that voodoo that you do so well.</p>
+      <div style="text-align:center;"><%= link_to "Fix This", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
+      </div>
+    </div>
+  </div> 
+ 
+  <div class="span6" id="container">
+    <h5 class="faq_header"><icon class="icon-ok" id="q7"></icon>I need a map</h5>
+    <div class='content'>
+      <p>Where are we at on that Johnson Report?</p>
+      <p>Avoid the above question like the plague and have a page for all project stakeholders to view the status of that Johnson report.</p>
+      <div style="text-align:center;"><%= link_to "Fix This", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
+      </div>
+    </div>
+    <hr>
+    <h5 class="faq_header"><icon class="icon-ok" id="q8"></icon>Wait, why did I come in here again?</h5>
+    <div class='content'>
+      <p> You're not perfect all the time. Sometimes you have a moment of inspiration and then you forget.</p>
+      <p> Hold yourself in check by having what exactly you need to do laid out for easy access.</p>
+      <div style="text-align:center;"><%= link_to "Fix This", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
+      </div>
+    </div>
+    <hr>
+    <h5 class="faq_header"><icon class="icon-ok" id="q9"></icon> The Grand Canyon isn't so lovely this time of year</h5>
+    <div class='content'>
+      <p>The knowing and doing gap is alive and well.</p>
+      <p>Use you lists to force yourself to be good and close that gap for yourself and others once and for all.</p>
+      <div style="text-align:center;"><%= link_to "Fix This", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
+      </div>
+    </div>
+    <hr>
+    <h5 class="faq_header"><icon class="icon-ok" id="q10"></icon> Nicholas Travolta</h5>
+    <div class='content'>
+      <p>Make sure they are front and center staring you (and everyone) in the face, always.</p> 
+      <p>Avoid stale projects and procrastination by having a quick visibility in to the progress of all your projects.</p>
+      <div style="text-align:center;"><%= link_to "Fix This", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
+      </div>
+    </div>
+    <hr>
+    <h5 class="faq_header"><icon class="icon-ok" id="q11"></icon> Johnny Come Looky</h5>
+    <div class='content'>
+      <p>They shouldn't have to come over and make small talk just to sneak a peak at your screen to see what you're working on.</p> 
+      <p>Happily, provide a link to your projects to let whoever YOU want know what you are working on.</p>
+      <div style="text-align:center;"><%= link_to "Fix This", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
+      </div>
+    </div>
+    <hr>
+    <h5 class="faq_header"><icon class="icon-ok" id="q12"></icon> HIT List</h5>
+    <div class='content'>
+      <p>"Hey are you busy right now?" Yeah, gimme a sec. </p>
+      <p>Quickly keep track and knock out the stuff you can do this "sec" before getting distracted.</p>
+      <div style="text-align:center;"><%= link_to "Fix This", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" id='container'>
+  <h5 class="faq_header"><icon class="icon-ok" id="q13"></icon> No I can't do EVERYthing</h5>
+  <div class='content' style="margin-left: 230px; width:550px;">
+    <p>It's true you need another person's skill set to accomplish something important. But, asking someone for something shouldn't be so difficult.</p>
+    <p>Invite anyone by email to your project and let them know that the project's well being and completion depends on their very particular skill set.</p>
+    <div style="text-align:center;"><%= link_to "Fix This", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="row beneifts_description_whole" style="border-bottom:none;">
+  <div class="row">
+    <div class="span9">
+       <h2>Simple. <small> See the rest on the <%= link_to "inside", new_user_registration_path %> or see <%= link_to "how much it costs.", pricing_path %></small></h2> 
+    </div>
+  </div>  
+  <br>
+  <div class="row" style="margin-left: 200px;">
+    <div>
+      <%= link_to "Inside.", new_user_registration_path, :class => "btn btn-success" %>
+      <%= link_to "Costs.", pricing_path, :class => "btn btn-info"  %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <footer class="footer">
+    <small class="pull-left">
+      <ul>
+        <li><a href="#about" data-toggle="modal">fivefourfooty,</a> 2013</li><br>
+        <li><%= link_to image_tag("/assets/twitter.png"), "#twitter", :data => { :toggle =>"modal" } %></li>
+        <li><%= link_to image_tag("/assets/facebook.png"), "#facebook", :data => { :toggle =>"modal" } %></li>
+        <li><%= link_to image_tag("/assets/linkedin.png"), "#linkedin", :data => { :toggle => "modal" }%></li>
+      </ul>
+    </small>
+    <nav>
+      <small class="pull-right">
+        <ul>
+          <li><%= link_to "About", '#about', :data => { :toggle => "modal"}  %></li>
+          <li><a href="mailto:tony@54footy.com">Contact</a></li>
+          <li><%= link_to "Terms", terms_path %>
+          <li><%= link_to "Privacy", terms_path %>
+        </ul>
+      </small>
+    </nav>
+  </footer>
+</div>
+<div id="twitter" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="span2">
+        <%= image_tag "/assets/twitter_lrg.png" %> 
+      </div>
+      <div class="span4">
+        Hey! Put the twitter down and get back to <%= link_to "meaningful work", new_user_registration_path %>.
+      </div>  
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+<div id="linkedin" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+  </div>
+  <div class="modal-body">
+    <%= image_tag "/assets/linkedin_lrg.png" %> 
+    " The startup of you"? I mean come on.
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+<div id="facebook" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="span2">
+       <%= image_tag "/assets/facebook_lrg.png" %> 
+      </div> 
+      <div class="span4">
+        You're not tired of facebook, you're tired of your friends. <br><br>
+        Avoid political views, sports opinions, pictures of babies and food, and get back to <%= link_to "YOUR stuff", new_user_registration_path %>.
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+<div id="about" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="span2">
+       <%= image_tag "/assets/about.png" %> 
+      </div> 
+      <div class="span4">
+        It's less about you or us and more about getting meaningful results.<br><br>
+        Whether we're preschoolers that know how to code, Harvard MBA's, or concerned citizens
+        that seek to unearth inefficiencies in how we spend our absolutely most valuable resource
+        as humans - attention - <%= link_to "we're looking to help", benefits_path %>. <br><br>
+        <a href="mailto:tony@54footy.com">Question?</a> We've got a lot of answers. 
+        
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+<script>
+//On click any <h3> within the container
+$('#container h5').click(function(e) {
+
+    //Close all <div> but the <div> right after the clicked <a>
+    $(e.target).next('div').siblings('div').slideUp('fast');
+
+    //Toggle open/close on the <div> after the <h3>, opening it if not open.
+    $(e.target).next('div').slideToggle('fast');
+});
+</script>
+<script>
+$('div.frustrate_topside').click(function(){
+  var elt = $(this).attr('for');
+  var multElts = elt.split(" ");
+  $('.icon-ok').hide();
+      for(var i=0; i< multElts.length; i++)
+      {
+          $("#" + multElts[i]).toggle();
+          
+      }
+});
+</script>

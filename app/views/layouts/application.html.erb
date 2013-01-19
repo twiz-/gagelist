@@ -4,34 +4,41 @@
   <title>Gagelist</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js", "rails.js" %>
+  <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"%>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <a href="#" class="brand">Shutup</a>
+        <a href="/" class="brand">refresh runner</a>
         <ul class="nav pull-right">
           <% if user_signed_in? %>
-            <li><%= link_to current_user.full_name, "#"%></li>
             <li><%= link_to "My Projects", lists_path  %></li>
             <li><%= link_to "Settings", edit_user_registration_path%></li>
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete  %></li>
-          <% else %>  
-          <li><%= link_to "Login", user_session_path  %></li> 
-          <li><%= link_to "Sign Up", new_user_registration_path  %></li> 
+          <% else %>
+           <li><%= link_to "Sign Up", new_user_registration_path %></li>
+           <li><%= link_to "Login", user_session_path %></li>  
           <% end %>
-          
         </ul>
       </div>
     </div>
-    
   </div>
   
-<div class="container" style="width:990px;">
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>  
+<div class="container" style="width:990px; margin-top:40px;">
+  <% if flash[:notice] %>
+    <div class="alert alert-success">
+      <button class="close" data-dismiss="alert">x</button>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="alert alert-error">
+      <button class="close" data-dismiss="alert">x</button>
+      <%= flash[:alert] %>
+    </div>
+  <% end %>  
  <%= yield %>
 </div>
 <%= yield :javascript %>

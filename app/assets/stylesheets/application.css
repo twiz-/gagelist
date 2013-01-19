@@ -10,8 +10,11 @@
  *
  *= require jquery.ui.datepicker
  *= require_self
- *= require_tree .
- *= bootstrap
+ *= require bootstrap
+ *= require front
+ *= require lists
+ *= require tasks
+ *= require lightbox
  */
 
 .well {
@@ -38,7 +41,11 @@ a {
   height: 60px;
   width: 60px;
 }
-
+.gravatar_edit {
+	border-radius: 10px;
+  height: 200px;
+  width: 200px;
+}
 .notice {
 	text-align: center;
 }
@@ -52,3 +59,8 @@ a {
 	float:left;
 	width:100px;
 }*/
+#error_explanation h2{
+	
+	color: red;
+}
+

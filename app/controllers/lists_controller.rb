@@ -2,6 +2,8 @@ class ListsController < ApplicationController
   #helper_method :sort_column, :sort_direction
   respond_to :html, :xml, :json, :js
   
+  before_filter :authenticate_user!
+  
   def index
     @it_works = Snapshots.new.picture
     

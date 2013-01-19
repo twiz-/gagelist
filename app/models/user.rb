@@ -10,15 +10,23 @@ class User < ActiveRecord::Base
  
  has_many :list_team_members
          
+<<<<<<< HEAD
   #after_invitation_accepted :add_to_list_member
   
+=======
+         
+  validates :first_name, :presence => true
+  
+  validates :last_name, :presence => true       
+         
+
+>>>>>>> 53c9aed5d354399cf4f7b0a1a6b512e7b64b8e71
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :profile_name
   # attr_accessible :title, :body
   
   def full_name
     first_name + " " + last_name
-    # I think that graavatar shit goes here!!!!
   end
   
   def gravatar_url
@@ -27,11 +35,6 @@ class User < ActiveRecord::Base
     hash            = Digest::MD5.hexdigest(downcased_email)
     
     "http://gravatar.com/avatar/#{hash}"
-  end
-    
-  def on_deck
-    #This will most likely need to take the task in ascending order and check if it is completed
-    #id it's not complete render it on this page and show who it is assigned to. Baby
   end
   
   
