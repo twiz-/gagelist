@@ -44,7 +44,7 @@ Gagelist::Application.configure do
     :port => "587",
     :domain => "gmail.com",
     :authentication => :plain,
-    :user_name => "ineedyourhelp@gmail.com",
-    :password => "idontcareifyouknow"
+    :user_name => "nosensitiveinfo@gmail.com",
+    :password => "no1sensitiveinfo"
   }  
 end
