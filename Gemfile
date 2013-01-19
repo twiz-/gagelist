@@ -11,11 +11,11 @@ gem 'simple_form'
 gem 'best_in_place'
 gem 'rubylight'
 
-# group :development, :test do
-  # gem 'sqlite3'
-# end
+group :development, :test do
+   gem 'sqlite3'
+end
 
-gem "mysql2"
+
 
 
 group :production do 

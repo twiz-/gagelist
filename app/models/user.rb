@@ -10,17 +10,13 @@ class User < ActiveRecord::Base
  
  has_many :list_team_members
          
-<<<<<<< HEAD
   #after_invitation_accepted :add_to_list_member
   
-=======
          
   validates :first_name, :presence => true
   
   validates :last_name, :presence => true       
          
-
->>>>>>> 53c9aed5d354399cf4f7b0a1a6b512e7b64b8e71
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :profile_name
   # attr_accessible :title, :body

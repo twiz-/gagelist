@@ -1,16 +1,12 @@
 Gagelist::Application.routes.draw do
   
-<<<<<<< HEAD
   devise_for :users, :controllers => { :invitations => 'users/invitations' }
-  
-=======
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   devise_for :users
 
->>>>>>> 53c9aed5d354399cf4f7b0a1a6b512e7b64b8e71
   resources :lists do
     resources :tasks 
   end

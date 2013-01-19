@@ -13,8 +13,9 @@ Gagelist::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  # Don't care if the mailer can't send and allow actual email to be sent in dev
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -43,9 +44,7 @@ Gagelist::Application.configure do
     :port => "587",
     :domain => "gmail.com",
     :authentication => :plain,
-    :user_name => "luongtranduc@gmail.com",
-    :password => "10111985"
-  }
-
-  
+    :user_name => "ineedyourhelp@gmail.com",
+    :password => "idontcareifyouknow"
+  }  
 end
