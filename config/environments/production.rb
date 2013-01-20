@@ -75,8 +75,8 @@ Gagelist::Application.configure do
   config.action_mailer.smtp_settings = {
     :enable_starttls_auto => true,
     :address => "smtp.gmail.com",
-    :port => "587",
-    :domain => "gmail.com",
+    :port => 587,
+    :domain => "heroku.com",
     :authentication => :plain,
     :user_name => "nosensitiveinfo@gmail.com",
     :password => "no1sensitiveinfo"
