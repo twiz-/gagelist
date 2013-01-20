@@ -65,18 +65,19 @@ Gagelist::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   
-  #Sending email on the production side
-  config.action_mailer.default_url_options = { :host => 'myapp.herokuapp.com' }
-  config.action_mailer.delivery_method = :smtp
+  # allow sending of email in produtction 
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  
+  #Sending email on the production side
+  config.action_mailer.default_url_options = { :host => 'staging23-refreshrunner.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
-    port: 587,
-    domain: "http://staging23-refreshrunner.herokuapp.com/",
-    authentication: "plain",
-    enable_starttls_auto: true,
+    port: "587",
+    domain: "gmail.com",
+    authentication: :plain,
     user_name: "nosensitiveinfo@gmail.com",
     password: "no1sensitiveinfo"
   }
