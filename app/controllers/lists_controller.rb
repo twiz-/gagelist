@@ -5,7 +5,6 @@ class ListsController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @it_works = Snapshots.new.picture
     
     logger = Logger.new('log/debug.log')
     logger.info('-----Log for list index-----')
