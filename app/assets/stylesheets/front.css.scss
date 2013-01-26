@@ -122,16 +122,16 @@ div.content {
   background-color: #006394;
   /* Safari 4-5, Chrome 1-9 */
   /* Can't specify a percentage size? Laaaaaame. */
-  background: -webkit-gradient(radial, center center, 0, center center, 460, from(#80d5ff), to(#00527b)); /* hot probably replace #006394*/
+  background: -webkit-gradient(radial, center center, 0, center center, 460, from(red), to(#00527b)); 
   /* Safari 5.1+, Chrome 10+ */
-  background: -webkit-radial-gradient(circle, #80d5ff, #00527b);
+  background: -webkit-radial-gradient(circle, #ff1a1a, #b30000);
   /* Firefox 3.6+ */ 
   background: -moz-radial-gradient(circle, #80d5ff, #00527b);
   /* IE 10 */ 
   background: -ms-radial-gradient(circle, #80d5ff, #00527b);
   /* Opera cannot do radial gradients yet */
   height: 635px;
-  border-bottom: solid 5px #006394;
+  border-bottom: solid 5px #A80000;
 }
 .the_answer {
 	display: none;
@@ -268,7 +268,7 @@ div.content {
 	border-width: 4px;
     border-radius: 5px;
     border-style: solid;
-    border-color: #006394;
+    border-color: #A80000;
 }
 .carousel.carousel-fade .item {
   -webkit-transition: opacity .6s ease-in-out;
@@ -290,7 +290,7 @@ div.content {
     border-width: 8px;
     border-radius: 5px;
     border-style: solid;
-    border-color: #006394;
+    border-color: #A80000;
 }
 #front_hold {
   padding-top: 25px;	
