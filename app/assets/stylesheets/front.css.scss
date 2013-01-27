@@ -1,6 +1,11 @@
 // Place all the styles related to the front controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#impress_gage {
+	margin-top: -30px;
+	padding-left: -60px;
+
+}
 .fix_this_btn {
 	text-align: center;
 }
@@ -119,16 +124,16 @@ div.content {
 #front_container {
   margin-top: -7px;
   /* fallback */
-  background-color: #006394;
+  background-color: #ff1a1a;
   /* Safari 4-5, Chrome 1-9 */
   /* Can't specify a percentage size? Laaaaaame. */
-  background: -webkit-gradient(radial, center center, 0, center center, 460, from(red), to(#00527b)); 
+  background: -webkit-gradient(radial, center center, 0, center center, 460, from(#ff1a1a), to(#b30000)); 
   /* Safari 5.1+, Chrome 10+ */
   background: -webkit-radial-gradient(circle, #ff1a1a, #b30000);
   /* Firefox 3.6+ */ 
-  background: -moz-radial-gradient(circle, #80d5ff, #00527b);
+  background: -moz-radial-gradient(circle, #ff1a1a, #b30000);
   /* IE 10 */ 
-  background: -ms-radial-gradient(circle, #80d5ff, #00527b);
+  background: -ms-radial-gradient(circle, #ff1a1a, #b30000);
   /* Opera cannot do radial gradients yet */
   height: 635px;
   border-bottom: solid 5px #A80000;
