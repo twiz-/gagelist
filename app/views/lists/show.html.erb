@@ -16,7 +16,8 @@
 
 <h1 class="page-header">Who's next?</h1>
 <div class="notice" id="notice"></div>
-<span class="show_button btn affix"><%= link_to "Back To Projects", lists_url %></span><br>
+<%= link_to "Back To Projects", lists_url, class: "btn affix show_button" %><br>
+
 <div class="well row span10 offset2">
   <div class="row">
     <div class="span5">
@@ -33,7 +34,7 @@
       <div id="smallbuddy" style="width:340px; height:200px;"></div>
     </div>
     <div class="span5">
-      <span class="show_button btn" id="new_task_bt"><%= link_to "Add New Task", '#' %></span>
+      <%= link_to "Add New Task", '#', class: "show_button btn", id: "new_task_bt" %>
       <% is_created_user =  current_user.id == @list.user_id ? true : false%>
       <% if is_created_user %>
       <%= button_tag 'Invite user', :id => 'bt-invite-user', :class => 'btn btn-info'  %>
@@ -99,9 +100,12 @@
     </div>
   </div>
 </div>
-<span class="offset11"><%= link_to 'Delete Project', list_path(@list),
-            :confirm => 'Are you sure? This cannot be undone.', :method => :delete, class: "btn btn-mini btn-danger" %></span><br><br>
-                        
+<%= link_to 'Delete Project', list_path(@list),
+            :confirm => 'Are you sure? This cannot be undone.', :method => :delete, class: "btn btn-mini btn-danger offset11" %><br><br>
+
+<%= @list.user.last_name %>
+
+                   
 <script>
   var gage<%= @list.id %> = new JustGage({
     id: "smallbuddy", 
