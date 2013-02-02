@@ -57,12 +57,12 @@
         <h1 style="font-size: 52px;">Because at the end of the day<br><h3>What did you actually DO by the end of the day?</small></h3>
     </div>
     <div class="row">
-      <div class="span4" id="front_mktng_copy">
-        <p>Accountability and meaningful work win out with our take on the outdated task manager.<br><br> Forget the inertia surrounding your projects and just focus on getting them done.       
+      <div class="span4" id="front_mktng_copy" style="">
+        <p>Accountability and meaningful work win out with our take on the outdated task manager.<br><br> Forget the inertia surrounding your projects and focus more on getting them done.       
         </p>
         <a href="#from_the_top" id="no_underline">
           <div id="top_link_signup">
-            <p id="stubborn_text">Get things done</p>
+            <p id="stubborn_text">Try It For Free</p>
           </div>
         </a>
       </div>
@@ -101,13 +101,14 @@
 <div class="row" id="next_front_container">
   <div class="container" id="front_hold">
     <div class="container" id="geez_front_hold">
+      <br><br><br>
       <div class="row">
        <div class="span8">
           <div class="span1" id="impress_gage" style="height:90px; width:113px;"></div><h3>A Task Manager You'll Want To Impress</h3>
        </div>  
         <a href="#from_the_top" id="no_underline">
           <div id="link_to_signup_section">
-            <p>Get things done</p>
+            <p>Try it for Free</p>
           </div>
         </a>
       </div>
@@ -178,7 +179,7 @@
                 <div id="submit_front_button"><%= f.submit "Get Things Done", :class => "actual_button" %></div>
               <% end %>
             </div>    
-            <h5 style="text-align:center;"><small>By signing up you have read and<br> agree to our <%= link_to "terms", terms_path %> and <%= link_to "privacy policy", terms_path %>  </small></h5>
+            <h5 style="text-align:center;"><small>By signing up you have read and<br> agree to our <%= link_to "terms", terms_path, target: "_blank" %> and <%= link_to "privacy policy", terms_path, target: "_blank" %> </small></h5>
           </div>
          </div>
     </div>
@@ -339,7 +340,7 @@
   });
   setInterval(function() {
     g.refresh(getRandomInt(15, 93));
-  }, 5500);
+  }, 3500);
 </script>
 </body>
 </html>

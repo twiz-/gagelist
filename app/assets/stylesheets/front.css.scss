@@ -160,17 +160,11 @@ div.content {
 	margin-left: 25px;
 }
 #top_link_signup {
-	background-color: #00c8c8; 
-	background-image: url(images/fallback-gradient.png); 
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#00e3e3), to(#00c8c8));
-	background-image: -webkit-linear-gradient(top, #00e3e3, #00c8c8); 
-	background-image:    -moz-linear-gradient(top, #00e3e3, #00c8c8);
-	background-image:     -ms-linear-gradient(top, #00e3e3, #00c8c8);
-	background-image:      -o-linear-gradient(top, #00e3e3, #00c8c8);
+	background: #6aaf63;
 	-moz-box-shadow:    inset 0 0 10px #AEAEAE;
 	-webkit-box-shadow: inset 0 0 10px #AEAEAE;
 	box-shadow:         inset 0 0 10px #AEAEAE;
-	margin-top: 20px;
+	margin-top: 45px;
 	height: 65px;
 	width: 300px;
 	border-radius: 4px;
@@ -178,19 +172,20 @@ div.content {
 }
 
 #top_link_signup:hover {
-	background-color: #00c8c8; 
-	background-image: url(images/fallback-gradient.png); 
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#16ffff), to(#00c8c8));
-	background-image: -webkit-linear-gradient(top, #16ffff, #00c8c8); 
-	background-image:    -moz-linear-gradient(top, #2F2727, #00c8c8);
-	background-image:     -ms-linear-gradient(top, #2F2727, #00c8c8);
-	background-image:      -o-linear-gradient(top, #2F2727, #00c8c8);
+	background-color: #6aaf63;
+	border: solid inset 2px #6aaf63;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#83bd7d), to(#6aaf63));
+	background-image: -webkit-linear-gradient(top, #83bd7d, #6aaf63); 
+	background-image:    -moz-linear-gradient(top, #83bd7d, #6aaf63);
+	background-image:     -ms-linear-gradient(top, #83bd7d, #6aaf63);
+	background-image:      -o-linear-gradient(top, #83bd7d, #6aaf63);
 }
 
 
 #stubborn_text {
 	margin-left: 75px;
 	font-size: 21px;
+	font-weight: bold;
 	color: white;
 	font-family: helvetica;
 }
@@ -202,9 +197,12 @@ div.content {
   line-height: 35px;
 }
 #front_mktng_copy {
+  background-color: #f0ede8; 
+  border-radius: 5px;
+  padding:8px;
   font-family: helvetica;
   margin-top: 15px;	
-  margin-left: 150px;
+  margin-left: 147px;
   text-align: left;
   font-size: 21px;
   line-height: 25px;
@@ -524,7 +522,7 @@ div.content {
 }
 #link_to_signup_section p {
 	padding-top: 15px;
-	padding-left: 70px;
+	padding-left: 80px;
 	font-size: 21px;
 	color: white;
 	font-family: helvetica;
@@ -550,12 +548,11 @@ div.content {
 }
 #link_to_signup_section:hover {
 	background-color: #00c8c8; 
-	background-image: url(images/fallback-gradient.png); 
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#16ffff), to(#00c8c8));
 	background-image: -webkit-linear-gradient(top, #16ffff, #00c8c8); 
-	background-image:    -moz-linear-gradient(top, #2F2727, #00c8c8);
-	background-image:     -ms-linear-gradient(top, #2F2727, #00c8c8);
-	background-image:      -o-linear-gradient(top, #2F2727, #00c8c8);
+	background-image:    -moz-linear-gradient(top, #16ffff, #00c8c8);
+	background-image:     -ms-linear-gradient(top, #16ffff, #00c8c8);
+	background-image:      -o-linear-gradient(top, #16ffff, #00c8c8);
 }
 
 
