@@ -5,25 +5,10 @@ class ListsController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    
-    logger = Logger.new('log/debug.log')
-    logger.info('-----Log for list index-----')
-    
-    list_team_members = ListTeamMember.find(:all, :conditions => ['user_id = ? AND active = ?', current_user.id, true])
-    list_ids = []
-    list_team_members.each do |member|
-      list_ids += [member.list_id]
-    end
-    
-    if !list_ids.empty?
-      @lists = List.where('user_id = ? OR id IN (?)', current_user.id, list_ids)
-    else
-      @lists = List.where('user_id = ?', current_user.id)
-    end
-    
-    logger.info(@lists.length)
-    
-    respond_with(@lists)
+    all_lists = current_user.paricipating_lists
+    @private_lists = all_lists.with_one_member
+    @lists = all_lists - @private_lists
+    respond_with({:lists => @lists, :private_lists => @private_lists})
   end
   
   def new

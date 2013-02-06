@@ -1,0 +1,50 @@
+<div class="well span4" id="index_well">
+   <div class="span4">
+      <span class="index_title">
+        <%= link_to "#{list.name}", list_url(list) %>
+      </span>
+      <div class="row">
+        <div class="span4"><%= list.description %></div>
+          <div class="row">
+              <div class="span2">
+                <span id="blame_game"> 
+                 <div class="who_is_next"> 
+                  <% if Task.who_are_we_waiting_on(list) %>
+                    <span class="now"> 
+                      <%= image_tag Task.who_are_we_waiting_on(list).user.gravatar_url, :class => "gravatar_index" %>
+                    </span>
+                  <% end %> 
+                  <% if Task.who_is_next(list) %>
+                    <span class="next">
+                     <%= image_tag Task.who_is_next(list).user.gravatar_url, :class => "gravatar_index" %>
+                    </span>
+                  <% end %>
+               </div>
+              </span>
+              </div>
+                <div>
+                  <div class="gage_index pull-right" id="gage-<%= list.id %>" style="width:170px; height:100px;"></div>
+                </div>
+            </div>
+          </div> 
+         
+      </div>
+ </div>
+ <script>
+    var gage<%= list.id %> = new JustGage({
+          id: "gage-<%= list.id %>", 
+          value: <%= list.percent_complete.round(2) %>, 
+          min: 0,
+          max: 100,
+          title: "Until Complete",
+          startAnimationType: "bounce",
+          refreshAnimationType: "bounce",
+          refreshAnimationTime: 1500,
+          startAnimationTime: 1500,
+          levelColors: [
+            	"#ff0000",
+            	"#999900",
+            	"#00ff00"
+          ]
+      }); 
+</script>

@@ -3,4 +3,6 @@ class ListTeamMember < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :list
+  
+  scope :active, where(:active => true)
 end

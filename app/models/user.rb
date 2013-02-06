@@ -5,17 +5,18 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :invitable
          
- has_many :tasks
- has_many :lists
- 
- has_many :list_team_members
+  has_many :tasks
+  has_many :lists
+  
+  has_many :list_team_members
+  has_many :active_list_team_members, :conditions => ["list_team_members.active = ?", true], :class_name => 'ListTeamMember'
+  
+  #Return all lists, the user is involved in.
+  has_many :paricipating_lists, :through => :active_list_team_members, :source => :list
          
   #after_invitation_accepted :add_to_list_member
-  
-         
-  validates :first_name, :presence => true
-  
-  validates :last_name, :presence => true       
+     
+  validates :first_name, :last_name, :presence => true     
          
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :profile_name
@@ -32,6 +33,5 @@ class User < ActiveRecord::Base
     
     "http://gravatar.com/avatar/#{hash}"
   end
-  
-  
+ 
 end
