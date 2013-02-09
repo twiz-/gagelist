@@ -9,11 +9,9 @@ Gagelist::Application.routes.draw do
   
   match '/confirmation_message' => "registrations#confirmation_message", :as => :confirmation_message
   
-  #ActiveAdmin.routes(self)
-
-  #devise_for :admin_users, ActiveAdmin::Devise.config
-
-  #devise_for :users
+  ActiveAdmin.routes(self)
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :users
 
   resources :lists do
     resources :tasks 
