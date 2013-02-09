@@ -1,0 +1,5 @@
+<% unless @invitation.errors.blank? %>
+
+  $('#error_explanation').html("<%= escape_javascript(render('/shared/error', :object => @invitation )) %>") 
+     
+<%end%>  

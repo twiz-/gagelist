@@ -3,12 +3,12 @@ class ListsController < ApplicationController
   respond_to :html, :xml, :json, :js
   
   before_filter :authenticate_user!
+  before_filter :check_permission, :only => [:new, :create]
   
   def index
     all_lists = current_user.paricipating_lists
     @private_lists = all_lists.with_one_member
     @lists = all_lists - @private_lists
-    respond_with({:lists => @lists, :private_lists => @private_lists})
   end
   
   def new
@@ -16,12 +16,10 @@ class ListsController < ApplicationController
   end
   
   def create
-    @list = List.new(params[:list])
-    @list.user_id = current_user.id
+    @list = current_user.lists.new(params[:list])
     if @list.save
       flash[:notice] = "List created"
-      list_team_member = ListTeamMember.new({:user_id => current_user.id, :list_id => @list.id, :active => true})
-      list_team_member.save
+      list_team_member = ListTeamMember.create(:user_id => current_user.id, :list_id => @list.id, :active => true)
       redirect_to list_url(@list)
     else
       flash[:error] = "Could not post list"
@@ -48,27 +46,20 @@ class ListsController < ApplicationController
       redirect_to lists_url
     end
   end
+  
   def update
     @list = List.find(params[:id])
     @list.update_attributes(params[:list])  
     respond_with(@list, :location => list_url(@list))
   end
+ 
+  private
   
-  def invite_user
-    @list = List.find(params[:list_id])
-    user_email = params[:user_email]
-    first_name = params[:first_name]
-    last_name = params[:last_name]
-    
-    User.invite!(:email => user_email, :first_name => first_name, :last_name => last_name)
-    
-    user = User.find(:first, :conditions => ['email = ?', user_email])
-    
-    list_team_member = ListTeamMember.new({:user_id => user.id, :list_id => @list.id, :active => false, :invitation_token => user.invitation_token})
-    list_team_member.save
-    
-    render :json => {:success => true} 
+  def check_permission
+    #Invited users are not allowed to create new lists
+    if current_user.invited_user?
+      redirect_to lists_path, :alert => "You don't have permission to do that"  and return
+    end
   end
-  
   
 end

@@ -1,5 +1,8 @@
 <h1 class="page-header">Projects at a glance</h1> 
-<span class="index_button affix btn"><%= link_to "New Project", new_list_url %></span>
+<% unless current_user.invited_user? %>
+  <span class="index_button affix btn"><%= link_to "New Project", new_list_url %></span>
+<%end-%>
+  
 <ul class="nav nav-pills container" id="myTab">
   <li><a href="#stuff_with_others" style="color:#A80000;">Stuff With Others</a></li>
    <li><a href="#my_stuff" style="color:#A80000;">My Stuff</a></li>

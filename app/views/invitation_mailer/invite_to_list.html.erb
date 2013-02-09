@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <p>
+      Hello! <br />
+      <%= "#{@inviter.full_name} has invited you to the #{@list.name}." %>  <br />
+    </p>
+    <p>  
+      <%= link_to "Click here", accept_invitation_url(:token => @invitation.token) %> to accept the invitation and join the list. %>
+    </p>
+   
+  </body>
+</html>

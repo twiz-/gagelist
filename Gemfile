@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
 gem 'activeadmin'
+#gem 'mysql2' #Temporary setting. Should be removed.
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -14,13 +15,9 @@ gem 'rubylight'
 group :development, :test do
    gem 'sqlite3'
 end
-
-
-
-
+ 
 group :production do 
   gem 'pg'
-  
 end
 
 gem 'httparty'
@@ -45,7 +42,7 @@ gem 'therubyracer'
 
 gem "acts_as_list", "~> 0.1.8"
 
-gem "devise_invitable", "~> 1.1.3"
+#gem "devise_invitable", "~> 1.1.3"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,15 +1,26 @@
 Gagelist::Application.routes.draw do
   
-  devise_for :users, :controllers => { :invitations => 'users/invitations' }
-  ActiveAdmin.routes(self)
+  devise_for :users, :controllers => {:registrations => "registrations" } 
+  
+  devise_scope :user do
+    match '/edit_password' => "registrations#edit_password", :as => 'edit_password'
+    match '/update_password' => "registrations#update_password", :as => 'update_password'
+  end
+  
+  match '/confirmation_message' => "registrations#confirmation_message", :as => :confirmation_message
+  
+  #ActiveAdmin.routes(self)
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
+  #devise_for :admin_users, ActiveAdmin::Devise.config
 
-  devise_for :users
+  #devise_for :users
 
   resources :lists do
     resources :tasks 
   end
+  
+  resources :invitations
+  match 'invitation/accept/:token' => "invitations#accept", :as => :accept_invitation
   
   post '/tasks/sort', :controller => 'tasks', :action => 'sort', :as => 'sort_tasks'
   
@@ -25,7 +36,7 @@ Gagelist::Application.routes.draw do
   match 'lists/:list_id/tasks/:id/remove' => 'tasks#destroy', :as => :remove_task
   match 'lists/:list_id/tasks/:id/incomplete' => 'tasks#incomplete', :as => :incomplete_task
   
-  match 'list/:list_id/invite-user' => 'lists#invite_user', :as => :invite_user
+  #match 'list/:list_id/invite-user' => 'lists#invite_user', :as => :invite_user
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
