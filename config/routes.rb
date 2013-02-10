@@ -5,16 +5,19 @@ Gagelist::Application.routes.draw do
   devise_scope :user do
     match '/edit_password' => "registrations#edit_password", :as => 'edit_password'
     match '/update_password' => "registrations#update_password", :as => 'update_password'
+    match '/confirmation_message' => "registrations#confirmation_message", :as => :confirmation_message
   end
-  
-  match '/confirmation_message' => "registrations#confirmation_message", :as => :confirmation_message
-  
+ 
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users
 
   resources :lists do
-    resources :tasks 
+    resources :tasks do
+      member do
+        post 'complete'
+      end  
+    end
   end
   
   resources :invitations

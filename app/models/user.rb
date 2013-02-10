@@ -30,4 +30,9 @@ class User < ActiveRecord::Base
     "http://gravatar.com/avatar/#{hash}"
   end
  
+  def generate_new_confirmation_token
+    self.confirmed_at = nil
+    self.confirmation_token = Devise.friendly_token
+    self.confirmation_sent_at = Time.now.utc
+  end
 end

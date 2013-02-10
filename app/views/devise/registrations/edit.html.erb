@@ -12,6 +12,7 @@
       <%= devise_error_messages! %>
       <%= f.email_field :email, :placeholder => "Your Email"  %><br>
       <i>(leave blank if you don't want to change it)</i><br>
+      <%= f.text_field :profile_name, :placeholder => "Profile Name"  %><br>
       <%= f.password_field :password, :autocomplete => "off", :placeholder => "New Password"  %><br>
       <%= f.password_field :password_confirmation, :placeholder => "Confirm New Password"  %><br>
       <%= f.password_field :current_password, :placeholder => "Your Current Passsword"  %><br>

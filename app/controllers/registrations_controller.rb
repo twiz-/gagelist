@@ -14,10 +14,24 @@ class RegistrationsController < Devise::RegistrationsController
   end
   
   def create
-    #Check if the user is already created by invitation.
+    #If the user is already invited(created with empty password), update it. Users are allowed to sign-up directly, which will override the record created by invitation.
     user = User.find_by_email(params[:user][:email])
+    invitation = Invitation.where(:email => params[:user][:email]).where("accepted_at <> ''").first
     
-    if user.blank?
+    if !user.blank? && !invitation.blank? && user.encrypted_password.blank?
+      if user.update_attributes(params[:user]) 
+        #User need to reconfirm in this case, as he signed-up directly, despite invitation.
+        user.generate_new_confirmation_token()
+        user.send_confirmation_instructions 
+        
+        sign_in(user)
+        redirect_to after_sign_up_path_for(user)
+      else
+        clean_up_passwords user
+        self.resource = user
+        respond_with user
+      end
+    else
       build_resource #from devise
       if resource.save
         sign_in(resource)
@@ -26,15 +40,7 @@ class RegistrationsController < Devise::RegistrationsController
         clean_up_passwords resource
         respond_with resource
       end
-    else
-      if user.update_attributes(params[:user])  
-        sign_in(user)
-        redirect_to lists_path
-      else
-        clean_up_passwords user
-        self.resource = user
-        respond_with user
-      end
+      
     end
     
   end
