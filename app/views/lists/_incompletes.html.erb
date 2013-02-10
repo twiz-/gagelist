@@ -1,18 +1,8 @@
 
- 	<% 
- 	index = 0;
- 	if current_user.id == @list.id
- 		tasks = @list.tasks.incomplete
- 	else
- 		tasks = @list.tasks.incompletes(@list.id, current_user.id)
- 	end
- 	
- 	tasks.each do |task| 
- 	%>
- 		
-	    <li id="task_<%= task.id %>" class="handle <%= index == (tasks.length - 1) ? 'last' : '' %>">
+ 	<% @list.tasks.incomplete.each do |task|  %>
+	    <li id="task_<%= task.id %>" class="handle">
 	    	<span class="small"> 
-	    		<%= form_tag({:controller => 'tasks', :action => 'complete', :list_id => @list.id, :id => task.id}, :remote => true) do |f| %>
+	    		<%= form_for(task, :url => complete_list_task_path(@list.id, task.id), :remote => true) do |f| %>
 	    		    <%= check_box_tag 'mark_complete', 1, false, :class => 'checkbox mark_comp' %>
 	    	    <% end %> 
     	    </span>
@@ -29,10 +19,7 @@
 	    	<div class="clear"></div>
 	    </li>
 
- 	<% 
- 	index += 1
- 	end 
- 	%>
+ 	<%end%>
  	
  	
 
