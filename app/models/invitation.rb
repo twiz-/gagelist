@@ -12,8 +12,7 @@ class Invitation < ActiveRecord::Base
   scope :pending, where(:accepted_at => nil)
   
   def generate_token
-    token = Digest::MD5.hexdigest("#{self.email}#{rand(self.first_name.size)}")
-    self.token = token
+    self.token = Devise.friendly_token
   end
   
   def create_user
