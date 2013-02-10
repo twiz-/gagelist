@@ -35,3 +35,4 @@ Gagelist::Application.configure do
   # Don't care if the mailer can't send and allow actual email to be sent in prod
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
+end  
