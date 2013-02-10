@@ -8,8 +8,11 @@ class List < ActiveRecord::Base
   validates :name, :description, :presence => true
   
   #Returns the lists with single member (creator). Another way is adding counter_cache column
-  scope :with_one_member, includes(:list_team_members).select { |l| l.list_team_members.size == 1 } 
- 
+  #scope :with_one_member, includes(:list_team_members).select{|l| l.list_team_members.size== 1} 
+  def self.with_one_member
+    joins(:list_team_members).select{|l| l.list_team_members.size == 1 } 
+  end
+  
   def percent_complete
     (self.tasks.completed.count.to_f / self.tasks.all.count.to_f) * 100
   end
