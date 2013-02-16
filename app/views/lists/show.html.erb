@@ -18,7 +18,7 @@
       <div id="smallbuddy" style="width:340px; height:200px;"></div>
     </div>
     <div class="span5">
-      <%= link_to "Add New Task", '#add_task', class: "show_button btn", id: "new_task_bt" %>
+      <%= link_to "Add New Task", '#', class: "show_button btn", id: "new_task_bt" %>
       <% is_created_user =  current_user.id == @list.user_id ? true : false%>
       <% if is_created_user %>
       <%= button_tag 'Invite user', :id => 'bt-invite-user', :class => 'btn btn-info'  %>
@@ -51,7 +51,7 @@
     </div>  
   </div>
   <div class="row span10">
-    <ul class="task-list" id="incomplete" data-update-url="<%= sort_tasks_url %>">
+    <ul class="task-list" id="incomplete" data-update-url="<%= sort_tasks_url(format: :js) %>">
       <%= render 'incompletes' %>
     </ul>
   </div>

@@ -3,7 +3,7 @@
                   collection: @list.active_members.collect {|m| [ m.full_name, m.id ]}, 
                   label_method: :first, 
                   value_method: :last, 
-                  as: :radio,
+                  as: :radio_buttons,
                   label: 'Assign To:',
                   error: false %>
     <br />

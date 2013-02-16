@@ -24,7 +24,7 @@ class TasksController < ApplicationController
       completed: true
     })
         
-    respond_with @list
+    #respond_with @list
   end
   
   def incomplete
@@ -50,7 +50,6 @@ class TasksController < ApplicationController
       logger.info('id: ' + id.to_s + ' ' + index.to_s)
       Task.update_all(['position=?', index+1], ['id=?', id])
     end
-    render :nothing => true
   end
 
   private

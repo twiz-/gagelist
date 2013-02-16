@@ -29,6 +29,7 @@ $(function() {
 		  this.reset();
 		});
 		$(this).hide();
+		return false; //To avoid # added to current url
 	});
 	
 	$('.mark_comp').live('click', function() {
@@ -51,10 +52,7 @@ $(function() {
 		$('#new_task_bt').show();
 	});
 	
-	$(".remove_task_bt").live("click", function() {
-		$(this).parent().submit();
-	});
-	
+
 	 $("#tb-incompletes th a").live("click", function() {
 	    $.getScript(this.href);
 	    return false;
@@ -74,3 +72,10 @@ $(function() {
 	
 });
 $('.second_step').hide();
+
+function update_due_labels(){  
+  $('ul#incomplete li span.medium').html('');
+  $('ul#incomplete li:first span.medium').html('<label>Due Now</label>');
+  $('ul#incomplete').children('li').eq(1).children('span.medium').html('<label>Up Next</label>');
+  return false;
+}
