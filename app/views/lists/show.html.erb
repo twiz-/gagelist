@@ -18,7 +18,7 @@
       <div id="smallbuddy" style="width:340px; height:200px;"></div>
     </div>
     <div class="span5">
-      <%= link_to "Add New Task", '#', class: "show_button btn", id: "new_task_bt" %>
+      <%= link_to "Add New Task", '#add_task', class: "show_button btn", id: "new_task_bt" %>
       <% is_created_user =  current_user.id == @list.user_id ? true : false%>
       <% if is_created_user %>
       <%= button_tag 'Invite user', :id => 'bt-invite-user', :class => 'btn btn-info'  %>
@@ -46,20 +46,7 @@
       	  <hr/>
       <% end %>
       <div id="new_task_form">
-
-    	  <%= simple_form_for [@list, @list.tasks.new], :remote => true do |form| %>
-
-
-    	  	<%= form.label :user_id %>
-    	  	<%= select("task", "user_id", @list_team_members.collect {|tm| [ tm.user.full_name, tm.user_id ] }, { :include_blank => true }) %>
-
-    	    <%= form.label :description %>
-    	    <%= form.text_field :description %>
-    	    <%= form.label :due_date %>
-    	    <%= form.text_field :due_date %><br>
-    	    <%= form.submit :class => 'btn' %>
-    	    <%= button_tag 'Cancel', :id => 'bt-cancel-task', :class => 'btn', :type => 'button' %>
-    	  <% end %>  
+        <%= render '/tasks/form'%>
     	</div>  
     </div>  
   </div>

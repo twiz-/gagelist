@@ -3,15 +3,10 @@ class Task < ActiveRecord::Base
   
   belongs_to :list
   belongs_to :user
-  
-  
-  validates :user_id, :presence => true
-  validates :list_id, :presence => true
-  validates :description, :presence => true
-  
-  
+ 
+  validates :user_id, :list_id, :description, :presence => true
+ 
   scope :completed, where(:completed => true).order('position')
-  
   scope :incomplete, where(:completed => false).order('position')
   
   acts_as_list

@@ -4,6 +4,9 @@ class TasksController < ApplicationController
 
   def create
     @task = @list.tasks.new(params[:task])
+    @task.save
+       
+=begin    
     if @task.save
       flash[:notice] = "Task Created"
     else
@@ -11,6 +14,7 @@ class TasksController < ApplicationController
     end
 
     respond_with @list
+=end    
   end
   
   def complete

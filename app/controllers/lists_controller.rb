@@ -29,7 +29,8 @@ class ListsController < ApplicationController
   
   def show
     @list = List.find(params[:id])
-    @list_team_members = ListTeamMember.where('list_id = ? AND active = ?', @list.id, true)
+    @task = @list.tasks.new
+    #@list_team_members = ListTeamMember.where('list_id = ? AND active = ?', @list.id, true)
   end
   
   def edit
