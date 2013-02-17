@@ -1,7 +1,5 @@
 class Users::InvitationsController < Devise::InvitationsController
-  
   def update
-    
     logger = Logger.new('log/debug.log')
     logger.info('--------Log for update invitation-------')
     logger.info(params[:user][:invitation_token])
