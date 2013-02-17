@@ -1,8 +1,8 @@
 class Users::InvitationsController < Devise::InvitationsController
   def update
-    logger = Logger.new('log/debug.log')
-    logger.info('--------Log for update invitation-------')
-    logger.info(params[:user][:invitation_token])
+    # logger = Logger.new('log/debug.log')
+    # logger.info('--------Log for update invitation-------')
+    # logger.info(params[:user][:invitation_token])
     
     user = User.find(:first, :conditions => ['invitation_token = ?', params[:user][:invitation_token]])
     if !user.blank?
