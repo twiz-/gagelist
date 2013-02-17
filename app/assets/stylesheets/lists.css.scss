@@ -55,7 +55,7 @@ a{
 .index_button a{
   color: #A80000;
 }
-.show_button {
+.show_button, .show-participants {
   color: #A80000;
 }
 .index_title {
@@ -136,7 +136,7 @@ a{
     padding-bottom:5px;
 }
 
-#incomplete li:last-child{ border-bottom: 1px solid #DDDDDD;}
+#incomplete li:last-child{ border-bottom: 1px solid #ddd;}
 
 #incomplete li:hover {
   border-top-color:#A80000;
@@ -149,6 +149,11 @@ a{
   // border-top:1px solid #DDDDDD;
 }
 
+#incomplete li span form, #incomplete li span div, #incomplete li span img,  #completed li span form, #completed li span div {
+  float:left;
+  margin-right:5px;
+}
+
 #incomplete li span {
   float:left;
   width:100px;
@@ -157,7 +162,7 @@ a{
 
 #incomplete li span.small {
   padding-top: 20px;
-  width:50px;
+  width: 30px;
 }
 
 #incomplete li span.medium {
@@ -168,25 +173,32 @@ a{
 
 #incomplete li span.large {
   padding-top: 20px;
-  width:450px;
+  width:470px;
 }
+#incomplete li span img {float: none; margin-right: none}
+#incomplete li span.gravatar{ text-align: center; max-width: 110px; padding-right: 20px;}
+#incomplete li span.assignee{display: none; color: #A80000}
+#incomplete li.handle:hover .assignee{ display: block; visibility: visible; }
 
 #completed li span {
   float:left;
   width:100%;
 }
 
-#incomplete li span form, #incomplete li span div, #incomplete li span img,  #completed li span form, #completed li span div {
-  float:left;
-  margin-right:5px;
-}
 
 .remove_task_bt {
   cursor:pointer;
 }
+
+.show-completed {margin-top: 10px}
 
 table thead {
   background-color:#DDD;
 }
 
 .handle:hover{cursor: move;}
+#participants{display: block; margin-top: 25px;}
+
+td.remove {text-align: right;}
+tr.false td{color: #999;}
+tr.false td.remove a{display: none;}

@@ -2,29 +2,21 @@
 	<li id="task_<%= task.id %>" class="handle">
 	   <span class="small"> 
 	      <%= form_for(task, :url => complete_list_task_path(@list.id, task.id), :remote => true) do |f| %>
-	    		    <%= check_box_tag 'mark_complete', 1, false, :class => 'checkbox mark_comp' %>
-	    	    <% end %> 
-    	    </span>
-    	    <span>
-    	    	<%= image_tag task.user.gravatar_url, :class => "gravatar_index" %>
-    	    </span>
-	    	<span class="large"> <%= task.description %> </span>
-	    	<span class="small">
+	    		 <%= check_box_tag 'mark_complete', 1, false, :class => 'checkbox mark_comp' %>
+	      <% end %> 
+     </span>
+     <span class='gravatar'>
+    	  <%= image_tag task.user.gravatar_url, :class => "gravatar_index" %>
+    	  <span class='assignee'><%= task.user.full_name %></span>
+     </span>
+	   <span class="large"> <%= task.description %> </span>
+	   <span class="small">
 	    	  <%= link_to "<i class='icon-trash'></i>".html_safe, remove_task_path(@list.id, task.id), :remote => true %>
-	    	</span>
-	      <span class="medium">
-	    	   
-	    	</span>
- 
-	    	<div class="clear"></div>
+	   </span>
+	   <span class="medium"> </span>
+     <div class="clear"></div>
 	 </li>
 <%end%>
- 	
-<script type="text/javascript"> 
-  $(function() {
-    update_due_labels();
-  });  
-</script>   	
  
  
 <!-- <%#= sortable_element("tasks", :url => {:controller => 'lists', :action => 'sort'}, :handle => "handle") %> -->

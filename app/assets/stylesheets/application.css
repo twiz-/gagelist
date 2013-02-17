@@ -64,3 +64,7 @@ a {
 }
 
 span.require{color: red;}
+
+/*Overriding bootstrap rules*/
+form label, label.control-label{font-weight: bold; color: #555;}
+label.radio{font-weight: normal; color: #333}

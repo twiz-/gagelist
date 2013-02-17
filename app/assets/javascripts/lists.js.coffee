@@ -26,4 +26,5 @@ jQuery ->
     $("#new_task_bt").show()
     $("#notice").text("Invitation email has been sent successfully").css("color", "green").fadeIn(300).delay(30000).fadeOut 300
 
-
+$ ->
+  update_due_labels()

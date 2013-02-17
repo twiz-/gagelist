@@ -4,7 +4,7 @@ class ListsController < ApplicationController
   
   before_filter :authenticate_user!
   before_filter :check_permission, :only => [:new, :create]
-  
+  before_filter :find_list, :only => [:edit, :show, :destroy, :update ]
   def index
     all_lists = current_user.paricipating_lists
     @private_lists = all_lists.with_one_member
@@ -28,17 +28,15 @@ class ListsController < ApplicationController
   end
   
   def show
-    @list = List.find(params[:id])
     @task = @list.tasks.new
     #@list_team_members = ListTeamMember.where('list_id = ? AND active = ?', @list.id, true)
   end
   
   def edit
-    @list = List.find(params[:id])
+ 
   end
   
   def destroy
-    @list = List.find(params[:id])
     if @list.destroy
       flash[:notice] = "List Deleted"
       redirect_to lists_url
@@ -49,12 +47,21 @@ class ListsController < ApplicationController
   end
   
   def update
-    @list = List.find(params[:id])
     @list.update_attributes(params[:list])  
     respond_with(@list, :location => list_url(@list))
   end
- 
+  
+  def remove_membership
+    @list = List.find(params[:list_id])
+    membership = @list.list_team_members.where(user_id: params[:member_id]).first
+    membership.update_attribute('active', false)
+  end
+  
   private
+  
+  def find_list
+    @list = List.find(params[:id])
+  end
   
   def check_permission
     #Invited users are not allowed to create new lists

@@ -1,0 +1,12 @@
+ <table class='table'>
+   <%- @list.list_team_members.each do |list_member| %>
+      <tr class='<%= list_member.active? %>'>
+         <td><%= list_member.user.full_name %></td>
+         <td class='remove'>
+            <%if @list.user == current_user %>
+               <%= link_to image_tag('cancel.png'), list_remove_membership_path(@list.id, member_id: list_member.user_id), remote: true, confirm: "Are you sure?" %>
+            <%end%>     
+         </td>
+       </tr>  
+   <%end%>
+</table>

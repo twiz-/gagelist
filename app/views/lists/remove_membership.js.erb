@@ -1,0 +1,4 @@
+$("#members_list").html("<%= escape_javascript(render('/lists/members')) %>")
+<% @task = @list.tasks.new %>
+$("#new_task_form").html("<%= escape_javascript(render('/tasks/form')) %>")
+$('#task_due_date').datepicker({dateFormat: 'mm-dd-yy'})
