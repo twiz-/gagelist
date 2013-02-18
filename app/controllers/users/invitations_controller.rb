@@ -1,4 +1,4 @@
-class Users::InvitationsController < Devise::InvitationsController
+class InvitationsController < Devise::InvitationsController
   def update
     logger = Logger.new('log/debug.log')
     logger.info('--------Log for update invitation-------')
