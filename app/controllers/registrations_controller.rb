@@ -16,7 +16,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     #If the user is already invited(created with empty password), update it. Users are allowed to sign-up directly, which will override the record created by invitation.
     user = User.find_by_email(params[:user][:email])
-    invitation = Invitation.where(:email => params[:user][:email]).where("accepted_at <> ''").first
+    invitation = Invitation.where(:email => params[:user][:email]).where("accepted_at is not ?", nil).first
     
     if !user.blank? && !invitation.blank? && user.encrypted_password.blank?
       if user.update_attributes(params[:user]) 
