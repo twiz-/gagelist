@@ -18,6 +18,8 @@ Gagelist::Application.routes.draw do
         post 'complete'
       end  
     end
+    
+    match 'remove_membership'
   end
   
   resources :invitations
