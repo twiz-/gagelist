@@ -8,4 +8,4 @@ ActionMailer::Base.smtp_settings = {
     :password => "no1sensitiveinfo"
 }
  
-ActionMailer::Base.default_url_options[:host] = "http://www.staging23-refreshrunner.herokuapp.com"  
+ActionMailer::Base.default_url_options[:host] = "staging23-refreshrunner.herokuapp.com"  
