@@ -5,13 +5,12 @@
   </head>
   <body>
     <p>
-      Hey-<br />
-      <strong><%= @inviter.full_name %></strong> has invited you to the <strong><%= @list.name %></strong>.   <br />
+      <strong><%= @inviter.full_name %></strong> has invited you to the list "<strong><%= @list.name %></strong>".   <br />
     </p>
     <p>  
       <%= link_to "Click here", accept_invitation_url(:token => @invitation.token) %> to accept the invitation and join the list.<br /> Questions? Contact <%= @inviter.email %>
     </p><br />
-    <p>This is an email sent from refreshrunner.com when someone onvites you to their project.</p>
+    <p>This is an email sent from www.refreshrunner.com when someone invites you to their project.</p>
    
   </body>
 </html>
