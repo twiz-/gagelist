@@ -1,4 +1,4 @@
-<div class="well span4" id="index_well">
+<div class="well span4 index_well" id='<%= "list_#{list.id}" %>' >
    <div class="span4">
       <span class="index_title">
         <%= link_to "#{list.name}", list_url(list) %>
@@ -9,21 +9,25 @@
               <div class="span2">
                 <span id="blame_game"> 
                  <div class="who_is_next"> 
-                  <% if Task.who_are_we_waiting_on(list) %>
+                  <% if list.has_pending_task? %>
                     <span class="now"> 
-                      <%= image_tag Task.who_are_we_waiting_on(list).user.gravatar_url, :class => "gravatar_index" %>
+                      <%= image_tag list.top_pending_task.user_gravatar, :class => "gravatar_index" %>
                     </span>
+                    
+                    <% unless list.next_pending_task.nil? %>
+                      <span class="next">
+                        <%= image_tag list.next_pending_task.user_gravatar, :class => "gravatar_index" %>
+                      </span>
+                    <% end %>
+                  
+                  <%else%>
+                     <%= link_to 'Complete?', mark_complete_list_path(list.id), :remote => true, confirm: "Are you sure?", :class => 'btn btn-info' %>  
                   <% end %> 
-                  <% if Task.who_is_next(list) %>
-                    <span class="next">
-                     <%= image_tag Task.who_is_next(list).user.gravatar_url, :class => "gravatar_index" %>
-                    </span>
-                  <% end %>
                </div>
               </span>
               </div>
                 <div>
-                  <div class="gage_index pull-right" id="gage-<%= list.id %>" style="width:170px; height:100px;"></div>
+                  <div class="gage_index pull-right" id="gage-<%= list.id %>" style="width:170px; height: 100px;"></div>
                 </div>
             </div>
           </div> 

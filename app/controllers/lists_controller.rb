@@ -4,9 +4,11 @@ class ListsController < ApplicationController
   
   before_filter :authenticate_user!
   before_filter :check_permission, :only => [:new, :create]
-  before_filter :find_list, :only => [:edit, :show, :destroy, :update ]
+  before_filter :find_list, :only => [:edit, :show, :destroy, :update, :mark_complete, :mark_uncomplete] 
+  before_filter :check_ownership, :only => [:remove_membership]
+
   def index
-    all_lists = current_user.paricipating_lists
+    all_lists = current_user.paricipating_lists.incomplete
     @private_lists = all_lists.with_one_member
     @lists = all_lists - @private_lists
   end
@@ -31,7 +33,7 @@ class ListsController < ApplicationController
     @task = @list.tasks.new
     #@list_team_members = ListTeamMember.where('list_id = ? AND active = ?', @list.id, true)
   end
-  
+ 
   def edit
  
   end
@@ -52,9 +54,24 @@ class ListsController < ApplicationController
   end
   
   def remove_membership
-    @list = List.find(params[:list_id])
-    membership = @list.list_team_members.where(user_id: params[:member_id]).first
-    membership.update_attribute('active', false)
+    @list.remove_membership(params[:member_id])
+  end
+  
+  def mark_complete
+    #Don't use update_attributes. security issue. allows mass assignment
+    @list.complete = true 
+    @list.completed_at = Time.now
+    @list.save
+  end
+  
+  def mark_uncomplete
+    @list.complete = false 
+    @list.completed_at = nil
+    @list.save
+  end
+  
+  def completed
+    @lists = current_user.paricipating_lists.completed
   end
   
   private
@@ -66,8 +83,15 @@ class ListsController < ApplicationController
   def check_permission
     #Invited users are not allowed to create new lists
     if current_user.invited_user?
-      redirect_to lists_path, :alert => "You don't have permission to do that"  and return
+      redirect_to lists_path, :alert => "You don't have permission to do that. This action is notified."  and return
     end
   end
   
+  def check_ownership
+    @list = List.find(params[:list_id])
+    #List creator only allowed to remove members
+    unless @list.user ==  current_user 
+      redirect_to lists_path, :alert => "You don't have permission to do that. This action is notified." and return
+    end
+  end
 end

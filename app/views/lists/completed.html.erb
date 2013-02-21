@@ -1,0 +1,25 @@
+<h1 class="page-header">Completed Projects</h1> 
+ 
+<% @lists.each do |list| %> 
+   <div class="well span4 index_well" id='<%= "list_#{list.id}" %>' >
+     <div class="span4">
+        <span class="index_title">
+          <%= link_to "#{list.name}", list_url(list) %>
+        </span>
+        
+        <div class="row">
+          <div class="span4"><%= list.description %></div>
+          <br />
+          <div class="span4">
+             <span id="complete"> 
+                  Completed on:
+                  <%= list.completed_at.strftime('%d-%m-%Y') %>
+                  <br />
+                  <%= link_to 'Uncomplete', mark_uncomplete_list_path(list.id), :remote => true, confirm: "Are you sure?", :class => 'btn btn-info' %>  
+              </span>
+          </div>
+        </div>
+      </div>
+   </div>
+<% end %>
+  

@@ -13,6 +13,15 @@ Gagelist::Application.routes.draw do
   devise_for :users
 
   resources :lists do
+    collection do
+      get 'completed'
+    end  
+    
+    member do
+      get 'mark_complete'
+      get 'mark_uncomplete'
+    end  
+      
     resources :tasks do
       member do
         post 'complete'

@@ -4,26 +4,24 @@
 <%end-%>
   
 <ul class="nav nav-pills container" id="myTab">
-  <li><a href="#stuff_with_others" style="color:#A80000;">Stuff With Others</a></li>
+   <li class="active"><a href="#stuff_with_others" style="color:#A80000;">Stuff With Others</a></li>
    <li><a href="#my_stuff" style="color:#A80000;">My Stuff</a></li>
 </ul>
 <div class="tab-content"> 
-  <div class="tab-pane" id="my_stuff">
-    <% @private_lists.each do |list| %> 
+  <div class="tab-pane active" id="stuff_with_others">
+    <% @lists.each do |list| %> 
       <%= render 'list', {:list => list} %>
     <% end %>
   </div>
-  <div class="tab-pane active" id="stuff_with_others">
-    <% @lists.each do |list| %> 
+  
+  <div class="tab-pane" id="my_stuff">
+    <% @private_lists.each do |list| %> 
       <%= render 'list', {:list => list} %>
     <% end %>
   </div>
 </div>  
  
 <script>
-  $(function () {
-    $('#myTab a:first').tab('show');
-  })
   $('#myTab a').click(function (e) {
     e.preventDefault();
     $(this).tab('show');
