@@ -109,6 +109,7 @@ a{
   width:68px;
   z-index:1;
 }
+
 #blame_game:hover .now {
   -webkit-transform:scale(0) rotate(360deg);
   -moz-transform:scale(0) rotate(360deg);
@@ -116,6 +117,7 @@ a{
   -ms-transform:scale(0) rotate(360deg);
   z-index:1;
 }
+
 #blame_game:hover .next {
   -webkit-transform:scale(1) rotate(360deg);
   -moz-transform:scale(1) rotate(360deg);
@@ -123,6 +125,8 @@ a{
   -ms-transform:scale(1) rotate(360deg);
   z-index:2;
 }
+
+a.blurred{opacity: 0.9;}
 
 #new_task_form {
   display:none;
