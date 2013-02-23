@@ -1,6 +1,16 @@
-gage<%= @list.id %>.refresh(<%= @list.percent_complete.round(2) %>);
-$('#incomplete').fadeOut(1000);
-$("#new_task_bt").show();
-$("#new_task_form").hide();
-$('#incomplete').html('<%= escape_javascript render 'lists/incompletes' %>');
-$('#incomplete').fadeIn(1000);
+<% if @task.errors.blank? %>
+  gage<%= @list.id %>.refresh(<%= @list.percent_complete.round(2) %>);
+  $('#incomplete').fadeOut(1000);
+  $("#new_task_bt").show();
+  $("#new_task_form").hide();
+  <% @task = @list.tasks.new %>
+  $("#new_task_form").html("<%= escape_javascript(render('/tasks/form')) %>")
+  $('#task_due_date').datepicker({dateFormat: 'mm-dd-yy'})
+  $('#incomplete').html('<%= escape_javascript render 'lists/incompletes' %>');
+  $('#incomplete').fadeIn(1000);
+  $('#notice').html('<div class="alert alert-success"> <a href="#" class="close" data-dismiss="alert">x</a> Task is successfully created. </div>');
+  update_due_labels();
+<%else%>
+  $("#new_task_form").html("<%= escape_javascript(render('/tasks/form')) %>")
+  $('#task_due_date').datepicker({dateFormat: 'mm-dd-yy'})
+<%end%>  

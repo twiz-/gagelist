@@ -1,0 +1,31 @@
+<h1 class="page-header">Completed Projects</h1> 
+ 
+<% @lists.each do |list| %> 
+   <div class="well span4 index_well" id='<%= "list_#{list.id}" %>' >
+     <div class="span4">
+        <span class="index_title">
+          <%= link_to "#{list.name}", list_url(list) %>
+        </span>
+        
+        <div class="row">
+          <div class="span4"><%= list.description %></div>
+          <br />
+          <div class="span4">
+             <span id="complete"> 
+                  Completed on:
+                  <%= list.completed_at.strftime('%d-%m-%Y') %>
+                  <br />
+                   <% if list.owner?(current_user) %>
+                       <%= link_to 'Uncomplete', mark_uncomplete_list_path(list.id), :remote => true, confirm: "Are you sure?", :class => 'btn btn-info btn-mini' %> 
+                    <%else%>
+                      <%= link_to_function 'Uncomplete', 'alert("You don\'t have permission to complete this!")', class: 'btn btn-info btn-mini' %>  
+                    <%end-%>   
+                    
+                    
+              </span>
+          </div>
+        </div>
+      </div>
+   </div>
+<% end %>
+  

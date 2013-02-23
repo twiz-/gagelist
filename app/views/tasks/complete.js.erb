@@ -1,10 +1,9 @@
 gage<%= @list.id %>.refresh(<%= @list.percent_complete.round(2) %>);
 
 $("#completed").html('<%= escape_javascript render 'lists/completed' %>');
-
 $("#task_<%= @task.id %>").fadeOut(1000);
 $("#task_<%= @task.id %>").remove();
-
+update_due_labels();
 
 
 

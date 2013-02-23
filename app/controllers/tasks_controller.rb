@@ -4,6 +4,9 @@ class TasksController < ApplicationController
 
   def create
     @task = @list.tasks.new(params[:task])
+    @task.save
+       
+=begin    
     if @task.save
       flash[:notice] = "Task Created"
     else
@@ -11,6 +14,7 @@ class TasksController < ApplicationController
     end
 
     respond_with @list
+=end    
   end
   
   def complete
@@ -20,7 +24,7 @@ class TasksController < ApplicationController
       completed: true
     })
         
-    respond_with @list
+    #respond_with @list
   end
   
   def incomplete
@@ -46,7 +50,6 @@ class TasksController < ApplicationController
       logger.info('id: ' + id.to_s + ' ' + index.to_s)
       Task.update_all(['position=?', index+1], ['id=?', id])
     end
-    render :nothing => true
   end
 
   private

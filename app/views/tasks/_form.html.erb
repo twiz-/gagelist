@@ -1,0 +1,15 @@
+<%= simple_form_for [@list, @task], :remote => true do |form| %>
+   <%= form.input :user_id, 
+                  collection: @list.active_members.collect {|m| [ m.full_name, m.id ]}, 
+                  label_method: :first, 
+                  value_method: :last, 
+                  as: :radio_buttons,
+                  label: 'Assign To:',
+                  error: false %>
+    <br />
+    <%= form.input :description, input_html: {class: 'span4'} %>
+    <%= form.label :due_date %>
+    <%= form.text_field :due_date %><br>
+    <%= form.submit :class => 'btn' %>
+    <%= button_tag 'Cancel', :id => 'bt-cancel-task', :class => 'btn', :type => 'button' %>
+<% end %>  
