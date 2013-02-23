@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
 gem 'activeadmin'
-#gem 'mysql2' #Temporary setting. Should be removed.
+gem 'mysql2' #Temporary setting. Should be removed.
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

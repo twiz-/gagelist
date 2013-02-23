@@ -4,7 +4,7 @@ class ListsController < ApplicationController
   
   before_filter :authenticate_user!
   before_filter :check_permission, :only => [:new, :create]
-  before_filter :find_list, :only => [:edit, :show, :destroy, :update, :mark_complete, :mark_uncomplete] 
+  before_filter :find_list, :except => [:index, :new, :create, :completed] 
   before_filter :check_ownership, :only => [:remove_membership, :mark_complete, :mark_uncomplete]
 
   def index
@@ -77,7 +77,8 @@ class ListsController < ApplicationController
   private
   
   def find_list
-    @list = List.find(params[:id])
+    @list = List.find(params[:id]) unless params[:id].blank?
+    @list = List.find(params[:list_id]) if @list.blank?
   end
   
   def check_permission
@@ -88,7 +89,6 @@ class ListsController < ApplicationController
   end
   
   def check_ownership
-    @list = List.find(params[:list_id])
     #List creator only allowed to remove members
     unless @list.owner?(current_user) 
       redirect_to lists_path, :alert => "You don't have permission to do that. This action is notified." and return
