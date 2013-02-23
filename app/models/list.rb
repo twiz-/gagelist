@@ -14,6 +14,10 @@ class List < ActiveRecord::Base
   scope :completed, where(:complete => true)
   scope :incomplete, where(:complete => false)
   
+  def owner?(user)
+    self.user == user
+  end
+  
   def has_pending_task?
     !self.tasks.incomplete.first.blank?
   end

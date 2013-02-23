@@ -15,7 +15,13 @@
                   Completed on:
                   <%= list.completed_at.strftime('%d-%m-%Y') %>
                   <br />
-                  <%= link_to 'Uncomplete', mark_uncomplete_list_path(list.id), :remote => true, confirm: "Are you sure?", :class => 'btn btn-info btn-mini' %>  
+                   <% if list.owner?(current_user) %>
+                       <%= link_to 'Uncomplete', mark_uncomplete_list_path(list.id), :remote => true, confirm: "Are you sure?", :class => 'btn btn-info btn-mini' %> 
+                    <%else%>
+                      <%= link_to_function 'Uncomplete', 'alert("You don\'t have permission to complete this!")', class: 'btn btn-info btn-mini' %>  
+                    <%end-%>   
+                    
+                    
               </span>
           </div>
         </div>

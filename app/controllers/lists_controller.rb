@@ -5,7 +5,7 @@ class ListsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :check_permission, :only => [:new, :create]
   before_filter :find_list, :only => [:edit, :show, :destroy, :update, :mark_complete, :mark_uncomplete] 
-  before_filter :check_ownership, :only => [:remove_membership]
+  before_filter :check_ownership, :only => [:remove_membership, :mark_complete, :mark_uncomplete]
 
   def index
     all_lists = current_user.paricipating_lists.incomplete
