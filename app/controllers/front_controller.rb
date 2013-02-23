@@ -11,6 +11,7 @@ class FrontController < ApplicationController
   
   def does
   end
+  
   def terms
   end
 end

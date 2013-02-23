@@ -24,7 +24,7 @@ class ListsController < ApplicationController
       list_team_member = ListTeamMember.create(:user_id => current_user.id, :list_id => @list.id, :active => true)
       redirect_to list_url(@list)
     else
-      flash[:error] = "Could not post list"
+      flash[:error] = "Could create list"
       respond_with(@list, :location => list_url(@list))
     end
   end
