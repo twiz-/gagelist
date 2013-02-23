@@ -90,7 +90,7 @@ class ListsController < ApplicationController
   def check_ownership
     @list = List.find(params[:list_id])
     #List creator only allowed to remove members
-    unless @list.user ==  current_user 
+    unless @list.owner?(current_user) 
       redirect_to lists_path, :alert => "You don't have permission to do that. This action is notified." and return
     end
   end
