@@ -75,7 +75,7 @@ $('.second_step').hide();
 
 function update_due_labels(){  
   $('ul#incomplete li span.medium').html('');
-  $('ul#incomplete li:first span.medium').html('<label>Due Now</label>');
-  $('ul#incomplete').children('li').eq(1).children('span.medium').html('<label>Up Next</label>');
+  $('ul#incomplete li:first span.medium').html('<span class="label label-important">Due Now</span>');
+  $('ul#incomplete').children('li').eq(1).children('span.medium').html('<span class="label label-warning">Up Next</span>');
   return false;
 }

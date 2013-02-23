@@ -17,12 +17,12 @@
                       <% unless list.next_pending_task.nil? %>
                         <%= image_tag list.next_pending_task.user_gravatar, class: "gravatar_index" %>
                       <%else%>
-                        <%= link_to_function 'Complete?', 'return false;', class: 'btn btn-info btn-mini blurred' %>    
+                        <%= link_to_function 'Complete?', 'return false;', class: 'label label-success blurred' %>    
                       <% end %>
                     </span>  
                   <%else%>
                     <% if list.owner?(current_user) %>
-                       <%= link_to 'Complete?', mark_complete_list_path(list.id), remote: true, confirm: "Are you sure?", class: 'btn btn-info btn-mini' %> 
+                       <%= link_to 'Complete?', mark_complete_list_path(list.id), remote: true, confirm: "Are you sure?", class: 'label label-success' %> 
                     <%else%>
                       <%= link_to_function 'Complete?', 'alert("You don\'t have permission to complete this!")', class: 'btn btn-info btn-mini' %>     
                     <%end-%>   
