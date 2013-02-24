@@ -57,7 +57,22 @@ a{
 }
 .show_button, .show-participants {
   color: #A80000;
+  font-weight: bold;
 }
+.show_button:hover {
+	text-decoration: underline;
+	color: #A80000;
+}
+.invite_hover {
+	color: #A80000;
+	font-weight: bold;
+}
+
+.invite_hover:hover {	
+	text-decoration: underline;
+	color: #A80000;
+	}
+
 .index_title {
    height: 100px;
    width: 75%;
@@ -206,3 +221,10 @@ table thead {
 td.remove {text-align: right;}
 tr.false td{color: #999;}
 tr.false td.remove a{display: none;}
+
+.links123 {
+	color: red;
+}
+.links123:hover {
+	color: black;
+}
