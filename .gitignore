@@ -16,3 +16,7 @@
 
 # ignore the gage_dev
 gagelist_development
+
+#ignore the ssl certs for version control
+domain.pem
+private.key
