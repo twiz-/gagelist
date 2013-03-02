@@ -5,4 +5,5 @@ class ApplicationController < ActionController::Base
     if Rails.env.production? and request.host.downcase != 'refreshrunner.com'
       redirect_to request.protocol + 'refreshrunner.com' + request.fullpath, :status => 301
     end
+  end
 end
