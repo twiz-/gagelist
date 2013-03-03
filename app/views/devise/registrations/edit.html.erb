@@ -1,3 +1,22 @@
+<br><br>
+<hr>
+<span>
+  <% if current_user.invited_user? %>
+    <h4>Want to create your own projects and invite users to them?<br>
+    <small>Set your profile name below info and get started straight away.</h4>
+    <input type="search" placeholder="desired profile name"><br>
+    <button class="btn btn-info" type="button">Set Profile Name</button>
+    
+  <% else %>
+    <span>You have <strong> 45-day-countdown (from when profile name was set)</strong> left on your trial.</span><br> 
+    <span>You must pay before your trial expires to keep all your projects and continue using.</span><br>
+    <%=link_to "Continue Using", new_charge_path%>
+
+
+  <%end-%>
+</span>  
+<hr>
+
 <br>
 <div class="row span9">
   <div class="span3">
