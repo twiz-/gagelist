@@ -22,4 +22,3 @@ domain.pem
 private.key
 
 #ignore the strip api keys
-config/initializers/stripe.rb
