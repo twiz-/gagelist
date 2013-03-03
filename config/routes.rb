@@ -11,6 +11,8 @@ Gagelist::Application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users
+  
+  
 
   resources :lists do
     collection do
@@ -31,6 +33,7 @@ Gagelist::Application.routes.draw do
     match 'remove_membership'
   end
   
+  resources :charges
   resources :invitations
   match 'invitation/accept/:token' => "invitations#accept", :as => :accept_invitation
   
