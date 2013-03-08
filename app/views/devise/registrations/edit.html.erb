@@ -1,18 +1,22 @@
 <br><br>
 <hr>
 <span>
+  <%= current_user.profile_name %>
   <% if current_user.invited_user? %>
     <h4>Want to create your own projects and invite users to them?<br>
     <small>Set your profile name below info and get started straight away.</h4>
-    <input type="search" placeholder="desired profile name"><br>
-    <button class="btn btn-info" type="button">Set Profile Name</button>
+    <%= form_for resource, :url => set_profile_name_path, :remote => true do |f| %>
+      <%= f.text_field :profile_name, :placeholder => "desired profile name"  %><br>
+      <%= f.submit "Set Profile Name", :class => "btn btn-info" %>
+    <%end%>
     
+    <div id='payment_form' class='hide'>
+      <%= render '/charges/new' %>
+    </div>
   <% else %>
     <span>You have <strong> 45-day-countdown (from when profile name was set)</strong> left on your trial.</span><br> 
     <span>You must pay before your trial expires to keep all your projects and continue using.</span><br>
     <%=link_to "Continue Using", new_charge_path%>
-
-
   <%end-%>
 </span>  
 <hr>
@@ -31,7 +35,6 @@
       <%= devise_error_messages! %>
       <%= f.email_field :email, :placeholder => "Your Email"  %><br>
       <i>(leave blank if you don't want to change it)</i><br>
-      <%= f.text_field :profile_name, :placeholder => "Profile Name"  %><br>
       <%= f.password_field :password, :autocomplete => "off", :placeholder => "New Password"  %><br>
       <%= f.password_field :password_confirmation, :placeholder => "Confirm New Password"  %><br>
       <%= f.password_field :current_password, :placeholder => "Your Current Passsword"  %><br>

@@ -1,12 +1,15 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, 
-                  :first_name, :last_name, :profile_name
-
+                  :first_name, :last_name, :current_password 
+  attr_accessor :current_password
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable 
   
-  validates :first_name, :last_name, :profile_name, :presence => true     
-         
+  validates :first_name, :last_name, :presence => true     
+  validates :profile_name, :uniqueness => true     
+  validates_presence_of :profile_name, :if => :profile_name_set_on?
+        
   has_many :tasks
   has_many :lists
   
