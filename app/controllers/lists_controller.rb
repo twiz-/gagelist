@@ -2,7 +2,6 @@ class ListsController < ApplicationController
   #helper_method :sort_column, :sort_direction
   respond_to :html, :xml, :json, :js
   
-  before_filter :authenticate_user!
   before_filter :check_permission, :only => [:new, :create]
   before_filter :find_list, :except => [:index, :new, :create, :completed] 
   before_filter :check_ownership, :only => [:remove_membership, :mark_complete, :mark_uncomplete]

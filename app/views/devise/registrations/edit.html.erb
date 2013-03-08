@@ -1,22 +1,31 @@
 <br><br>
-<hr>
+<div class='notice'></div>
+
 <span>
-  <%= current_user.profile_name %>
   <% if current_user.invited_user? %>
-    <h4>Want to create your own projects and invite users to them?<br>
-    <small>Set your profile name below info and get started straight away.</h4>
-    <%= form_for resource, :url => set_profile_name_path, :remote => true do |f| %>
-      <%= f.text_field :profile_name, :placeholder => "desired profile name"  %><br>
-      <%= f.submit "Set Profile Name", :class => "btn btn-info" %>
-    <%end%>
+    <hr>
+    <div id='set_profile_name'>
+      <h4>Want to create your own projects and invite users to them?<br>
+      <small>Set your profile name below info and get started straight away.</h4>
+      <%= form_for resource, :url => set_profile_name_path, :remote => true do |f| %>
+        <%= f.text_field :profile_name, :placeholder => "desired profile name"  %><br>
+        <%= f.submit "Set Profile Name", :class => "btn btn-info" %>
+      <%end%>
+    </div>
     
     <div id='payment_form' class='hide'>
+      <h4>Please make a payment</h4>
       <%= render '/charges/new' %>
     </div>
   <% else %>
-    <span>You have <strong> 45-day-countdown (from when profile name was set)</strong> left on your trial.</span><br> 
-    <span>You must pay before your trial expires to keep all your projects and continue using.</span><br>
-    <%=link_to "Continue Using", new_charge_path%>
+    <% unless current_user.paid_user? %>
+       <span>You have <strong> <%= current_user.trail_days_left %> days</strong> left on your trial.</span><br> 
+       <span>You must pay before your trial expires to keep all your projects and continue using.</span><br>
+       <!-- <%=link_to "Continue Using", new_charge_path%> -->
+       <div id='payment_form'>
+         <%= render '/charges/new' %>
+       </div>
+    <%end-%>  
   <%end-%>
 </span>  
 <hr>
@@ -24,7 +33,8 @@
 <br>
 <div class="row span9">
   <div class="span3">
-    <h3> <%= current_user.full_name %></h3>
+    <center><h3> <%= current_user.full_name %></h3></center>
+    <center><h4> <%= current_user.profile_name %></h4></center>
     <span><%= image_tag current_user.gravatar_url, :class => "gravatar_edit" %></span>
     <h5>Make your face more friendly! Change <a href="https://en.gravatar.com/" target="_blank">picture here.</a></h5>
   </div>  

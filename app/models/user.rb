@@ -16,13 +16,26 @@ class User < ActiveRecord::Base
   has_many :active_list_team_members, :conditions => ["list_team_members.active = ?", true], :class_name => 'ListTeamMember'
   #Returns all lists, the user is involved in.
   has_many :paricipating_lists, :through => :active_list_team_members, :source => :list
- 
+  has_one :payment
+  
   def full_name
     first_name + " " + last_name
   end
   
+  def paid_user?
+    !payment.blank?
+  end
+  
   def invited_user?
     self.profile_name.blank? #This is the only way, as of now.
+  end
+  
+  def trail_ended?
+    trail_days_left < 0 
+  end
+  
+  def trail_days_left
+    45 - (DateTime.now - self.profile_name_set_on.to_datetime).to_i
   end
   
   def gravatar_url
