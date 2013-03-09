@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
   
   def trail_ended?
-    if !current_user.blank? && !current_user.paid_user?
+    if !current_user.blank? && !current_user.paid_user? && !current_user.invited_user?
       redirect_to new_charge_path if current_user.trail_ended?
     end  
   end

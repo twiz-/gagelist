@@ -9,14 +9,22 @@ class ChargesController < ApplicationController
     #Amount charged in cents
     @error = false
     @amount = REGISTRATION_AMOUNT * 100
+    @set_flag = false
     
-    customer = Stripe::Customer.create(
-      :email => current_user.email,
-      :card => params[:stripeToken]
-    )
+    stripe_customer_id = current_user.stripe_customer_id #If already made a pyament before
+    
+    if stripe_customer_id.blank?
+      customer = Stripe::Customer.create(
+        :email => current_user.email,
+        :card => params[:stripeToken]
+      )
+ 
+      stripe_customer_id = customer.id
+      @set_flag = true
+    end
     
     charge = Stripe::Charge.create(
-      :customer => customer.id,
+      :customer => stripe_customer_id,
       :amount => @amount,
       :description => 'Paid User',
       :currency => 'usd'
@@ -28,9 +36,14 @@ class ChargesController < ApplicationController
     payment.stripe_token = params[:stripeToken]
     payment.amount =  REGISTRATION_AMOUNT
     payment.email  = current_user.email
-    payment.stripe_customer_id = customer.id
+    payment.stripe_customer_id = stripe_customer_id
     payment.save
-       
+   
+    if @set_flag
+      current_user.paid_user = true
+      current_user.save
+    end    
+    
   rescue Stripe::CardError => e
     @error = true
     flash[:error] = e.message

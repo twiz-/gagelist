@@ -75,7 +75,6 @@ class RegistrationsController < Devise::RegistrationsController
     @success = false
     unless params[:user][:profile_name].blank?
       current_user.profile_name = params[:user][:profile_name]
-      current_user.profile_name_set_on = Time.now
       @success = current_user.save
     end
   end

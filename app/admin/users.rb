@@ -5,8 +5,10 @@ ActiveAdmin.register User do
     column :first_name
     column :last_name
     column :profile_name
+    column :paid_user
     column "Stared Using", :created_at 
     column "Last Made a Change", :updated_at
+ 
     default_actions
   end
 end
