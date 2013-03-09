@@ -14,34 +14,48 @@
     </ul>
     <div class="tab-content">
       <div class="tab-pane active" id="permissions">
-        <div class="well span3" style="background-color: #6aaf63; color: #F8F8FF;">
+        <div>
           <span>
             <% if current_user.invited_user? %>
-              <hr>
-              <div id='set_profile_name'>
-                <h4>Want to create your own projects and invite users to them?<br>
-                <small>Set your profile name below info and get started straight away.</h4>
+              <div id='set_profile_name' class="well span3" style="background-color: #6aaf63; color: #F8F8FF;">
+                <h5>Want to create your own projects and invite users to them?<br>
+                <hr>
+                Set your profile name below info and get started straight away.</h5>
                 <%= form_for resource, :url => set_profile_name_path, :remote => true do |f| %>
                   <%= f.text_field :profile_name, :placeholder => "desired profile name"  %><br>
                   <%= f.submit "Set Profile Name", :class => "btn btn-info" %>
-                <%end%>
+                <% end %>
               </div>
-
+              <div class="span4">
+                <h4 class="page-header" style="margin:0px;">Set my profile name?</h4>
+                <ul style="list-style:none;">
+                  <li>-You're currently an <span class="label label-warning">Invited User</span>.</li><br>
+                  <li>-<span class="label label-warning">Invited User</span>'s can use refreshrunner FREE forever but can't create their own projects.</li><br>
+                  <li>-To UPGRADE and create your own projects simply set your profile name to the left here.</li><br>
+                  <li>-This will start a 45-day free trial period.</li><br>
+                  <li>-You must pay a one time charge of $50 at any time during this period to use refreshrunner free of restriction.</li><br>
+                  <li>-There is NO monthly recurring charge to your Credit Card. Pay once and be done with it. </li>
+                </ul>
+              </div>
               <div id='payment_form' class='hide'>
                 <h4>Please make a payment</h4>
                 <%= render '/charges/new' %>
               </div>
             <% else %>
               <% if current_user.paid_user? %>
-                <p>Ahhh, you're all paid with no restrictions, thanks for being a customer.</p>
+                <div class="well span3" style="background-color: #6aaf63; color: #F8F8FF;">
+                  <p>Ahhh, you're all paid with no restrictions, thanks for being a customer.</p>
+                </div>
                  
               <% else %>
-                <span>You have <span class="trial_ending"> <%= current_user.trail_days_left %> days</span> left on your trial.</span><br> 
-                 <span>You must pay before your trial expires to keep all your projects and continue using.</span><br>
-                 <!-- <%=link_to "Continue Using", new_charge_path%> -->
-                 <div id='payment_form'>
-                   <%= render '/charges/new' %>
-                 </div>
+                <div class="well span3" style="background-color: #6aaf63; color: #F8F8FF;">
+                  <span>You have <span class="trial_ending"> <%= current_user.trail_days_left %> days</span> left on your trial.</span><br> 
+                   <span>You must pay before your trial expires to keep all your projects and continue using.</span><br>
+                   <!-- <%=link_to "Continue Using", new_charge_path%> -->
+                   <div id='payment_form'>
+                     <%= render '/charges/new' %>
+                   </div>
+                </div> 
               <%end-%>  
             <%end-%>
           </span>  
@@ -56,13 +70,9 @@
             <% if current_user.profile_name %>
               <%= current_user.profile_name %>
             <% else %>
-              <span class="label label-warning">Not Set</span> Set in 'permission tab'
+              <span class="label label-warning">Not Set</span>
             <% end %>
             </h5></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
         </ul>
       </div>
       <div class="tab-pane" id="edit_info">
