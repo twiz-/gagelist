@@ -1,6 +1,5 @@
-<br><br>
 <div class='notice'></div>
-<hr>
+<h1 class="page-header">Account</h1> 
 <br>
 <div class="row">
   <div class="span3">
@@ -11,7 +10,7 @@
     <ul class="nav nav-tabs">
       <li class="active"><a href="#permissions" data-toggle="tab">Permissions</a></li>
       <li><a href="#my_info" data-toggle="tab">My Info</a></li>
-      <li><a href="#edit_info" data-toggle="tab">Edit Info</a></li>
+      <li><a href="#edit_info" data-toggle="tab">Change Password/Picture</a></li>
     </ul>
     <div class="tab-content">
       <div class="tab-pane active" id="permissions">
@@ -33,8 +32,11 @@
                 <%= render '/charges/new' %>
               </div>
             <% else %>
-              <% unless current_user.paid_user? %>
-                 <span>You have <span class="trial_ending"> <%= current_user.trail_days_left %> days</span> left on your trial.</span><br> 
+              <% if current_user.paid_user? %>
+                <p>Ahhh, you're all paid with no restrictions, thanks for being a customer.</p>
+                 
+              <% else %>
+                <span>You have <span class="trial_ending"> <%= current_user.trail_days_left %> days</span> left on your trial.</span><br> 
                  <span>You must pay before your trial expires to keep all your projects and continue using.</span><br>
                  <!-- <%=link_to "Continue Using", new_charge_path%> -->
                  <div id='payment_form'>
@@ -45,9 +47,27 @@
           </span>  
         </div>
       </div>
-      <div class="tab-pane" id="my_info">...all of my information</div>
+      <div class="tab-pane" id="my_info">
+        <ul style="list-style:none;">
+          <li><h5>Full Name: <%= current_user.full_name %></h5></li>
+          <li><h5>Email: <%= current_user.email %></h5></li>
+          <li><h5>
+            Profile Name: 
+            <% if current_user.profile_name %>
+              <%= current_user.profile_name %>
+            <% else %>
+              <span class="label label-warning">Not Set</span> Set in 'permission tab'
+            <% end %>
+            </h5></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
       <div class="tab-pane" id="edit_info">
-        <h5>Make your face more friendly! Change <a href="https://en.gravatar.com/" target="_blank">picture here.</a></h5>
+        <h5>-Make your face more friendly! Change <a href="https://en.gravatar.com/" target="_blank">picture here.</a></h5>
+        <hr>
         <div class="signup_well">
           <legend>Edit <%= resource_name.to_s.humanize %></legend>
 
