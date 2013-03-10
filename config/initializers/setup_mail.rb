@@ -5,7 +5,7 @@ ActionMailer::Base.smtp_settings = {
     :domain => "gmail.com",
     :authentication => :plain,
     :user_name => ENV["GMAIL_USERNAME"],
-    :password => ENV["GMAIL_PASSWORD"]
+    :password => ENV["GMAIL_PASSWORDD"]
 }
  
-ActionMailer::Base.default_url_options[:host] = "staging23-refreshrunner.herokuapp.com"  
+ActionMailer::Base.default_url_options[:host] = "staging23-refreshrunner.herokuapp.com/"  
