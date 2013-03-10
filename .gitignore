@@ -21,4 +21,5 @@ gagelist_development
 domain.pem
 private.key
 
-#ignore the strip api keys
+#ignore the gmail mailer setting from refreshrunner
+config/local_env.yml
