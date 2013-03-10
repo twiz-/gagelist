@@ -22,5 +22,6 @@ domain.pem
 private.key
 
 #ignore the strip api keys
-#ignore the refrun email stuff
+#ignore the gmail mailer setting from refreshrunner
+
 config/local_env.yml

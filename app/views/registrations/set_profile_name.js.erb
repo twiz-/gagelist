@@ -1,0 +1,6 @@
+<% if @success %>
+  $('#payment_form').show();
+  $('#set_profile_name').hide();
+<%else%>
+   $('.notice').html("<div class='alert'> <button type='button' class='close' data-dismiss='alert'>&times;</button> <strong>Some thing went wrong. Please try again latter</strong></div>")
+<%end%>

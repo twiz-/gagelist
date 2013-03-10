@@ -28,3 +28,15 @@ jQuery ->
 
 $ ->
   update_due_labels()
+
+
+jQuery ->
+  $(".task-list").on("mouseenter", "li", ->
+    $(this).find("span.assignee").slideToggle('fast')
+  ).on "mouseleave", "li", ->
+    $(this).find("span.assignee").slideToggle('fast')
+
+
+
+
+

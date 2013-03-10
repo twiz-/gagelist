@@ -40,11 +40,28 @@ class RegistrationsController < Devise::RegistrationsController
         clean_up_passwords resource
         respond_with resource
       end
-      
     end
-    
   end
-
+  
+  def update
+    successfully_updated = unless params[:user][:password].blank?
+      current_user.update_with_password(params[:user])
+    else
+      #To avoid password validation again.
+      params[:user].delete(:current_password)
+      current_user.update_without_password(params[:user])
+    end
+ 
+    if successfully_updated
+      set_flash_message :notice, :updated
+      # Sign in the user bypassing validation in case his password changed
+      sign_in @user, :bypass => true
+      redirect_to after_update_path_for(@user)
+    else
+      render "edit"
+    end
+  end
+  
   def confirmation_message
   
   end
@@ -52,6 +69,14 @@ class RegistrationsController < Devise::RegistrationsController
   def valid_token?
     @invitation = Invitation.find_by_token(params[:token]) unless params[:token].blank?
     @invitation.blank?
+  end
+  
+  def set_profile_name
+    @success = false
+    unless params[:user][:profile_name].blank?
+      current_user.profile_name = params[:user][:profile_name]
+      @success = current_user.save
+    end
   end
   
   protected

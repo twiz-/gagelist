@@ -56,7 +56,7 @@ ActiveAdmin.setup do |config|
   # This setting changes the method which Active Admin calls
   # within the controller.
   config.authentication_method = :authenticate_admin_user!
-
+ 
 
   # == Current User
   #
@@ -124,7 +124,7 @@ ActiveAdmin.setup do |config|
   # Active Admin resources and pages from here.
   #
   # config.before_filter :do_something_awesome
-
+  #config.skip_before_filter :authenticate_user!
 
   # == Register Stylesheets & Javascripts
   #
@@ -149,4 +149,8 @@ ActiveAdmin.setup do |config|
   #
   # Set the CSV builder options (default is {})
   # config.csv_options = {}
+end
+
+ActiveAdmin::BaseController.class_eval do
+  skip_before_filter :authenticate_user!
 end

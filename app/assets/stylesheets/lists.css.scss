@@ -196,8 +196,18 @@ a.blurred{opacity: 0.9;}
 }
 #incomplete li span img {float: none; margin-right: none}
 #incomplete li span.gravatar{ text-align: center; max-width: 110px; padding-right: 20px;}
-#incomplete li span.assignee{display: none; color: #A80000}
-#incomplete li.handle:hover .assignee{ display: block; visibility: visible; }
+#incomplete li span.assignee {
+	margin-top: 2px;
+	margin-left: 105px;
+	border-radius: 70px 70px 70px 0px;
+	display: none; 
+	color: white; 
+	position: absolute; 
+	text-align: center; 
+	background-color: rgba(0,0,0,0.4);
+	
+	}
+/*#incomplete li.handle:hover .assignee{ display: inline; visibility: visible; }*/
 
 #completed li span {
   float:left;

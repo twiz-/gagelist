@@ -6,14 +6,13 @@ Gagelist::Application.routes.draw do
     match '/edit_password' => "registrations#edit_password", :as => 'edit_password'
     match '/update_password' => "registrations#update_password", :as => 'update_password'
     match '/confirmation_message' => "registrations#confirmation_message", :as => :confirmation_message
+    match '/set_profile_name' => "registrations#set_profile_name", :as => :set_profile_name
   end
  
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users
-  
-  
-
+ 
   resources :lists do
     collection do
       get 'completed'

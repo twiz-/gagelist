@@ -1,46 +1,103 @@
-<br><br>
-<hr>
-<span>
-  <% if current_user.invited_user? %>
-    <h4>Want to create your own projects and invite users to them?<br>
-    <small>Set your profile name below info and get started straight away.</h4>
-    <input type="search" placeholder="desired profile name"><br>
-    <button class="btn btn-info" type="button">Set Profile Name</button>
-    
-  <% else %>
-    <span>You have <strong> 45-day-countdown (from when profile name was set)</strong> left on your trial.</span><br> 
-    <span>You must pay before your trial expires to keep all your projects and continue using.</span><br>
-    <%=link_to "Continue Using", new_charge_path%>
-
-
-  <%end-%>
-</span>  
-<hr>
-
+<div class='notice'></div>
+<h1 class="page-header">Account</h1> 
 <br>
-<div class="row span9">
+<div class="row">
   <div class="span3">
-    <h3> <%= current_user.full_name %></h3>
     <span><%= image_tag current_user.gravatar_url, :class => "gravatar_edit" %></span>
-    <h5>Make your face more friendly! Change <a href="https://en.gravatar.com/" target="_blank">picture here.</a></h5>
+    <center><h3><%= current_user.full_name %><br><small><%= current_user.profile_name %></small></h3></center>
   </div>  
-  <div class="signup_well offset4">
-    <legend>Edit <%= resource_name.to_s.humanize %></legend>
+  <div class="offset1 span8">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#permissions" data-toggle="tab">Permissions</a></li>
+      <li><a href="#my_info" data-toggle="tab">My Info</a></li>
+      <li><a href="#edit_info" data-toggle="tab">Change Password/Picture</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="permissions">
+        <div>
+          <span>
+            <% if current_user.invited_user? %>
+              <div id='set_profile_name' class="well span3" style="background-color: #6aaf63; color: #F8F8FF;">
+                <h5>Want to create your own projects and invite users to them?<br>
+                <hr>
+                Set your profile name below info and get started straight away.</h5>
+                <%= form_for resource, :url => set_profile_name_path, :remote => true do |f| %>
+                  <%= f.text_field :profile_name, :placeholder => "desired profile name"  %><br>
+                  <%= f.submit "Set Profile Name", :class => "btn btn-info" %>
+                <% end %>
+              </div>
+              <div class="span4">
+                <h4 class="page-header" style="margin:0px;">Set my profile name?</h4>
+                <ul style="list-style:none;">
+                  <li>-You're currently an <span class="label label-warning">Invited User</span>.</li><br>
+                  <li>-<span class="label label-warning">Invited User</span>'s can use refreshrunner FREE forever but can't create their own projects.</li><br>
+                  <li>-To UPGRADE and create your own projects simply set your profile name to the left here.</li><br>
+                  <li>-This will start a 45-day free trial period.</li><br>
+                  <li>-You must pay a one time charge of $50 at any time during this period to use refreshrunner free of restriction.</li><br>
+                  <li>-There is NO monthly recurring charge to your Credit Card. Pay once and be done with it. </li>
+                </ul>
+              </div>
+              <div id='payment_form' class='hide'>
+                <h4>Please make a payment</h4>
+                <%= render '/charges/new' %>
+              </div>
+            <% else %>
+              <% if current_user.paid_user? %>
+                <div class="well span3" style="background-color: #6aaf63; color: #F8F8FF;">
+                  <p>Ahhh, you're all paid with no restrictions, thanks for being a customer.</p>
+                </div>
+                 
+              <% else %>
+                <div class="well span3" style="background-color: #6aaf63; color: #F8F8FF;">
+                  <span>You have <span class="trial_ending"> <%= current_user.trail_days_left %> days</span> left on your trial.</span><br> 
+                   <span>You must pay before your trial expires to keep all your projects and continue using.</span><br>
+                   <!-- <%=link_to "Continue Using", new_charge_path%> -->
+                   <div id='payment_form'>
+                     <%= render '/charges/new' %>
+                   </div>
+                </div> 
+              <%end-%>  
+            <%end-%>
+          </span>  
+        </div>
+      </div>
+      <div class="tab-pane" id="my_info">
+        <ul style="list-style:none;">
+          <li><h5>Full Name: <%= current_user.full_name %></h5></li>
+          <li><h5>Email: <%= current_user.email %></h5></li>
+          <li><h5>
+            Profile Name: 
+            <% if current_user.profile_name %>
+              <%= current_user.profile_name %>
+            <% else %>
+              <span class="label label-warning">Not Set</span>
+            <% end %>
+            </h5></li>
+        </ul>
+      </div>
+      <div class="tab-pane" id="edit_info">
+        <h5>-Make your face more friendly! Change <a href="https://en.gravatar.com/" target="_blank">picture here.</a></h5>
+        <hr>
+        <div class="signup_well">
+          <legend>Edit <%= resource_name.to_s.humanize %></legend>
 
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-      <%= devise_error_messages! %>
-      <%= f.email_field :email, :placeholder => "Your Email"  %><br>
-      <i>(leave blank if you don't want to change it)</i><br>
-      <%= f.text_field :profile_name, :placeholder => "Profile Name"  %><br>
-      <%= f.password_field :password, :autocomplete => "off", :placeholder => "New Password"  %><br>
-      <%= f.password_field :password_confirmation, :placeholder => "Confirm New Password"  %><br>
-      <%= f.password_field :current_password, :placeholder => "Your Current Passsword"  %><br>
-      <i>(we need current password to confirm changes)</i><br><br>
-      <%= f.submit "Update", :class => "btn btn-info" %>
-    <% end %>
-    <small>
-        Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %> |
-        <%= link_to "Back", :back %>
-    </small>
+          <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+            <%= devise_error_messages! %>
+            <%= f.email_field :email, :placeholder => "Your Email"  %><br>
+            <i>(leave blank if you don't want to change it)</i><br>
+            <%= f.password_field :password, :autocomplete => "off", :placeholder => "New Password"  %><br>
+            <%= f.password_field :password_confirmation, :placeholder => "Confirm New Password"  %><br>
+            <%= f.password_field :current_password, :placeholder => "Your Current Passsword"  %><br>
+            <i>(we need current password to confirm changes)</i><br><br>
+            <%= f.submit "Update", :class => "btn btn-info" %>
+          <% end %>
+          <small>
+              Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %> |
+              <%= link_to "Back", :back %>
+          </small>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
