@@ -78,7 +78,7 @@ Gagelist::Application.configure do
     :port => 587,
     :domain => "refreshrunner.com",
     :authentication => :plain,
-    :user_name => "nosensitiveinfo@gmail.com",
-    :password => "no1sensitiveinfo"
+    :user_name => ENV["GMAIL_USERNAME"],
+    :password => ENV["GMAIL_PASSWORD"]
   }
 end
