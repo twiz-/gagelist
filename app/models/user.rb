@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   
   validates :first_name, :last_name, :presence => true     
   validates :profile_name, :uniqueness => true     
-  validates_presence_of :profile_name, :if => :profile_name_set_on?
+  validates_presence_of :profile_name, :if => :profile_name_set?
         
   has_many :tasks
   has_many :lists
@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
   has_many :payments
   
   before_save :add_profile_name_set_date
+  
+  def profile_name_set?
+    self.profile_name_set_on.blank?
+  end
   
   def full_name
     first_name + " " + last_name

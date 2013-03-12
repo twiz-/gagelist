@@ -44,7 +44,7 @@
             <% else %>
               <% if current_user.paid_user? %>
                 <div class="well span3" style="background-color: #6aaf63; color: #F8F8FF;">
-                  <p>Ahhh, you're all paid with no restrictions, thanks for being a customer.</p>
+                  <p>Ahhh, you're all paid with no restrictions, thanks for being a customer.</p><%= link_to 'Make additional payment', charges_path, :class => 'btn', :method => :post %> 
                 </div>
                  
               <% else %>
