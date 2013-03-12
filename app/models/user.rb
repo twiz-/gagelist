@@ -9,8 +9,7 @@ class User < ActiveRecord::Base
   
   validates :first_name, :last_name, :presence => true     
   validates :profile_name, :uniqueness => true     
-  validates_presence_of :profile_name, :conditions => ["profile_name_set_on = ?", true]
-  
+  validates_presence_of :profile_name, :if => :profile_name_set_on?
         
   has_many :tasks
   has_many :lists
