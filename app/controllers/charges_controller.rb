@@ -2,15 +2,16 @@ class ChargesController < ApplicationController
   skip_before_filter :trail_ended?
   before_filter :profile_name_set?, :only => [:new]
   
-  def new
+  def new    
     stripe_customer_id = current_user.stripe_customer_id
     if stripe_customer_id 
       redirect_to edit_user_registration_path
-      flash[:notice] = "You already paid boyyy"
+      flash[:notice] = "You've already made payment. Enjoy your projects."
     end
   end
   
   def create
+    render :layout => false
     #Amount charged in cents
     @error = false
     @amount = REGISTRATION_AMOUNT * 100
@@ -43,6 +44,7 @@ class ChargesController < ApplicationController
     payment.email  = current_user.email
     payment.stripe_customer_id = stripe_customer_id
     payment.save
+    #send email receipt###################
    
     if @set_flag
       current_user.paid_user = true

@@ -1,8 +1,74 @@
-<%unless @error %>
-  <h2>hey thanks guy you paid <strong>$<%= REGISTRATION_AMOUNT %></strong> for a pretty dope product.</h2>
-
-  <p>You'll receive an email shortly with the info that just happened</p>
-<%else%>
-  <p>Sorry! Some thing went wrong. Please try again latter </p> 
-<%end%>
-  
+<!DOCTYPE html>
+<html>
+<head>
+  <title>refreshrunner | A Task Manager You'll Want To Impress</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js" %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a href="/" class="brand">refreshrunner</a>
+        <ul class="nav pull-right">
+          <% if user_signed_in? %>
+            <li><%= link_to "My Projects", lists_path  %></li>
+            <li><%= link_to "Account", edit_user_registration_path%></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete  %></li>
+          <% else %>
+           <li><%= link_to "Sign Up", new_user_registration_path %></li>
+           <li><%= link_to "Login", user_session_path %></li>  
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+<div class="container" style="margin-top:40px;">
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <button class="close" data-dismiss="alert">x</button>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-error">
+        <button class="close" data-dismiss="alert">x</button>
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+ <%= yield %>
+</div>
+</div>
+<div class="row">
+  <div class="container">
+    <div class="row nav-under-wrapper">
+      <% if !user_signed_in? %>
+        <ul class="nav-under pull-right">
+         <li><%= link_to "What it does", does_path  %></li>
+         <li id="youarehere"><%= link_to "Benefits of using", benefits_path  %></li>
+         <li id="right-link"><%= link_to "What it costs", pricing_path  %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% unless @error %>
+      <h2>Your card has been charged <strong>$<%= REGISTRATION_AMOUNT %>.00</strong>, keep an eye out for an email confirmation.</h2>
+      <div>
+        <h3 class="page-header">Now What?</h3>
+        <ul>
+          <li>An email receipt has been sent to <strong><%= current_user.email %></strong></li>
+          <li>You can visit your <%= link_to "Account Page", edit_user_registration_path %> to view you new status as a paid user.</li>
+          <li>You can get back to work by visiting your <%= link_to "Projects Page", lists_path  %>.</li>
+          <li>Thanks for being a paid customer, we know it's your hard earned money and we take that <strong>very</strong> seriously.  
+            This helps improve the experience of all our users.</li>
+        </ul>
+      </div>
+    <% else %>
+      <p>Sorry! Some thing went wrong. Please try again latter </p> 
+    <% end %>
+  </div>
+</div>    
+</body>
+</html>

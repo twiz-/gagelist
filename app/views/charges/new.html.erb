@@ -1,11 +1,101 @@
-<div class="container">
-  <span class="offset5">
-    <h2>make a payment you only live once thats the motto</h2>
-  </span>  
+<!DOCTYPE html>
+<html>
+<head>
+  <title>refreshrunner | A Task Manager You'll Want To Impress</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js" %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a href="/" class="brand">refreshrunner</a>
+        <ul class="nav pull-right">
+          <% if user_signed_in? %>
+            <li><%= link_to "My Projects", lists_path  %></li>
+            <li><%= link_to "Account", edit_user_registration_path%></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete  %></li>
+          <% else %>
+           <li><%= link_to "Sign Up", new_user_registration_path %></li>
+           <li><%= link_to "Login", user_session_path %></li>  
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+<div class="container" style="margin-top:40px;">
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <button class="close" data-dismiss="alert">x</button>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-error">
+        <button class="close" data-dismiss="alert">x</button>
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+ <%= yield %>
 </div>
-
-
-<div class="span3 offset4">
-  <%= render '/charges/new' %>
 </div>
-
+  <div class="container">
+    <div class="row">
+      <h1 class="page-header" style="text-align: center;">Pay once and use without limit.<br><small><span style="color:green;"> One time charge</span> of $50 to use as you please. </small></h1>
+    </div>
+    <div class="container">
+      <div class="offset4 well span3">
+        <div class="row front_pricing_header">
+            Upgrade your account and continue with unrestricted access
+        </div>
+        <div class="front_pricing_lead">Specifically designed for results-driven people and teams.</div>
+        <div class="row front_copy_icon">
+          <div class="front_icon_space"><icon class="icon-plus"></icon></div>
+          <div class="front_pricing_copy">Infinite Tasks</div>
+        </div>
+        <div class="row front_copy_icon">
+          <div class="front_icon_space"><icon class="icon-plus"></icon></div>
+          <div class="front_pricing_copy">Infinite Projects</div>
+        </div>
+        <div class="row front_copy_icon">
+          <div class="front_icon_space"><icon class="icon-plus"></icon></div>
+          <div class="front_pricing_copy">Infinite Collaborators</div>
+        </div>
+        <div class="row front_copy_icon">
+          <div class="front_icon_space"><icon class="icon-plus"></icon></div>
+          <div class="front_pricing_copy">Infinite Accountability</div>
+        </div>
+        <div class="row payment_form_stripe">
+          <div><br><%= render "charges/new"%></div>
+        </div>  
+      </div>  
+    </div>
+    <div>
+      <h3 class="page-header">What happens here?</h3>
+      <ol>
+        <li>Click the 'Pay with Card' button above and a secure form will appear for you to input your billing info.</li>
+        <li>After you have filled out the secure billing form submit the information by clicking 'Pay $50.00' button.</li>
+        <li>At this point the card will be billed a <strong>one-time charge of $50.00</strong> and you'll receive a confirmation email of the transaction.</li>
+        <li>You can enter a personal or company card.</li>
+        <li>After submitting the billing form you will be redirected to a confirmation page and your account will automatically be upgraded.</li>
+        <li>From the confirmation page your new upgraded account will allow you use the site without restriction for as long as you like.</li>
+        <li>Thanks for becoming a paying customer, seriously. This will help shape a better experience for our users. </li>
+      </ol>
+    </div>
+    <div>
+      <h3 class="page-header">Is this secure?</h3>
+      <ol>
+        <li>Yes.</li>
+        <li>We use<a href="https://stripe.com/about" target="_blank"> Stripe</a> to processes all credit card transactions, so your credit card information is never sent to our servers.</li>
+        <li>We also use SSL to protect the entire refreshrunner site. This is the same type of connection encryption technology online banks use.</li>
+      </ol>
+    </div>
+    <hr>
+    Payment questions?<br> Don't hesitate to reach out. <a href="mailto:hello@refreshrunner.com">Payment Questions</a>
+  </div>  
+  <br><br>
+</body>
+</html>
