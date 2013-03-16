@@ -23,13 +23,4 @@ class Task < ActiveRecord::Base
   def self.completes(list_id, user_id)
    where('list_id =? AND completed  = ? AND user_id = ?', list_id, true, user_id).order('position')
   end
-=begin
-  def self.who_are_we_waiting_on(list)
-    where(list_id: list).order('due_date ASC').incomplete.first
-  end
- 
-  def self.who_is_next(list)
-    where(list_id: list).order('due_date ASC').incomplete.second
-  end 
-=end  
 end

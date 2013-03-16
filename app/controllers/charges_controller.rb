@@ -3,6 +3,11 @@ class ChargesController < ApplicationController
   before_filter :profile_name_set?, :only => [:new]
   
   def new
+    stripe_customer_id = current_user.stripe_customer_id
+    if stripe_customer_id 
+      redirect_to edit_user_registration_path
+      flash[:notice] = "You already paid boyyy"
+    end
   end
   
   def create
