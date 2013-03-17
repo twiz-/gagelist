@@ -33,7 +33,10 @@ Gagelist::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-
+  
+  #sends email to a new browser tab instead of actully sending
+  config.action_mailer.delivery_method = :letter_opener
+  
   # Don't care if the mailer can't send and allow actual email to be sent in prod
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
