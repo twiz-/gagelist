@@ -4,7 +4,7 @@
          <td><%= member.full_name %></td>
          <td class='remove'>
             <%if @list.user == current_user && @list.user != member %>
-               <%= link_to image_tag('cancel.png'), list_remove_membership_path(@list.id, member_id: member.id), remote: true, confirm: "Are you sure?" %>
+               <%= link_to image_tag('remove-small.png'), list_remove_membership_path(@list.id, member_id: member.id), remote: true, confirm: "This will remove this member and all task associated with the member. Are you sure?" %>
             <%end%>     
          </td>
        </tr>  

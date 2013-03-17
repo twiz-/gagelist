@@ -1,6 +1,6 @@
 <h1 class="page-header">Projects at a glance</h1> 
 <% unless current_user.invited_user? %>
-  <span class="index_button affix btn"><%= link_to "New Project", new_list_url %></span>
+  <%= link_to image_tag('document-add.png', :class => "affix btn index_button" ), new_list_url %>
 <%end-%>
   
 <ul class="nav nav-pills container" id="myTab">
