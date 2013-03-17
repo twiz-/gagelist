@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user!
   before_filter :trail_ended?
   
-  # def check_domain
-  #     if Rails.env.production? and request.host.downcase != 'refreshrunner.com'
-  #       redirect_to request.protocol + 'refreshrunner.com' + request.fullpath, :status => 301
-  #     end
-  #   end
+  def check_domain
+      if Rails.env.production? and request.host.downcase != 'refreshrunner.com'
+        redirect_to request.protocol + 'refreshrunner.com' + request.fullpath, :status => 301
+      end
+    end
   
   def trail_ended?
     if !current_user.blank? && !current_user.paid_user? && !current_user.invited_user?

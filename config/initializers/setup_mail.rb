@@ -8,4 +8,4 @@ ActionMailer::Base.smtp_settings = {
     :password => ENV["GMAIL_PASSWORD"]
 }
  
-ActionMailer::Base.default_url_options[:host] = "staging23-refreshrunner.herokuapp.com"  
+ActionMailer::Base.default_url_options[:host] = "refrehrunner.com"  
