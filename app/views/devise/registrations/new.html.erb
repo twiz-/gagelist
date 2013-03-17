@@ -25,13 +25,6 @@
     <% end %>
     <br>
     </div>
-    <small class="offset1"><%= render "devise/shared/links" %></small>
-    <br>
-    <h5 style="margin-left:35px;width:300px; text-align: center;">
-      <small>
-        By signing up you have read and<br> agree to our <%= link_to "terms", terms_path, target: "_blank" %> and <%= link_to "privacy policy", terms_path, target: "_blank" %>.
-      </small>
-    </h5>
   </div>
   <div class="span6 offset3">
     <div id="signup_gage" style="height:240px; width:300px;">
@@ -39,6 +32,13 @@
   </div>  
 </div>
 </div>
+<small><%= render "devise/shared/links" %></small>
+<br>
+<h5 style="margin-left:35px;width:300px; text-align: center;">
+  <small>
+    By signing up you have read and<br> agree to our <%= link_to "terms", terms_path, target: "_blank" %> and <%= link_to "privacy policy", terms_path, target: "_blank" %>.
+  </small>
+</h5>
 
 <%= render 'layouts/footer' %>
 

@@ -10,7 +10,7 @@
     <ul class="nav nav-tabs">
       <li class="active"><a href="#permissions" data-toggle="tab">Permissions</a></li>
       <li><a href="#my_info" data-toggle="tab">My Info</a></li>
-      <li><a href="#edit_info" data-toggle="tab">Change Password/Picture</a></li>
+      <li><a href="#edit_info" data-toggle="tab">Edit Info</a></li>
     </ul>
     <div class="tab-content">
       <div class="tab-pane active" id="permissions">
@@ -53,7 +53,7 @@
                    <span>You must pay before your trial expires to keep all your projects and continue using.</span><br>
                    <div id='payment_form'>
                      <br>
-                     <%= link_to "Go to payment page an continue Using", new_charge_path, :class => "btn btn-large btn-info " %> 
+                     <%= link_to "Go to payment page to continue Using", new_charge_path, :class => "btn btn-info " %> 
                    </div>
                 </div> 
               <%end-%>  
@@ -76,8 +76,10 @@
         </ul>
       </div>
       <div class="tab-pane" id="edit_info">
+        <h4>Change Picture</h4>
         <h5>-Make your face more friendly! Change <a href="https://en.gravatar.com/" target="_blank">picture here.</a></h5>
         <hr>
+        <h4>Edit Email or Password</h4>
         <div class="signup_well">
           <legend>Edit <%= resource_name.to_s.humanize %></legend>
 
