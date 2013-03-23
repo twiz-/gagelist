@@ -5,9 +5,10 @@
   <div class='span2'>
      <%= link_to "Back To Projects", lists_url, class: "btn affix show_button" %><br />
      <div id="participants" class='clearfix'>
-        <button type="button" class="btn affix show_button" data-toggle="collapse" data-target="#members_list"> On This Project </button><br />
+        <%= link_to "On This Project", "#members_list", class: "btn affix show_button" %> 
         <br />
-        <div class="collapse in" id="members_list">
+        <br />
+        <div class="collapse in hide" id="members_list">
            <%= render 'members' %>
         </div>
       </div>

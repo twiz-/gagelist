@@ -1,5 +1,6 @@
- <table class='table'>
-   <%- @list.active_members.each do |member| %>
+<div class='affix'> 
+  <table class='table'>
+    <%- @list.active_members.each do |member| %>
       <tr>
          <td><%= member.full_name %></td>
          <td class='remove'>
@@ -8,5 +9,6 @@
             <%end%>     
          </td>
        </tr>  
-   <%end%>
-</table>
+     <%end%>
+  </table>
+</div>  

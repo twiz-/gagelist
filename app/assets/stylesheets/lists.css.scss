@@ -196,7 +196,7 @@ a.blurred{opacity: 0.9;}
 }
 #incomplete li span img {float: none; margin-right: none}
 #incomplete li span.gravatar{ text-align: center; max-width: 110px; padding-right: 20px;}
-#incomplete li span.assignee {
+#incomplete li div.assignee {
 	margin-top: 2px;
 	margin-left: 105px;
 	border-radius: 70px 70px 70px 0px;
@@ -238,3 +238,5 @@ tr.false td.remove a{display: none;}
 .links123:hover {
 	color: black;
 }
+
+.dropdown-form{padding: 15px;}

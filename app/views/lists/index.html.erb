@@ -1,6 +1,15 @@
 <h1 class="page-header">Projects at a glance</h1> 
+<div class="notice" id="notice"></div>
 <% unless current_user.invited_user? %>
-  <%= link_to image_tag('document-add.png', :class => "affix btn index_button" ), new_list_url %>
+   <div class="btn-group affix index_button">
+    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+      <%=image_tag('document-add.png') %>
+    </a> 
+ 
+    <ul class="dropdown-menu dropdown-form">
+      <li id='new_project_form'><%= render 'form' %></li>
+    </ul>
+  </div>
 <%else%>
    <%= link_to image_tag('document-add.png', :class => "affix btn index_button" ), '#no_permission', 'data-toggle' => "modal" %>
    
@@ -32,9 +41,7 @@ Visit <%= link_to 'your account page', edit_user_registration_path %> to upgrade
   </div>
   
   <div class="tab-pane" id="my_stuff">
-    <% @private_lists.each do |list| %> 
-      <%= render 'list', {:list => list} %>
-    <% end %>
+    <%= render 'my_stuff' %>
   </div>
 </div>  
  

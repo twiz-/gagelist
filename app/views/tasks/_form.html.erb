@@ -1,10 +1,10 @@
-<%= simple_form_for [@list, @task], :remote => true do |form| %>
+<%= simple_form_for [@list, @task || Task.new], :remote => true do |form| %>
    <%= form.input :user_id, 
-                  collection: active_members(@list), 
+                  collection: members_list(@list), 
                   label_method: :first, 
                   value_method: :last, 
                   as: :radio_buttons,
-                  checked: active_members(@list).first,
+                  checked: members_list(@list).first,
                   label: 'Assign To:',
                   error: false %>
     <br />
