@@ -1,5 +1,6 @@
-<% unless @invitation.errors.blank? %>
-
-  $('#error_explanation').html("<%= escape_javascript(render('/shared/error', :object => @invitation )) %>") 
+<% if @invitation.errors.blank? %>
+$("#new_task_form").html("<%= escape_javascript(render('/tasks/form')) %>")
+<%else%>
+ $('#error_explanation').html("<%= escape_javascript(render('/shared/error', :object => @invitation )) %>") 
      
 <%end%>  

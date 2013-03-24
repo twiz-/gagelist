@@ -7,7 +7,6 @@ class ListsController < ApplicationController
   before_filter :check_ownership, :only => [:remove_membership, :mark_complete, :mark_uncomplete]
 
   def index
-    all_lists = current_user.paricipating_lists.incomplete
     @private_lists = all_lists.with_one_member
     @lists = all_lists - @private_lists
   end
@@ -19,18 +18,14 @@ class ListsController < ApplicationController
   def create
     @list = current_user.lists.new(params[:list])
     if @list.save
-      flash[:notice] = "List created"
-      list_team_member = ListTeamMember.create(:user_id => current_user.id, :list_id => @list.id, :active => true)
-      redirect_to list_url(@list)
-    else
-      flash[:error] = "Could create list"
-      respond_with(@list, :location => list_url(@list))
-    end
+      @list.list_team_members.create(:user_id => current_user.id, :active => true)
+      @private_lists = all_lists.with_one_member
+    end  
   end
   
   def show
     @task = @list.tasks.new
-    #@list_team_members = ListTeamMember.where('list_id = ? AND active = ?', @list.id, true)
+    flash[:notice] = 'Project is successfully created.' if params[:new] == 'true'
   end
  
   def edit
@@ -92,5 +87,9 @@ class ListsController < ApplicationController
     unless @list.owner?(current_user) 
       redirect_to lists_path, :alert => "You don't have permission to do that. This action is notified." and return
     end
+  end
+  
+  def all_lists
+    current_user.paricipating_lists.incomplete
   end
 end

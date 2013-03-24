@@ -1,6 +1,32 @@
 <h1 class="page-header">Projects at a glance</h1> 
+<div class="notice" id="notice"></div>
 <% unless current_user.invited_user? %>
-  <%= link_to image_tag('document-add.png', :class => "affix btn index_button" ), new_list_url %>
+   <div class="btn-group affix index_button">
+    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+      <%=image_tag('document-add.png') %>
+    </a> 
+ 
+    <ul class="dropdown-menu dropdown-form">
+      <li id='new_project_form'><%= render 'form' %></li>
+    </ul>
+  </div>
+<%else%>
+   <%= link_to image_tag('document-add.png', :class => "affix btn index_button" ), '#no_permission', 'data-toggle' => "modal" %>
+   
+   <div id="no_permission" class="modal hide fade" tabindex="-1" role="dialog">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+      <h3 id="myModalLabel">No permission!</h3>
+    </div>
+  
+    <div class="modal-body">
+      <p>You don't have permission to create your own projects yet. Would you like to?
+Visit <%= link_to 'your account page', edit_user_registration_path %> to upgrade today.</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+   </div> 
 <%end-%>
   
 <ul class="nav nav-pills container" id="myTab">
@@ -15,9 +41,7 @@
   </div>
   
   <div class="tab-pane" id="my_stuff">
-    <% @private_lists.each do |list| %> 
-      <%= render 'list', {:list => list} %>
-    <% end %>
+    <%= render 'my_stuff' %>
   </div>
 </div>  
  

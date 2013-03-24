@@ -1,0 +1,9 @@
+<% if @list.errors.blank? %>
+  window.location = "<%=list_path(@list, :new => 'true') %>";
+<%else%>
+  $("#new_project_form").html("<%= escape_javascript(render('/lists/form')) %>")
+  <!-- stop closing the dropwodn on click, it is the normal behaviour of the dropdown -->
+  $('.dropdown-menu').find('form').click(function (e) {
+    e.stopPropagation();
+  });
+<%end%>  

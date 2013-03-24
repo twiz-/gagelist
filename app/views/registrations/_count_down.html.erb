@@ -1,0 +1,8 @@
+<div class="well span3 count_down" style="background-color: #6aaf63; color: #F8F8FF;">
+   <span>You have <span class="trial_ending"> <%= current_user.trail_days_left %> days</span> left on your trial.</span><br> 
+   <span>You must pay before your trial expires to keep all your projects and continue using.</span><br>
+   <div id='payment_form'>
+     <br>
+     <%= link_to "Go to payment page to continue Using", new_charge_path, :class => "btn btn-info " %> 
+   </div>
+</div> 

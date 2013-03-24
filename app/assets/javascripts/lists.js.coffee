@@ -4,13 +4,21 @@
 jQuery ->
   $('.best_in_place').best_in_place()
   
+  #show members in this project button
+  $(".show_members").click ->
+    $("#members_list").toggle "fast"
+  
+  #To stop closing the drop down on submit of teh new project form
+  $(".dropdown-menu").find("form").click (e) ->
+    e.stopPropagation()
+  
 jQuery -> 
     $('#incomplete').sortable(
       axis: 'y'
       update: ->
         $.post($(this).data('update-url'), $(this).sortable('serialize'))
     );
-
+    
 jQuery ->
   $("#new_invitation").bind("ajax:beforeSend", ->
     $("#loading").toggle()
@@ -28,9 +36,9 @@ $ ->
 
 jQuery ->
   $(".task-list").on("mouseenter", "li", ->
-    $(this).find("span.assignee").slideToggle('fast')
+    $(this).find("div.assignee").slideToggle('fast')
   ).on "mouseleave", "li", ->
-    $(this).find("span.assignee").slideToggle('fast')
+    $(this).find("div.assignee").slideToggle('fast')
 
 
 

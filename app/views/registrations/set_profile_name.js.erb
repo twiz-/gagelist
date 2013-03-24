@@ -1,6 +1,6 @@
 <% if @success %>
-  $('#payment_form').show();
-  $('#set_profile_name').hide();
+  $('.notice').html("<div class='alert alert-success'> <button type='button' class='close' data-dismiss='alert'>&times;</button> <strong>Profile name is successfully set.</strong></div>")
+  $('.profile_notice').html("<%= escape_javascript(render('count_down')) %>")
 <%else%>
-   $('.notice').html("<div class='alert'> <button type='button' class='close' data-dismiss='alert'>&times;</button> <strong>Some thing went wrong. Please try again latter</strong></div>")
+   $('.notice').html("<div class='alert'> <button type='button' class='close' data-dismiss='alert'>&times;</button> <strong>Profile name already exists.</strong></div>")
 <%end%>
