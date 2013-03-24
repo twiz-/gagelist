@@ -25,7 +25,7 @@ class ListsController < ApplicationController
   
   def show
     @task = @list.tasks.new
-    #@list_team_members = ListTeamMember.where('list_id = ? AND active = ?', @list.id, true)
+    flash[:notice] = 'Project is successfully created.' if params[:new] == 'true'
   end
  
   def edit

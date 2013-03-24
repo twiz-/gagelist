@@ -5,7 +5,7 @@ jQuery ->
   $('.best_in_place').best_in_place()
   
   #show members in this project button
-  $(".show_button").click ->
+  $(".show_members").click ->
     $("#members_list").toggle "fast"
   
   #To stop closing the drop down on submit of teh new project form

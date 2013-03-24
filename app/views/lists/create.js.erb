@@ -1,10 +1,5 @@
 <% if @list.errors.blank? %>
-  $('#my_stuff').html("<%= escape_javascript(render('/lists/my_stuff')) %>")
-  $('.dropdown-toggle').dropdown('toggle');
-  $('.notice').html("<div class='alert alert-success'> <button type='button' class='close' data-dismiss='alert'>&times;</button> <strong>Project is successfully created.</strong></div>")
-  <!-- Reset form -->
-  <% @list = nil %>
-  $("#new_project_form").html("<%= escape_javascript(render('/lists/form')) %>")
+  window.location = "<%=list_path(@list, :new => 'true') %>";
 <%else%>
   $("#new_project_form").html("<%= escape_javascript(render('/lists/form')) %>")
   <!-- stop closing the dropwodn on click, it is the normal behaviour of the dropdown -->
