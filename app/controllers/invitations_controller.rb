@@ -2,6 +2,7 @@ class InvitationsController < ApplicationController
   skip_before_filter :authenticate_user!, :only => [:accept]
   
   def create
+    @list = List.find(params[:invitation][:invited_for_id]) if params[:invitation][:invited_for_type] == "List"
     @invitation = Invitation.new(params[:invitation])
     @invitation.invited_by = current_user.id
     @invitation.save
