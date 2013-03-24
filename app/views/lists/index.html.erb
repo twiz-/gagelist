@@ -29,9 +29,15 @@ Visit <%= link_to 'your account page', edit_user_registration_path %> to upgrade
    </div> 
 <%end-%>
 <div class="row">
-  <span class="pull-right" style="background-color:red; border-radius: 20px;">
-    <%=image_tag('list-2.png') %>
+  <span class="activity_feed_icon pull-right" style="background-color:red; border-radius: 20px;">
+    <%=image_tag('list-2.png')%>
+      <ul id="activity_feed" class="well" style="list-style:none;">
+        <li>tonight</li>
+        <hr>
+      </ul>
   </span>  
+  
+  
 </div>
 <ul class="nav nav-pills container" id="myTab">
    <li class="active"><a href="#stuff_with_others" style="color:#A80000;">Stuff With Others</a></li>

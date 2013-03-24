@@ -40,7 +40,8 @@ jQuery ->
   ).on "mouseleave", "li", ->
     $(this).find("div.assignee").slideToggle('fast')
 
-
-
+jQuery ->
+	$(".activity_feed_icon").on "click", "img", ->
+  		$(this).closest(".activity_feed_icon").find("#activity_feed").slideToggle()
 
 
