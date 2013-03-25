@@ -1,0 +1,6 @@
+
+<% if activity.trackable %>
+<span style="background-color:#6aaf63; border-radius:5px;"><%= image_tag 'tick-small.png'%></span> <strong><%= activity.owner.full_name if activity.owner %></strong> completed a task on <strong><%= activity.trackable.list.name %></strong>
+<% else %>
+-----------------------
+<% end %>

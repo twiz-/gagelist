@@ -1,0 +1,8 @@
+<% @activities.each do |activity| %>
+  <li>
+    <%= render_activity activity %>
+    <br>
+    <small><%= time_ago_in_words(activity.updated_at) %> ago</small>
+    <hr>
+  </li>
+<% end %>

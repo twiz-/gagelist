@@ -1,0 +1,5 @@
+<% if activity.trackable %>
+<strong><%= activity.owner.full_name if activity.owner %></strong> deleted a task from <strong> <%= activity.trackable.task.name %></strong>
+<% else %>
+  deleted a task from
+<% end %>
