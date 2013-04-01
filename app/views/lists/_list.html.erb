@@ -1,12 +1,11 @@
-<div class="well span4 index_well" id='<%= "list_#{list.id}" %>' >
+<div class="well span4 index_well" id='<%= "list_#{list.id}" %>' style="background-color: white;">
    <div class="span4">
-      <span class="index_title">
-        <%= link_to "#{list.name}", list_url(list) %>
-      </span>
       <div class="row">
-        <div class="span4"><%= list.description %></div>
+        <span class="index_title">
+          <%= link_to "#{list.name}", list_url(list) %>
+        </span>
           <div class="row">
-              <div class="span2">
+              <div class="span1">
                 <span id="blame_game"> 
                  <div class="who_is_next"> 
                   <% if list.has_pending_task? %>
@@ -35,7 +34,6 @@
                 </div>
             </div>
           </div> 
-         
       </div>
  </div>
  <script>

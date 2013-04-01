@@ -1,6 +1,19 @@
 // Place all the styles related to the lists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.activity_feed_icon:hover {
+	cursor: pointer;
+	
+}
+#activity_feed {
+	background-color: white; 
+	height:500px;
+	width:400px; 
+	position:absolute; 
+	margin-left: -400px;
+	z-index:2;
+	display:none;
+}
 
 .gage_index {
 	margin-top: 20px;
@@ -58,6 +71,7 @@ a{
 .show_button, .show-participants {
   color: #A80000;
   font-weight: bold;
+  margin-top: -40px;
 }
 .show_button:hover {
 	text-decoration: underline;
