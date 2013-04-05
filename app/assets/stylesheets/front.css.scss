@@ -6,9 +6,7 @@
 	padding-left: -60px;
 
 }
-.fix_this_btn {
-	text-align: center;
-}
+
 .more_links {
 	color: #A80000;
 }
@@ -23,6 +21,9 @@
 	border: solid 2px #eee;
 	border-radius: 3px;
 }
+.does_pictures:hover {
+	border: solid 2px rgba(55, 168, 131, 0.7);
+}
 
 .tick_for_benefits {
 	display: none;
@@ -32,6 +33,10 @@
 .image_benefits {
 	float:left; 
 	margin-right: 10px;
+}
+
+.benefits_text_image {
+	width: 300px;
 }
 
 
@@ -44,7 +49,8 @@
 	padding: 5px;
 }
 .frustrate_topside:hover {
-  background-color: #e8e8e8;
+  background-color: rgba(55, 168, 131, 0.7);
+  border-radius: 8px;
 }
 .does_description_text {
 	line-height: 1.15em;
@@ -104,7 +110,7 @@ h5.faq_header {
 	cursor: pointer;
 	color: #A80000;
 	padding: 3px;
-	text-align: center;
+	text-align: left;
 }
 
 h5.faq_header:hover{
@@ -113,7 +119,7 @@ h5.faq_header:hover{
 
 div.content { 
     padding-bottom:3px;
-    margin-left: 80px;
+    /*margin-left: 80px;*/
     width: 300px; 
     text-align:left;
     display:none; 
