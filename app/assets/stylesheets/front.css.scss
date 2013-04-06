@@ -6,7 +6,15 @@
 	padding-left: -60px;
 
 }
+.does_pictures:hover {
+  border: solid 2px rgba(55, 168, 131, 0.7);
+}
 
+.benefits_text_image {
+	width: 300px;
+	}
+	
+	
 .more_links {
 	color: #A80000;
 }
@@ -21,9 +29,6 @@
 	border: solid 2px #eee;
 	border-radius: 3px;
 }
-.does_pictures:hover {
-	border: solid 2px rgba(55, 168, 131, 0.7);
-}
 
 .tick_for_benefits {
 	display: none;
@@ -33,10 +38,6 @@
 .image_benefits {
 	float:left; 
 	margin-right: 10px;
-}
-
-.benefits_text_image {
-	width: 300px;
 }
 
 
@@ -56,6 +57,7 @@
 	line-height: 1.15em;
 	padding-right: 30px;
 	font-size: 1.35em;
+	text-align: left;
 }
 .beneifts_description_whole {
   margin-left: 220px;
@@ -110,7 +112,6 @@ h5.faq_header {
 	cursor: pointer;
 	color: #A80000;
 	padding: 3px;
-	text-align: left;
 }
 
 h5.faq_header:hover{
@@ -119,7 +120,6 @@ h5.faq_header:hover{
 
 div.content { 
     padding-bottom:3px;
-    /*margin-left: 80px;*/
     width: 300px; 
     text-align:left;
     display:none; 
