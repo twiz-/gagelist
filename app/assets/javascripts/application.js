@@ -19,6 +19,9 @@
 //= require jquery.purr
 //= require best_in_place
 //= require lightbox
+//= require jquery.cookie
+//= require jquery.joyride-2.0.3
+//= require modernizr.mq
 //= require_tree .
 
 

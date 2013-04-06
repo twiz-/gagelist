@@ -15,6 +15,7 @@
  *= require lists
  *= require tasks
  *= require lightbox
+ *= require joyride-2.0.3
  */
 .well {
  min-height: 340px;

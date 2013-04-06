@@ -43,5 +43,7 @@ jQuery ->
 jQuery ->
 	$(".activity_feed_icon").on "click", "img", ->
   		$(this).closest(".activity_feed_icon").find("#activity_feed").slideToggle()
-
+jQuery ->
+	$(window).load ->
+	  $("#list_index_tour").joyride {}
 
