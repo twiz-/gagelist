@@ -23,8 +23,8 @@ class TasksController < ApplicationController
     @task.update_attributes({ 
       completed: true
     })
-        
-    #respond_with @list
+ 
+    @task.create_activity :complete, recipient: @list
   end
   
   def incomplete
@@ -33,6 +33,7 @@ class TasksController < ApplicationController
       completed: false
     })
     respond_with @list
+    @task.create_activity :uncomplete, recipient: @list
   end
   
   def destroy

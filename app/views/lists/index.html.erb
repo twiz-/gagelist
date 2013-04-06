@@ -29,10 +29,12 @@ Visit <%= link_to 'your account page', edit_user_registration_path %> to upgrade
    </div> 
 <%end-%>
 <div class="row">
-  <span class="activity_feed_icon pull-right" style="background-color:red; border-radius: 20px;">
+  <%= link_to image_tag('list-2.png'), activities_path, remote: true, class: 'activity_feed_icon pull-right  hide' %>
+  
+  <span class="activity_feed_icon pull-right">
     <%=image_tag('list-2.png')%>
       <ul id="activity_feed" class="well" style="list-style:none;">
-        <li><%= render 'activities/index' %></li>
+        <%= image_tag 'loading12.gif' %>
       </ul>
   </span>  
 </div>

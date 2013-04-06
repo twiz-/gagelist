@@ -42,6 +42,10 @@ jQuery ->
 
 jQuery ->
 	$(".activity_feed_icon").on "click", "img", ->
-  		$(this).closest(".activity_feed_icon").find("#activity_feed").slideToggle()
-
-
+    $(this).closest(".activity_feed_icon").find("#activity_feed").slideToggle()
+    $.ajax
+      url: "/activities"
+      data: "latest=true",
+      
+  $(".activity_feed_icon").click ->
+    $(this).toggleClass "clicked"

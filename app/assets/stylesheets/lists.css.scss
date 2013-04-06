@@ -7,12 +7,19 @@
 }
 #activity_feed {
 	background-color: white; 
-	height:500px;
+	height:auto;
+	min-height: 400px;
 	width:400px; 
 	position:absolute; 
 	margin-left: -400px;
 	z-index:2;
 	display:none;
+}
+.activity_feed_icon{
+  background-color:red; border-radius: 20px;
+}
+.clicked{
+  background: none;
 }
 
 .gage_index {

@@ -1,5 +1,6 @@
 class List < ActiveRecord::Base
   attr_accessible :description, :name, :user_id
+  include PublicActivity::Model
   
   has_many :tasks
   belongs_to :user
@@ -29,8 +30,7 @@ class List < ActiveRecord::Base
   def next_pending_task
     self.tasks.incomplete.ordered[1]
   end
-  
-  
+ 
   #Returns the lists with single member (creator). Another way is adding counter_cache column
   #scope :with_one_member, includes(:list_team_members).select{|l| l.list_team_members.size== 1} 
   def self.with_one_member

@@ -1,8 +1,9 @@
 class Task < ActiveRecord::Base
   attr_accessible :completed, :description, :list_id, :user_id, :due_date
-  include PublicActivity::Model
-  tracked owner: ->(controller, model) {controller && controller.current_user}
   
+  include PublicActivity::Model
+  tracked owner: ->(controller, model) {controller && controller.current_user}, except: [:update], recipient: proc {|controller, model| model.list }
+ 
   belongs_to :list
   belongs_to :user
  

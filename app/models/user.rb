@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
         
   has_many :tasks
   has_many :lists
+  has_many :activity_views, foreign_key: :viewer_id
   
   has_many :active_list_team_members, :conditions => ["list_team_members.active = ?", true], :class_name => 'ListTeamMember'
   #Returns all lists, the user is involved in.
