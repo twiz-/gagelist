@@ -16,7 +16,7 @@
       'tipLocation'          : 'bottom',  // 'top' or 'bottom' in relation to parent
       'nubPosition'          : 'auto',    // override on a per tooltip bases
       'scroll'               : true,      // whether to scroll to tips
-      'scrollSpeed'          : 300,       // Page scrolling speed in milliseconds
+      'scrollSpeed'          : 900,       // Page scrolling speed in milliseconds
       'timer'                : 0,         // 0 = no timer , all other numbers = timer in milliseconds
       'autoStart'            : true,     // true or false - false tour starts when restart called
       'startTimerOnClick'    : true,      // true or false - true requires clicking the first button start the timer
@@ -24,8 +24,8 @@
       'nextButton'           : true,      // true or false to control whether a next button is used
       'tipAnimation'         : 'fade',    // 'pop' or 'fade' in each tip
       'pauseAfter'           : [],        // array of indexes where to pause the tour after
-      'tipAnimationFadeSpeed': 300,       // when tipAnimation = 'fade' this is speed in milliseconds for the transition
-      'cookieMonster'        : false,     // true or false to control whether cookies are used
+      'tipAnimationFadeSpeed': 900,       // when tipAnimation = 'fade' this is speed in milliseconds for the transition
+      'cookieMonster'        : true,     // true or false to control whether cookies are used
       'cookieName'           : 'joyride', // Name the cookie you'll use
       'cookieDomain'         : false,     // Will this cookie be attached to a domain, ie. '.notableapp.com'
       'tipContainer'         : 'body',    // Where will the tip be attached
