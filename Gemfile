@@ -12,6 +12,8 @@ gem 'simple_form'
 gem 'best_in_place'
 gem 'rubylight'
 gem 'public_activity'
+gem 'will_paginate'
+
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 group :development, :test do
    gem 'sqlite3'

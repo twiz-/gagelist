@@ -29,13 +29,14 @@ Visit <%= link_to 'your account page', edit_user_registration_path %> to upgrade
    </div> 
 <%end-%>
 <div class="row">
-  <%= link_to image_tag('list-2.png'), activities_path, remote: true, class: 'activity_feed_icon pull-right  hide' %>
-  
   <span class="activity_feed_icon pull-right">
-    <%=image_tag('list-2.png')%>
-      <ul id="activity_feed" class="well" style="list-style:none;">
-        <%= image_tag 'loading12.gif' %>
-      </ul>
+     <%=image_tag('list-2.png')%>
+     <div id="activity_feed" class="well" style="list-style:none;">
+       <ul id="feed">
+         <%= image_tag 'loading12.gif' %>
+       </ul>
+       <%= link_to 'View All', activities_path(:page => 1), remote: true %>
+     </div>  
   </span>  
 </div>
 <ul class="nav nav-pills container" id="myTab">
@@ -60,3 +61,4 @@ Visit <%= link_to 'your account page', edit_user_registration_path %> to upgrade
     $(this).tab('show');
   })
 </script>
+

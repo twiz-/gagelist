@@ -35,6 +35,7 @@ class List < ActiveRecord::Base
   #scope :with_one_member, includes(:list_team_members).select{|l| l.list_team_members.size== 1} 
   def self.with_one_member
     joins(:list_team_members).select{|l| l.list_team_members.size == 1 } 
+    #having("count(list_team_members.id) < 2")
   end
   
   def percent_complete

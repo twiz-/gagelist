@@ -1,1 +1,28 @@
-$("#activity_feed").html("<%= escape_javascript(render("index")) %>");
+<% unless @activities.blank? %>
+  <%if @latest %>
+    $("#feed").html("<%= escape_javascript(render("index")) %>")
+  <%else%>
+    $("#feed").append("<%= escape_javascript(render("index")) %>")
+    
+    if ($('.pagination').length) {
+      $(window).scroll(function() {
+        var url;
+        url = $('.pagination .next_page').attr('href');
+        if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 100) {
+          $('.pagination').text('Fetching more results...');
+          return $.getScript(url);
+        }
+      });
+      $(window).scroll;
+    }
+  
+    <% if @activities.next_page %>
+      $('.pagination').replaceWith('<%= j will_paginate(@examples) %>');
+    <% else %>
+      $('.pagination').remove();
+    <% end %>
+  <%end%>
+  
+<%else%>
+  $("#feed").html("There are no latest activities");
+<%end%>  

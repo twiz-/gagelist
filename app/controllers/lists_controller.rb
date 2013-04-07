@@ -9,7 +9,7 @@ class ListsController < ApplicationController
   def index
     @private_lists = all_lists.with_one_member
     @lists = all_lists - @private_lists
-    @activities = PublicActivity::Activity.order("created_at desc")
+    #@activities = PublicActivity::Activity.order("created_at desc")
   end
   
   def new
@@ -36,6 +36,7 @@ class ListsController < ApplicationController
   def destroy
     if @list.destroy
       flash[:notice] = "List Deleted"
+      #@list.create_activity :destroy, recipient: @list, owner: current_user
       redirect_to lists_url
     else
       flash[:error] = "It just didn't happen for you"
@@ -57,6 +58,7 @@ class ListsController < ApplicationController
     @list.complete = true 
     @list.completed_at = Time.now
     @list.save
+    @list.create_activity :complete, recipient: @list, owner: current_user
   end
   
   def mark_uncomplete

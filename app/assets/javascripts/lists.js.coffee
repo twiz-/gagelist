@@ -43,9 +43,21 @@ jQuery ->
 jQuery ->
 	$(".activity_feed_icon").on "click", "img", ->
     $(this).closest(".activity_feed_icon").find("#activity_feed").slideToggle()
-    $.ajax
-      url: "/activities"
-      data: "latest=true",
+    unless $('.activity_feed_icon').hasClass('clicked')
+      $.ajax
+        url: "/activities"
+        data: "latest=true",
+    else
+      $("#feed").html('<li><img alt="Loading12" src="/assets/loading12.gif"></li>')    
       
   $(".activity_feed_icon").click ->
     $(this).toggleClass "clicked"
+
+jQuery ->
+  if $('.pagination').length
+    $(window).scroll ->
+      url = $('.pagination .next_page').attr('href')
+      if url && $(window).scrollTop() > $(document).height() - $(window).height() - 100
+        $('.pagination').text('Fetching more results...')
+        $.getScript(url)
+    $(window).scroll
