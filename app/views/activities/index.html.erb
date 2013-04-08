@@ -1,0 +1,9 @@
+<div id="activity_feeds">
+   <ul id="feed">
+      <%= render("index") %>
+   </ul>
+   <div class='pagination_wrapper'>
+      <%= will_paginate(@activities) %>
+   </div> 
+</div>  
+

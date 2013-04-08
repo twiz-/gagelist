@@ -1,5 +1,1 @@
-<% if activity.trackable %>
-<%= image_tag 'plus-small.png'%> <strong><%= activity.owner.full_name if activity.owner %></strong> added a task to <strong><%= activity.trackable.list.name %></strong>
-<% else %>
-  added a task to a project that was completed.
-<% end %>
+<%= image_tag 'plus-small.png'%> <strong><%= activity.owner.full_name  %></strong> added a task to <strong> <%= activity.recipient.name %></strong>

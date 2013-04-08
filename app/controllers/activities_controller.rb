@@ -11,7 +11,7 @@ class ActivitiesController < ApplicationController
       last_viewed = current_user.activity_views.order('viewed_on desc').first
       @activities = @activities.where("created_at > '#{last_viewed.viewed_on}'") unless last_viewed.blank?
     else
-      @activities = @activities.paginate(:per_page => 2, :page => params[:page])    
+      @activities = @activities.paginate(:per_page => 10, :page => params[:page])    
     end
 
     current_user.activity_views.create(viewed_on: Time.now)

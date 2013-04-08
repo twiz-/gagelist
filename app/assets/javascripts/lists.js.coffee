@@ -45,10 +45,8 @@ jQuery ->
     $(this).closest(".activity_feed_icon").find("#activity_feed").slideToggle()
     unless $('.activity_feed_icon').hasClass('clicked')
       $.ajax
-        url: "/activities"
-        data: "latest=true",
-    else
-      $("#feed").html('<li><img alt="Loading12" src="/assets/loading12.gif"></li>')    
+        url: "/activities.js"
+        data: "latest=true"
       
   $(".activity_feed_icon").click ->
     $(this).toggleClass "clicked"
