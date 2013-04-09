@@ -22,8 +22,11 @@ ul#feed{
 #activity_feed .pagination{display: none;}
 
 .activity_feed_icon{
-  background-color:red; border-radius: 20px;
+   border-radius: 20px;
 }
+
+.red_icon{background-color:red;}
+
 .clicked{
   background: none;
 }

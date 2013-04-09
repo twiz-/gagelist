@@ -9,6 +9,11 @@ class ListsController < ApplicationController
   def index
     @private_lists = all_lists.with_one_member
     @lists = all_lists - @private_lists
+    
+    lists = @lists.map(&:id)
+    @activities = PublicActivity::Activity.order("created_at desc").where(recipient_id: lists).includes(:owner)
+    last_viewed = current_user.activity_views.order('viewed_on desc').first
+    @activities = @activities.where("created_at > '#{last_viewed.viewed_on}'") unless last_viewed.blank?
   end
   
   def new

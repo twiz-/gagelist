@@ -1,3 +1,2 @@
-<span style="background-color:#6aaf63; border-radius:5px;"><%= image_tag 'tick-small.png'%></span>
-<strong><%= activity.owner.full_name  %></strong> uncompleted a task on <strong> <%= activity.recipient.name %></strong>
+<span style="background-color:#6aaf63; border-radius:5px;"><%= image_tag 'tick-small.png'%></span> <strong><%= activity.owner.full_name  %></strong> uncompleted a task on <strong> <%= link_to activity.recipient.name, list_path(activity.recipient),  target: "_blank" %></strong>
 

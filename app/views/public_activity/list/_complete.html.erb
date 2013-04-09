@@ -1,2 +1,2 @@
-<span style="background-color:#6aaf63; border-radius:5px;"><%= image_tag 'tick-small.png'%></span> <strong><%= activity.owner.full_name %></strong> completed roject <strong><%= activity.trackable.name %></strong>
+<span style="background-color:#6aaf63; border-radius:5px;"><%= image_tag 'tick-small.png'%></span> <strong><%= activity.owner.full_name %></strong> completed roject <strong> <%= link_to activity.trackable.name, list_path(activity.trackable),  target: "_blank" %></strong>
 

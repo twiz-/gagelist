@@ -29,7 +29,7 @@ Visit <%= link_to 'your account page', edit_user_registration_path %> to upgrade
    </div> 
 <%end-%>
 <div class="row">
-  <span class="activity_feed_icon pull-right">
+  <span class="activity_feed_icon pull-right <%= 'red_icon' if @activities.count > 0 %>">
      <%=image_tag('list-2.png')%>
      <div id="activity_feed" class="well" style="list-style:none;">
        <ul id="feed">

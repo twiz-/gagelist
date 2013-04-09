@@ -1,1 +1,1 @@
-<%= image_tag 'plus-small.png'%> <strong><%= activity.owner.full_name  %></strong> added a task to <strong> <%= activity.recipient.name %></strong>
+<%= image_tag 'plus-small.png'%> <strong><%= activity.owner.full_name  %></strong> added a task to <strong> <%= link_to activity.recipient.name, list_path(activity.recipient),  target: "_blank" %></strong>

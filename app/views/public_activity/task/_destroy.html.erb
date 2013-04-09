@@ -1,1 +1,1 @@
-<strong><%= activity.owner.full_name %></strong> deleted a task from     <strong> <%= activity.recipient.name %></strong>
+<strong><%= activity.owner.full_name %></strong> deleted a task from <strong> <%= link_to activity.recipient.name, list_path(activity.recipient),  target: "_blank" %></strong>

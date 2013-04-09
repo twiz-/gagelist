@@ -50,7 +50,8 @@ jQuery ->
       
   $(".activity_feed_icon").click ->
     $(this).toggleClass "clicked"
-
+    $(this).removeClass "red_icon"
+    
 jQuery ->
   if $('.pagination').length
     $(window).scroll ->
