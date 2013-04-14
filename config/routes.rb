@@ -5,7 +5,7 @@ Gagelist::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations" } 
   
   devise_scope :user do
-    match '/edit_password' => "registrations#edit_password", :as => 'edit_password'
+    match '/change_password' => "registrations#edit_password", :as => 'change_password'
     match '/update_password' => "registrations#update_password", :as => 'update_password'
     match '/confirmation_message' => "registrations#confirmation_message", :as => :confirmation_message
     match '/set_profile_name' => "registrations#set_profile_name", :as => :set_profile_name

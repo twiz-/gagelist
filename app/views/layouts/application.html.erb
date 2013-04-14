@@ -44,7 +44,10 @@
       <%= flash[:alert] %>
     </div>
   <% end %>  
- <%= yield %>
+  <div id="main">
+    <%= yield %>
+  </div>
+    
 </div>
 <%= yield :javascript %>
 </body>

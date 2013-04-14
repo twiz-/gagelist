@@ -19,9 +19,15 @@
 //= require jquery.purr
 //= require best_in_place
 //= require lightbox
+//= require jquery.pjax
 //= require_tree .
-
-
+ 
+$(function(){
+   //$('#main').pjax('a.pjax');
+   $('#main').pjax('a:not([data-remote]):not([data-behavior]):not([data-skip-pjax])')
+   //$('a[data-pjax]').pjax()
+})
+ 
 $(function() {
 	$('#new_task_bt').click(function() {
 		$('#new_task_form').show();
@@ -79,3 +85,5 @@ function update_due_labels(){
   $('ul#incomplete').children('li').eq(1).children('span.medium').html('<span class="label label-warning">Up Next</span>');
   return false;
 }
+
+

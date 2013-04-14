@@ -19,7 +19,7 @@ class InvitationsController < ApplicationController
         invitation.accept(user)
         redirect_to lists_path
       else
-       redirect_to edit_password_path(:token => invitation.token)
+       redirect_to change_password_path(:token => invitation.token)
       end  
     else
       flash[:notice] = 'This is not a valid invitation or might have expired already. Please contact the sender.'
