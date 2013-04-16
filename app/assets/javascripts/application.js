@@ -24,7 +24,7 @@
  
 $(function(){
    //$('#main').pjax('a.pjax');
-   $('#main').pjax('a:not([data-remote]):not([data-behavior]):not([data-skip-pjax])')
+   //$('#main').pjax('a:not([data-remote]):not([data-behavior]):not([data-skip-pjax])')
    //$('a[data-pjax]').pjax()
 })
  

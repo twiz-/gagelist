@@ -1,6 +1,6 @@
 <h1 class="page-header"><%= best_in_place @list, :name %> <br>
   <small style="margin-left:5px;"><%= best_in_place @list, :description %></small>
-  <%= link_to "Back To Projects", lists_url, class: "btn btn-link show_button pull-right pjax" %>
+  <%= link_to "Back To Projects", lists_url, class: "btn btn-link show_button pull-right" %>
 </h1>
 <div class="row">    
    <div class="well span10 offset1">
@@ -9,10 +9,10 @@
          <div id="smallbuddy" style="width:340px; height:200px;"></div>
        </div>
        <div class="span5">
-         <%= link_to "Add New Task", '#', class: "show_button btn-link", id: "new_task_bt",  'data-skip-pjax' => true %>
+         <%= link_to "Add New Task", '#', class: "show_button btn-link", id: "new_task_bt" %>
          <% is_created_user =  current_user.id == @list.user_id ? true : false%>
          <% if is_created_user %>
-         <%= button_tag 'Invite New User', :id => 'bt-invite-user', :class => 'btn btn-link invite_hover',  'data-skip-pjax' => true %>
+         <%= button_tag 'Invite New User', :id => 'bt-invite-user', :class => 'btn btn-link invite_hover' %>
       		<div id="loading" style="display: none;">
       			<%= image_tag 'loading12.gif' %>
       		</div>
