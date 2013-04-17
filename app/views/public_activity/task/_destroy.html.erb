@@ -1,1 +1,1 @@
-<strong><%= activity.owner.full_name %></strong> deleted a task from <strong> <%= link_to activity.recipient.name, list_path(activity.recipient),  target: "_blank" %></strong>
+<span style="background-color:#f65d3f; border-radius:8px;"><%= image_tag 'cross.png'%></span> <strong><%= activity.owner.full_name %></strong> deleted a task from <strong> <%= link_to activity.recipient.name, list_path(activity.recipient),  target: "_blank" %></strong>
