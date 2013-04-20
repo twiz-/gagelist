@@ -1,0 +1,34 @@
+<div class="row">
+  <span class="activity_feed_icon pull-right <%= 'red_icon' if @activities.count > 0 %>">
+     <%=image_tag('list-2.png')%>
+     <div id="activity_feed" class="well" style="list-style:none;">
+       <ul id="feed">
+         <%= image_tag 'loading12.gif' %>
+       </ul>
+       <%= link_to 'View All', activities_path(:page => 1) %>
+     </div>  
+  </span>  
+</div>
+
+<ul class="nav nav-pills container" id="myTab">
+   <li class="active stuff_with_others"><a href="#stuff_with_others" style="color:#A80000;">Stuff With Others</a></li>
+   <li class="my_stuff"><a href="#my_stuff" style="color:#A80000;">My Stuff</a></li>
+</ul>
+<div class="tab-content"> 
+  <div class="tab-pane active" id="stuff_with_others">
+    <% @lists.each do |list| %> 
+      <%= render 'list', {:list => list} %>
+    <% end %>
+  </div>
+  
+  <div class="tab-pane" id="my_stuff">
+    <%= render 'my_stuff' %>
+  </div>
+</div>
+
+<script>
+  $('#myTab a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+  })
+</script>

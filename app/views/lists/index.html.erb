@@ -28,37 +28,28 @@ Visit <%= link_to 'your account page', edit_user_registration_path %> to upgrade
     </div>
    </div> 
 <%end-%>
-<div class="row">
-  <span class="activity_feed_icon pull-right <%= 'red_icon' if @activities.count > 0 %>">
-     <%=image_tag('list-2.png')%>
-     <div id="activity_feed" class="well" style="list-style:none;">
-       <ul id="feed">
-         <%= image_tag 'loading12.gif' %>
-       </ul>
-       <%= link_to 'View All', activities_path(:page => 1) %>
-     </div>  
-  </span>  
+<%= link_to 'get latest updates', lists_path, :remote => true %>
+
+<div id="lists_index">
+  <%= render "index" %>
 </div>
-<ul class="nav nav-pills container" id="myTab">
-   <li class="active"><a href="#stuff_with_others" style="color:#A80000;">Stuff With Others</a></li>
-   <li><a href="#my_stuff" style="color:#A80000;">My Stuff</a></li>
-</ul>
-<div class="tab-content"> 
-  <div class="tab-pane active" id="stuff_with_others">
-    <% @lists.each do |list| %> 
-      <%= render 'list', {:list => list} %>
-    <% end %>
-  </div>
-  
-  <div class="tab-pane" id="my_stuff">
-    <%= render 'my_stuff' %>
-  </div>
-</div>  
- 
+
+<ol id="list_index_tour" style="display:none;">
+  <li data-class="index_button">This is where you create projects<br><br></li>
+  <li data-class="stuff_with_others">This is where your stuff with others lives<br><br></li>
+  <li data-class="my_stuff">This is where your stuff lives<br><br></li>
+  <li data-class="activity_feed_icon">Here is your activity feed, it's red when there is new stuff to check out<br><br></li>
+  <li data-id="completed_projects">This is where you can view al your completed proejcts<br><br></li>
+  <li data-id="account_info">This is where you upgrade your account and edit you info<br><br></li>
+  <li>Any more questions? well you're an idiot because it was built for simplicity and ease<br><br></li>
+</ol>
+
 <script>
-  $('#myTab a').click(function (e) {
-    e.preventDefault();
-    $(this).tab('show');
-  })
+  $(window).load(function() {
+    $("#list_index_tour").joyride({
+    });
+  });
 </script>
+
+
 

@@ -9,166 +9,187 @@
   </ul>
 </div>
 <br>
-<h1 style="text-align: center;">Which one of these frustrates you the most?<br><small>Productivity has never been this simple, try it <%= link_to "for free", new_user_registration_path %> to see why. </small></h1><br>
-<div class="whole_frustrate_topside">
-  <div class="row container">
+<h1 style="text-align: center;">
+  Which one of these frustrates you the most?
+  <br>
+  <small>
+    Productivity has never been this simple, try it <%= link_to "for free", new_user_registration_path %> to see why. 
+  </small>
+</h1>
+<br>
+<div class="row">
+  <div class="span12 offset1">
     <div class="row">
-      <div class="span3 frustrate_topside" for='q1 q2'>  
-        <div>
-          <p>When I work on stuff that doesn't actually matter.</p>
+      <div class="span4 frustrate_topside" for="q1 q2">
+        <div class="row" style="padding-top:20px;">
+          <div class="span4">
+            <span class="image_benefits"><%= image_tag "flask-full.png" %></span>
+            <span>Working on stuff that doesn't actually matter.</span>
+          </div>
         </div>
       </div>
-      <div class="span3 frustrate_topside" for="q7 q11">
-          <div>
-            <p>10 people asking me the same question 10 times.</p>
+      <div class="span4 frustrate_topside" for="q7 q11">
+        <div class="row" style="padding-top:20px;">
+          <div class="span4">
+            <span class="image_benefits"><%= image_tag "bullhorn-2.png" %></span>
+            <span>Getting asked <br>the same question 10 times.</span>
           </div>
+        </div>
       </div>
-      <div class="span3 frustrate_topside" for="q8 q10">
-        <div>
-          <p>Not being able to hold myself and others accountable.</p>
+      <div class="span4 frustrate_topside" for="q8 q10">
+        <div class="row" style="padding-top:20px;">
+          <div class="span4">
+            <span class="image_benefits"><%= image_tag "clipboard-2.png" %></span>
+            <span>Not being able to hold myself and others accountable.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="span4 frustrate_topside" for="q3 q5">
+        <div class="row" style="padding-top:20px;">
+          <div class="span4">
+            <span class="image_benefits"><%= image_tag "expand-3.png" %></span>
+            <span>Working extra hard <br>to pick up the slack of others.</span>
+          </div>
+        </div>
+      </div>
+      <div class="span4 frustrate_topside" for="q4 q9">
+        <div class="row">
+          <div class="span4" style="padding-top:20px;">
+            <span class="image_benefits"><%= image_tag "repeat-2.png" %></span>
+            <span>Talking circles <br> around stuff we should instead be doing.</span>
+          </div>
+        </div>
+      </div>
+      <div class="span4 frustrate_topside" for="q6 q12">
+        <div class="row">
+          <div class="span4" style="padding-top:20px;">
+            <span style="float:left; margin-bottom:25px; margin-right: 10px;"><%= image_tag "star.png" %></span>
+            <span>Not being appreciated <br>for how much I actually accomplish.</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <br>
-  <div class="row container">
-    <div class="row">
-      <div class="span3 frustrate_topside" for="q3 q5">  
-        <div>
-          <p>Working extra hard to pick up the slack of others.</p>
-        </div>
-      </div>
-      <div class="span3 frustrate_topside" for="q4 q9">
-          <div>
-            <p>Talking endless circles about the things we should be doing instead of actually doing them.</p>
-          </div>
-      </div>
-      <div class="span3 frustrate_topside" for="q6 q12">
-        <div>
-          <p>Not being appreciated for how much I actually accomplish.</p>
-        </div>
-      </div>
+</div>
+<br>
+<div id="q1" class="tick_for_benefits span4 offset3">
+  <h5 class="faq_header">Hey, it would be cool if..</h5>  
+  <div class='content'>
+    <p>Everyone loves a self starter, except when they consume your most valuable resource - attention.</p>
+    <p>Hold their whims in check by tracking what you're working on for them and see if it really mattered in the end.</p>
+    <div><%= link_to "Get My Attention Back", new_user_registration_path, :class => "btn btn-success" %></div>
+  </div>
+</div>
+<div id="q2" class="tick_for_benefits span4">
+  <h5 class="faq_header">The kick is up! And..</h5>
+  <div class='content'> 
+    <p>Inspiration is great, but execution is 10x better.</p>
+    <p>Avoid 80% project completion syndrome by having the inspired put their name and a gauge to their initiatives.</p>
+    <div><%= link_to "Get to 100%", new_user_registration_path, :class => "btn btn-success" %></div>
+  </div>
+</div>  
+<div id="q3" class="tick_for_benefits span4 offset3">
+  <h5 class="faq_header"> Third night in a row</h5>
+  <div class='content'>
+    <p>Who is really responsible for what? Keep an ongoing record of how much you actually do for others.</p>
+    <p>And how many lunches they owe you.</p>
+    <div><%= link_to "Get More Lunches", new_user_registration_path, :class => "btn btn-success" %>
+    </div>
+  </div> 
+</div>  
+<div id="q4" class="tick_for_benefits span4 offset3">
+  <h5 class="faq_header">Lets sit down and chat</h5>
+  <div class='content'>
+    <p>Set and execute on clear objectives about what needs to be done rather than talking about them to death.</p>
+    <div><%= link_to "Actions > Words", new_user_registration_path, :class => "btn btn-success" %>
     </div>
   </div>
 </div>  
-<br>
-<div class="row">
-  <div class="span6" id='container'>
-    <h5 class="faq_header"><%= image_tag('tick.png', :class => "tick_for_benefits", :id => "q1") %>Hey, it would be cool if..</h5>  
-    <div class='content'>
-      <p>Everyone loves a self starter, except when they consume your most valuable resource - attention.</p>
-      <p>Hold their whims in check by tracking what you're working on for them and see if it really mattered in the end.</p>
-      <div style="text-align:center;"><%= link_to "Get My Attention Back", new_user_registration_path, :class => "btn btn-success fix_this_btn" %></div>
-    </div>
-    <hr>
-    <h5 class="faq_header"><%= image_tag('tick.png', :class => "tick_for_benefits", :id => "q2") %> The kick is up! And..</h5>
-    <div class='content'> 
-      <p>Inspiration is great, but execution is 10x better.</p>
-      <p>Avoid 80% project completion syndrome by having the inspired put their name and a gauge to their initiatives.</p>
-      <div style="text-align:center;"><%= link_to "Get to 100%", new_user_registration_path, :class => "btn btn-success fix_this_btn" %></div>
-    </div>
-    <hr>
-    <h5 class="faq_header"><%= image_tag('tick.png', :class => "tick_for_benefits", :id => "q3") %> Third night in a row</h5>
-    <div class='content'>
-      <p>Who is really responsible for what? Keep an ongoing record of how much you actually do for others.</p>
-      <p>And how many lunches they owe you.</p>
-      <div style="text-align:center;"><%= link_to "Get More Lunches", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
-      </div>
-    </div> 
-    <hr>
-    <h5 class="faq_header"><%= image_tag('tick.png', :class => "tick_for_benefits", :id => "q4") %>Lets sit down and chat</h5>
-    <div class='content'>
-      <p>Set and execute on clear objectives about what needs to be done rather than talking about them to death.</p>
-      <div style="text-align:center;"><%= link_to "Actions > Words", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
-      </div>
-    </div>
-    <hr>
-    <h5 class="faq_header"><%= image_tag('tick.png', :class => "tick_for_benefits", :id => "q5") %> You're on deck</h5>
-    <div class='content'> 
-      <p>The show view gives a quick look into the project completion percentage and who exactly it is we're waiting on for completion.</p>
-      <div style="text-align:center;"><%= link_to "Easily See Why We're Blocked", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
-      </div>
-    </div>
-    <hr>
-    <h5 class="faq_header"><%= image_tag('tick.png', :class => "tick_for_benefits", :id => "q6") %>Indispensable</h5>
-    <div class='content'>
-      <p>Easily see what work wouldn't get done if you didn't do that voodoo that you do so well.</p>
-      <div style="text-align:center;"><%= link_to "See How Good you Are", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
-      </div>
-    </div>
-  </div> 
- 
-  <div class="span6" id="container">
-    <h5 class="faq_header"><%= image_tag('tick.png', :class => "tick_for_benefits", :id => "q7") %>I need a map</h5>
-    <div class='content'>
-      <p>Where are we at on that Johnson Report?</p>
-      <p>Avoid the above question like the plague and have a page for all project stakeholders to view the status of that Johnson report.</p>
-      <div style="text-align:center;"><%= link_to "Less Unnecessary Questions", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
-      </div>
-    </div>
-    <hr>
-    <h5 class="faq_header"><%= image_tag('tick.png', :class => "tick_for_benefits", :id => "q8") %>Wait, why did I come in here again?</h5>
-    <div class='content'>
-      <p> You're not perfect all the time. Sometimes you have a moment of inspiration and then you forget.</p>
-      <p> Hold yourself in check by having what exactly you need to do laid out for easy access.</p>
-      <div style="text-align:center;"><%= link_to "Remember Everything", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
-      </div>
-    </div>
-    <hr>
-    <h5 class="faq_header"><%= image_tag('tick.png', :class => "tick_for_benefits", :id => "q9") %>The Grand Canyon isn't so lovely this time of year</h5>
-    <div class='content'>
-      <p>The knowing and doing gap is alive and well.</p>
-      <p>Use you lists to force yourself to be good and close that gap for yourself and others once and for all.</p>
-      <div style="text-align:center;"><%= link_to "Become Famous For Closing", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
-      </div>
-    </div>
-    <hr>
-    <h5 class="faq_header"><%= image_tag('tick.png', :class => "tick_for_benefits", :id => "q10") %> Nicholas Travolta</h5>
-    <div class='content'>
-      <p>Make sure what you're working on is front and center staring you (and everyone) in the face.</p> 
-      <p>Avoid stale projects and procrastination by having a quick visibility in to the progress of all your projects.</p>
-      <div style="text-align:center;"><%= link_to "Tackle Them Head On", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
-      </div>
-    </div>
-    <hr>
-    <h5 class="faq_header"><%= image_tag('tick.png', :class => "tick_for_benefits", :id => "q11") %> Johnny Come Looky</h5>
-    <div class='content'>
-      <p>They shouldn't have to come over and make small talk just to sneak a peak at your screen to see what you're working on.</p> 
-      <p>Happily, provide a link to your projects to let whoever YOU want know what you are working on.</p>
-      <div style="text-align:center;"><%= link_to "Go Back to Your Desk", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
-      </div>
-    </div>
-    <hr>
-    <h5 class="faq_header"><%= image_tag('tick.png', :class => "tick_for_benefits", :id => "q12") %> HIT List</h5>
-    <div class='content'>
-      <p>"Hey you busy right now?" Yeah, gimme a sec. </p>
-      <p>Quickly keep track and knock out the stuff you can do this "sec" before getting distracted.</p>
-      <div style="text-align:center;"><%= link_to "Finish What You Can Right Now", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
-      </div>
+<div id="q5" class="tick_for_benefits span4">  
+  <h5 class="faq_header"> You're on deck</h5>
+  <div class='content'> 
+    <p>The show view gives a quick look into the project completion percentage and who exactly it is we're waiting on for completion.</p>
+    <div><%= link_to "Easily See Why We're Blocked", new_user_registration_path, :class => "btn btn-success" %>
     </div>
   </div>
 </div>
-<div class="row" id='container'>
-  <h5 class="faq_header"><%= image_tag('tick.png', :class => "tick_for_benefits", :id => "q13") %> No I can't do EVERYthing</h5>
-  <div class='content' style="margin-left: 230px; width:550px;">
-    <p>It's true you need another person's skill set to accomplish something important. But, asking someone for something shouldn't be so difficult.</p>
-    <p>Invite anyone by email to your project and let them know that the project's well being and completion depends on their very particular skill set.</p>
-    <div style="text-align:center;"><%= link_to "Make Something Great Together", new_user_registration_path, :class => "btn btn-success fix_this_btn" %>
+<div id="q6" class="tick_for_benefits span4 offset3">
+  <h5 class="faq_header">Indispensable</h5>
+  <div class='content'>
+    <p>Easily see what work wouldn't get done if you didn't do that voodoo that you do so well.</p>
+    <div><%= link_to "See How Good you Are", new_user_registration_path, :class => "btn btn-success" %>
     </div>
   </div>
 </div>
-<hr>
-<div class="row beneifts_description_whole" style="border-bottom:none;">
-  <div class="row">
+<div id="q7" class="tick_for_benefits span4 offset3">
+  <h5 class="faq_header">I need a map</h5>
+  <div class='content'>
+    <p>Where are we at on that Johnson Report?</p>
+    <p>Avoid the above question like the plague and have a page for all project stakeholders to view the status of that Johnson report.</p>
+    <div>
+      <%= link_to "Less Unnecessary Questions", new_user_registration_path, :class => "btn btn-success" %>
+    </div>
+  </div>
+</div>
+<div id="q8" class="tick_for_benefits span4 offset3">
+  <h5 class="faq_header">Wait, why did I come in here again?</h5>
+  <div class='content'>
+    <p> You're not perfect all the time. Sometimes you have a moment of inspiration and then you forget.</p>
+    <p> Hold yourself in check by having what exactly you need to do laid out for easy access.</p>
+    <div><%= link_to "Remember Everything", new_user_registration_path, :class => "btn btn-success" %>
+    </div>
+  </div>
+</div>
+<div id="q9" class="tick_for_benefits span4">
+  <h5 class="faq_header">The Grand Canyon isn't so <br>lovely this time of year</h5>
+  <div class='content'>
+    <p>The knowing and doing gap is alive and well.</p>
+    <p>Use you lists to force yourself to be good and close that gap for yourself and others once and for all.</p>
+    <div><%= link_to "Become Famous For Closing", new_user_registration_path, :class => "btn btn-success" %>
+    </div>
+  </div>
+</div>
+<div id="q10" class="tick_for_benefits span4">
+  <h5 class="faq_header"> Nicholas Travolta</h5>
+  <div class='content'>
+    <p>Make sure what you're working on is front and center staring you (and everyone) in the face.</p> 
+    <p>Avoid stale projects and procrastination by having a quick visibility in to the progress of all your projects.</p>
+    <div><%= link_to "Tackle Them Head On", new_user_registration_path, :class => "btn btn-success" %>
+    </div>
+  </div>
+</div>
+<div id="q11" class="tick_for_benefits span4">
+  <h5 class="faq_header"> Johnny Come Looky</h5>
+  <div class='content'>
+    <p>They shouldn't have to come over and make small talk just to sneak a peak at your screen to see what you're working on.</p> 
+    <p>Happily, provide a link to your projects to let whoever YOU want know what you are working on.</p>
+    <div><%= link_to "Go Back to Your Desk", new_user_registration_path, :class => "btn btn-success" %>
+    </div>
+  </div>
+</div>
+<div id="q12" class="tick_for_benefits span4">
+  <h5 class="faq_header"> HIT List</h5>
+  <div class='content'>
+    <p>"Hey you busy right now?" Yeah, gimme a sec. </p>
+    <p>Quickly keep track and knock out the stuff you can do this "sec" before getting distracted.</p>
+    <div><%= link_to "Finish What You Can Right Now", new_user_registration_path, :class => "btn btn-success" %>
+    </div>
+  </div>
+</div>
+<div class="row does_description_whole" style="border-bottom:none;">
+  <div class="row offset2">
     <div class="span9">
-       <h2>Simple. <small> See the rest on the <%= link_to "inside", new_user_registration_path %> or see <%= link_to "how much it costs.", pricing_path %></small></h2> 
+       <h2>Simple. <small> See the rest on the <%= link_to "inside", new_user_registration_path %> or see <%= link_to "why it exists.", benefits_path %></small></h2> 
     </div>
   </div>  
   <br>
-  <div class="row" style="margin-left: 200px;">
-    <div>
+  <div class="row">
+    <div class="offset5">
       <%= link_to "Inside.", new_user_registration_path, :class => "btn btn-success" %>
-      <%= link_to "Costs.", pricing_path, :class => "btn btn-info"  %>
+      <%= link_to "Exists.", benefits_path, :class => "btn btn-info"  %>
     </div>
   </div>
 </div>
@@ -177,7 +198,7 @@
 
 <script>
 //On click any <h3> within the container
-$('#container h5').click(function(e) {
+$('h5').click(function(e) {
 
     //Close all <div> but the <div> right after the clicked <a>
     $(e.target).next('div').siblings('div').slideUp('fast');

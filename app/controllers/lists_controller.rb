@@ -14,6 +14,10 @@ class ListsController < ApplicationController
     @activities = PublicActivity::Activity.order("created_at desc").where(recipient_id: lists).includes(:owner)
     last_viewed = current_user.activity_views.order('viewed_on desc').first
     @activities = @activities.where("created_at > '#{last_viewed.viewed_on}'") unless last_viewed.blank?
+    respond_to do |format|
+      format.js  
+      format.html
+    end  
   end
   
   def new

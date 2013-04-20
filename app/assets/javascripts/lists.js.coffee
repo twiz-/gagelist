@@ -32,26 +32,13 @@ jQuery ->
 
 $ ->
   update_due_labels()
-
-
+ 
 jQuery ->
   $(".task-list").on("mouseenter", "li", ->
     $(this).find("div.assignee").slideToggle('fast')
   ).on "mouseleave", "li", ->
     $(this).find("div.assignee").slideToggle('fast')
-
-jQuery ->
-	$(".activity_feed_icon").on "click", "img", ->
-    $(this).closest(".activity_feed_icon").find("#activity_feed").slideToggle()
-    unless $('.activity_feed_icon').hasClass('clicked')
-      $.ajax
-        url: "/activities.js"
-        data: "latest=true"
-      
-  $(".activity_feed_icon").click ->
-    $(this).toggleClass "clicked"
-    $(this).removeClass "red_icon"
-    
+   
 jQuery ->
   if $('.pagination').length
     $(window).scroll ->
@@ -60,3 +47,17 @@ jQuery ->
         $('.pagination').text('Fetching more results...')
         $.getScript(url)
     $(window).scroll
+  		$(this).closest(".activity_feed_icon").find("#activity_feed").slideToggle()
+  				
+jQuery ->
+  $(".activity_feed_icon").live "click", "img", ->
+    $(this).closest(".activity_feed_icon").find("#activity_feed").slideToggle()
+    unless $('.activity_feed_icon').hasClass('clicked')
+      $.ajax
+       url: "/activities.js"
+       data: "latest=true"
+      
+  $(".activity_feed_icon").live "click", ->
+    $(this).toggleClass "clicked"
+    $(this).removeClass "red_icon" 
+  

@@ -1,0 +1,86 @@
+  <div class="well span10 offset1">
+     <div class="row">
+       <div class="span5 pull-right">
+         <div id="smallbuddy" style="width:340px; height:200px;"></div>
+       </div>
+       <div class="span5">
+         <%= link_to "Add New Task", '#', class: "show_button btn-link", id: "new_task_bt" %>
+         <% is_created_user =  current_user.id == @list.user_id ? true : false%>
+         <% if is_created_user %>
+         <%= button_tag 'Invite New User', :id => 'bt-invite-user', :class => 'btn btn-link invite_hover' %>
+      		<div id="loading" style="display: none;">
+      			<%= image_tag 'loading12.gif' %>
+      		</div>
+      	  <div id="frm_invite_user" style="display: none;">
+      	  	<h4>Invite user join in your project</h4>
+      	  	<div id="error_explanation"></div>
+      	  	<%= form_for Invitation.new, :remote => true do |f| %>
+      	  	<%= label_tag 'First name' %>
+      	  	<%= f.text_field 'first_name' %>
+      	  	<%= label_tag 'Last name' %>
+      	  	<%= f.text_field 'last_name' %>
+      	  	<label> <%="User email <span class='require'> *</span>".html_safe %> </label>
+      	  	<%= f.text_field  'email' %><br/>
+      	  	<%= f.hidden_field 'invited_for_id', :value => @list.id %>
+      	  	<%= f.hidden_field 'invited_for_type', :value => 'List' %>
+      	  	
+      	  	<%= f.submit 'Send invitation', :class => 'btn btn-info' %>
+      	  	<%= button_tag 'Cancel', :id => 'bt-cancel-invite', :class => 'btn', :type => 'button' %>
+      	  	<% end %>
+
+      	  </div>
+      <% end %>
+      <div id="new_task_form">
+        <h4>Add a new task</h4>
+        <%= render '/tasks/form'%>
+    	</div>  
+    </div>  
+  </div>
+  <div class="row span10">
+    <ul class="task-list" id="incomplete" data-update-url="<%= sort_tasks_url(format: :js) %>">
+      <%= render 'incompletes' %>
+    </ul>
+  </div>
+  <div class="row">
+    <div id="bootstrap_fix">
+        <button type="button" class="btn btn-info offset4 show-completed" data-toggle="collapse" data-target="#demo">
+         Show completed tasks
+        </button><br>
+      <div class="pull-left offset2 collapse in" id="demo" style="width:760px;margin-top:20px;margin-left:10px;padding-right:1px;">
+        <ul class="task-list" id="completed">
+           <table>
+             <tbody>
+               <tr>
+                 <td><%= render "completed" %>
+                 </td>
+               </tr>
+             </tbody>   
+           </table>
+        </ul>
+      </div>
+    </div>
+</div>
+
+<script>
+  var gage<%= @list.id %> = new JustGage({
+    id: "smallbuddy", 
+    value: <%= @list.percent_complete.round(2) %>, 
+    min: 0,
+    max: 100,
+    title: "Until Complete",
+    startAnimationType: "bounce",
+    refreshAnimationType: "bounce",
+    refreshAnimationTime: 1500,
+    startAnimationTime: 1500,
+    levelColors: [
+        	"#ff0000",
+        	"#999900",
+        	"#00ff00"
+      ]
+    
+  }); 
+</script>
+ 
+<script>
+  $(".collapse").collapse()
+</script>  

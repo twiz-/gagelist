@@ -19,17 +19,13 @@
 //= require jquery.purr
 //= require best_in_place
 //= require lightbox
-//= require jquery.pjax
+//= require jquery.cookie
+//= require jquery.joyride-2.0.3
+//= require modernizr.mq
 //= require_tree .
  
-$(function(){
-   //$('#main').pjax('a.pjax');
-   //$('#main').pjax('a:not([data-remote]):not([data-behavior]):not([data-skip-pjax])')
-   //$('a[data-pjax]').pjax()
-})
- 
 $(function() {
-	$('#new_task_bt').click(function() {
+	$('#new_task_bt').live('click', function() {
 		$('#new_task_form').show();
 		$("#new_task").each (function(){
 		  this.reset();
@@ -64,13 +60,13 @@ $(function() {
 	    return false;
 	  });
 
-	$('#bt-invite-user').click(function() {
+	$('#bt-invite-user').live("click", function() {
 		$('#frm_invite_user').show();
 		$(this).hide();
 		$('#new_task_bt').hide();
 	});
 	
-	$('#bt-cancel-invite').click(function() {
+	$('#bt-cancel-invite').live("click", function() {
 		$('#frm_invite_user').hide();
 		$('#bt-invite-user').show();
 		$('#new_task_bt').show();
@@ -86,4 +82,18 @@ function update_due_labels(){
   return false;
 }
 
-
+function enable_activity_feed1() {
+  $(".activity_feed_icon").on("click", "img", function() {
+      $(this).closest(".activity_feed_icon").find("#activity_feed").slideToggle();
+      if (!$('.activity_feed_icon').hasClass('clicked')) {
+        return $.ajax({
+          url: "/activities.js",
+          data: "latest=true"
+        });
+      }
+    });
+    $(".activity_feed_icon").click(function() {
+      $(this).toggleClass("clicked");
+      return $(this).removeClass("red_icon");
+    });
+  }; 

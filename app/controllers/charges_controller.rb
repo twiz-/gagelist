@@ -44,7 +44,7 @@ class ChargesController < ApplicationController
     payment.email  = current_user.email
     payment.stripe_customer_id = stripe_customer_id
     payment.save
-    ReceiptMailer.successful_charge_receipt(@current_user).deliver  
+    # ReceiptMailer.successful_charge_receipt(@current_user).deliver  
    
     if @set_flag
       current_user.paid_user = true
