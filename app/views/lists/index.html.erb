@@ -28,11 +28,13 @@ Visit <%= link_to 'your account page', edit_user_registration_path %> to upgrade
     </div>
    </div> 
 <%end-%>
+
 <%= link_to 'get latest updates', lists_path, :remote => true %>
 
 <div id="lists_index">
   <%= render "index" %>
 </div>
+
 
 <ol id="list_index_tour" style="display:none;">
   <li data-class="index_button">This is where you create projects<br><br></li>
