@@ -13,11 +13,7 @@ jQuery ->
     e.stopPropagation()
   
 jQuery -> 
-    $('#incomplete').sortable(
-      axis: 'y'
-      update: ->
-        $.post($(this).data('update-url'), $(this).sortable('serialize'))
-    );
+   make_tasks_sortable();
     
 jQuery ->
   $("#new_invitation").bind("ajax:beforeSend", ->
@@ -34,9 +30,9 @@ $ ->
   update_due_labels()
  
 jQuery ->
-  $(".task-list").on("mouseenter", "li", ->
+  $(".task-list").live("mouseenter", "li", ->
     $(this).find("div.assignee").slideToggle('fast')
-  ).on "mouseleave", "li", ->
+  ).live "mouseleave", "li", ->
     $(this).find("div.assignee").slideToggle('fast')
    
 jQuery ->

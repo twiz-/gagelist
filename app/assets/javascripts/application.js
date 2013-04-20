@@ -82,18 +82,11 @@ function update_due_labels(){
   return false;
 }
 
-function enable_activity_feed1() {
-  $(".activity_feed_icon").on("click", "img", function() {
-      $(this).closest(".activity_feed_icon").find("#activity_feed").slideToggle();
-      if (!$('.activity_feed_icon').hasClass('clicked')) {
-        return $.ajax({
-          url: "/activities.js",
-          data: "latest=true"
-        });
-      }
-    });
-    $(".activity_feed_icon").click(function() {
-      $(this).toggleClass("clicked");
-      return $(this).removeClass("red_icon");
-    });
-  }; 
+function make_tasks_sortable(){
+  $('#incomplete').sortable({
+    axis: 'y',
+    update: function() {
+      return $.post($(this).data('update-url'), $(this).sortable('serialize'));
+    }
+  });
+}
