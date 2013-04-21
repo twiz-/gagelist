@@ -30,9 +30,9 @@ $ ->
   update_due_labels()
  
 jQuery ->
-  $(".task-list").live("mouseenter", "li", ->
+  $(".task-list li").live("mouseenter", ->
     $(this).find("div.assignee").slideToggle('fast')
-  ).live "mouseleave", "li", ->
+  ).live "mouseleave", ->
     $(this).find("div.assignee").slideToggle('fast')
    
 jQuery ->
