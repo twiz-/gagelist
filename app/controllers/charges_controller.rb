@@ -6,7 +6,6 @@ class ChargesController < ApplicationController
   end
   
   def create
-    render :layout => false
     #Amount charged in cents
     @error = false
     @amount = REGISTRATION_AMOUNT * 100
@@ -48,7 +47,7 @@ class ChargesController < ApplicationController
     
   rescue Stripe::CardError => e
     @error = true
-    flash[:error] = e.message
+    flash[:error] = "The card you entered was not successfully charged: #{e.message}"
     redirect_to charges_path
   end
  

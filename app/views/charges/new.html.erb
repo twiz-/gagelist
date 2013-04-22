@@ -33,10 +33,10 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
-    <% if flash[:alert] %>
+    <% if flash[:error] %>
       <div class="alert alert-error">
         <button class="close" data-dismiss="alert">x</button>
-        <%= flash[:alert] %>
+        <%= flash[:error] %>
       </div>
     <% end %>
  <%= yield %>
