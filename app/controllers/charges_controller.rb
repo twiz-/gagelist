@@ -48,7 +48,7 @@ class ChargesController < ApplicationController
   rescue Stripe::CardError => e
     @error = true
     flash[:error] = "The card you entered was not successfully charged: #{e.message}"
-    redirect_to charges_path
+    redirect_to new_charge_path
   end
  
   private
