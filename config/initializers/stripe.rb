@@ -5,6 +5,6 @@
 
 #Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
-Stripe.api_key = 'sk_live_l9WJ79idTHUyPLfiXjq9AIcS'
-STRIPE_PUBLIC_KEY = 'pk_live_Uka23Q8EiBDkfoJ5d335EAaC'
+Stripe.api_key = 'sk_test_DMhBDOhj8TxltKB4X8vJeMh4'
+STRIPE_PUBLIC_KEY = 'pk_test_wup8nSA0yXGVNrHbIpcQKWSS'
 REGISTRATION_AMOUNT = 50
