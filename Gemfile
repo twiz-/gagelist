@@ -13,6 +13,7 @@ gem 'best_in_place'
 gem 'rubylight'
 gem 'public_activity'
 gem 'will_paginate'
+gem 'postmark-rails','~> 0.5.0'
 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 group :development, :test do

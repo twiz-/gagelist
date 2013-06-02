@@ -1,5 +1,5 @@
 class InvitationMailer < ActionMailer::Base
-  default from: "notifications@refreshrunner.com"
+  default from: "hello@refreshrunner.com"
   
   def invite_to_list(invitation)
     @inviter = invitation.inviter
