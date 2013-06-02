@@ -68,17 +68,12 @@ Gagelist::Application.configure do
   # allow sending of email in produtction 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
+  #send emails from transactional email postmarkapp
+  config.action_mailer.delivery_method = :postmark
+  config.action_mailer.postmark_settings = { :api_key => "1b8491ec-ed63-4526-831c-6e491e5f2493"}
   
   config.action_mailer.default_url_options = { :host => 'refreshrunner.com' }
   
   #Sending email on the production side
-  config.action_mailer.smtp_settings = {
-    :enable_starttls_auto => true,
-    :address => "smtp.gmail.com",
-    :port => 587,
-    :domain => "refreshrunner.com",
-    :authentication => :plain,
-    :user_name => ENV["GMAIL_USERNAME"],
-    :password => ENV["GMAIL_PASSWORD"]
-  }
+
 end

@@ -36,7 +36,7 @@ Gagelist::Application.configure do
   
   #sends email to a new browser tab instead of actully sending
   config.action_mailer.delivery_method = :postmark
-  config.action_mailer.postmark_settings = { :api_key => "1b8491ec-ed63-4526-831c-6e491e5f2493" }
+  config.action_mailer.postmark_settings = { :api_key => "1b8491ec-ed63-4526-831c-6e491e5f2493"}
   
   # Don't care if the mailer can't send and allow actual email to be sent in prod
   config.action_mailer.raise_delivery_errors = true
