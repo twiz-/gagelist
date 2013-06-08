@@ -5,6 +5,6 @@ class InvitationMailer < ActionMailer::Base
     @inviter = invitation.inviter
     @list = invitation.invited_for
     @invitation = invitation
-    mail(:to => invitation.email, :subject => "Invitation instructions")
+    mail(:to => invitation.email, :subject => "#{invitation.inviter.full_name} - Invitation instructions", from: invitation.inviter.email)
   end
 end
