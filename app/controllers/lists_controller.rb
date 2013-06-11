@@ -81,31 +81,33 @@ class ListsController < ApplicationController
   private
 
   def find_list
-    @list = List.find(params[:id]) unless params[:id].blank?
-    @list = List.find(params[:list_id]) if @list.blank?
+    begin
+      @list = List.find(params[:id]) unless params[:id].blank?
+      @list = List.find(params[:list_id]) if @list.blank?
+    rescue
+      redirect_to lists_path, :alert => "List not found for that ID." and return
+    end
   end
 
   def check_create_permission
     #Invited users are not allowed to create new lists
-    if current_user.invited_user?
-      redirect_to lists_path, :alert => "You don't have permission to do that. This action is notified."  and return
-    end
+    handle_no_access if current_user.invited_user?
   end
 
   def check_permission
-    unless @list.members.include?(current_user)
-      redirect_to lists_path, :alert => "You don't have permission to do that. This action is notified."  and return
-    end
+    handle_no_access unless @list.members.include?(current_user)
   end
 
   def check_ownership
     #List creator only allowed to remove members
-    unless @list.owner?(current_user)
-      redirect_to lists_path, :alert => "You don't have permission to do that. This action is notified." and return
-    end
+    handle_no_access unless @list.owner?(current_user)
   end
 
   def all_lists
     current_user.paricipating_lists.incomplete
+  end
+
+  def handle_no_access
+    redirect_to lists_path, :alert => "You don't have permission to do that. This action is notified." and return
   end
 end
