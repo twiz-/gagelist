@@ -15,6 +15,10 @@ class List < ActiveRecord::Base
   scope :completed, where(:complete => true)
   scope :incomplete, where(:complete => false)
   
+  def to_param 
+    "#{id}-#{name}".parameterize
+  end
+  
   def owner?(user)
     self.user == user
   end
