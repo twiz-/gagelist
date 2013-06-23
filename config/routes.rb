@@ -1,47 +1,48 @@
 Gagelist::Application.routes.draw do
-  
-  
 
-  devise_for :users, :controllers => {:registrations => "registrations" } 
-  
+
+
+  devise_for :users, :controllers => {:registrations => "registrations" }
+
   devise_scope :user do
     match '/change_password' => "registrations#edit_password", :as => 'change_password'
     match '/update_password' => "registrations#update_password", :as => 'update_password'
     match '/confirmation_message' => "registrations#confirmation_message", :as => :confirmation_message
     match '/set_profile_name' => "registrations#set_profile_name", :as => :set_profile_name
   end
- 
+
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users
-  
+
   resources :activities
-  
+
   resources :lists do
     collection do
       get 'completed'
-    end  
-    
+    end
+
     member do
       get 'mark_complete'
       get 'mark_uncomplete'
-    end  
-      
+      get 'enable_chat'
+    end
+
     resources :tasks do
       member do
         post 'complete'
-      end  
+      end
     end
-    
+
     match 'remove_membership'
   end
-  
+
   resources :charges
   resources :invitations
   match 'invitation/accept/:token' => "invitations#accept", :as => :accept_invitation
-  
+
   post '/tasks/sort', :controller => 'tasks', :action => 'sort', :as => 'sort_tasks'
-  
+
   #resources :lists, :collection => { :sort => :post }, :as => 'sort_lists'
 
   root :to => 'front#index'
@@ -49,13 +50,13 @@ Gagelist::Application.routes.draw do
   match '/pricing' => 'front#pricing'
   match '/does' => 'front#does'
   match '/terms' => 'front#terms'
-  
+
   match 'lists/:list_id/tasks/:id/complete' => 'tasks#complete', :as => :complete_task
   match 'lists/:list_id/tasks/:id/remove' => 'tasks#destroy', :as => :remove_task
   match 'lists/:list_id/tasks/:id/incomplete' => 'tasks#incomplete', :as => :incomplete_task
-  
+
   #match 'list/:list_id/invite-user' => 'lists#invite_user', :as => :invite_user
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
