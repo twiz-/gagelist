@@ -1,0 +1,2 @@
+enableChat('<%= CHAT_BASE_REF%>', '<%= @list.chat_ref %>', '<%= current_user.first_name %>');
+$('#chat-window').html("<%= escape_javascript(render 'lists/chat_window') %>")

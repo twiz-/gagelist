@@ -1,13 +1,17 @@
-<%= render 'chat' %>
+<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+<div id='chat-window'>
+  <%= render 'chat_window' %>
+</div>
+
 <h1 class="page-header"><%= best_in_place @list, :name %> <br>
   <small style="margin-left:5px;"><%= best_in_place @list, :description %></small>
   <%= link_to "Back To Projects", lists_url, class: "btn btn-link show_button pull-right" %>
 </h1>
-<div class="row">    
+<div class="row">
    <div class="offset1">
      <%= link_to 'get latest updates', list_path(@list),  :remote => true %>
    </div>
-     
+
    <div id="show_wrapper">
      <%= render 'show' %>
    </div>
@@ -28,7 +32,7 @@
  <li data-id="bt-invite-user">Click here to invite a new user by email to this project.<br><br></li>
  <li data-id="smallbuddy">This let's you know how close you are to done, as you complete tasks it fills.<br><br></li>
  <li data-class="show-completed">This button will show display all completed things for this list, with a timestamp.<br><br></li>
- <li data-id="participants">This button will show a list of people that have access to this list.<br><br></li> 
+ <li data-id="participants">This button will show a list of people that have access to this list.<br><br></li>
 </ol>
 
 <script>

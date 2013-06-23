@@ -1,0 +1,7 @@
+<% if @list.chat_enabled %>
+  <%= render 'chat' %>
+<%else%>
+  <% if @list.owner?(current_user) %>
+    <%= link_to 'Enable chat',  enable_chat_list_path(@list), :class => 'btn', :remote => true %>
+  <%end%>
+<%end%>
