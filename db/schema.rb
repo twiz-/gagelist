@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130406153056) do
+ActiveRecord::Schema.define(:version => 20130623093647) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -104,6 +104,8 @@ ActiveRecord::Schema.define(:version => 20130406153056) do
     t.integer  "user_id"
     t.boolean  "complete",     :default => false
     t.datetime "completed_at"
+    t.boolean  "chat_enabled", :default => false
+    t.string   "chat_ref"
   end
 
   create_table "payments", :force => true do |t|
