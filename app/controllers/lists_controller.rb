@@ -2,9 +2,10 @@ class ListsController < ApplicationController
   #helper_method :sort_column, :sort_direction
   respond_to :html, :xml, :json, :js
 
-  before_filter :check_permission, :only => [:new, :create]
   before_filter :find_list, :except => [:index, :new, :create, :completed]
-  before_filter :check_ownership, :only => [:remove_membership, :mark_complete, :mark_uncomplete, :enable_chat]
+  before_filter :check_create_permission, :only => [:new, :create]
+  before_filter :check_permission, :only => [:show, :edit, :destory, :update]
+  before_filter :check_ownership, :only => [:remove_membership, :mark_complete, :mark_uncomplete]
 
   def index
     @private_lists = all_lists.with_one_member
@@ -87,25 +88,33 @@ class ListsController < ApplicationController
   private
 
   def find_list
-    @list = List.find(params[:id]) unless params[:id].blank?
-    @list = List.find(params[:list_id]) if @list.blank?
+    begin
+      @list = List.find(params[:id]) unless params[:id].blank?
+      @list = List.find(params[:list_id]) if @list.blank?
+    rescue
+      redirect_to lists_path, :alert => "List not found for that ID." and return
+    end
+  end
+
+  def check_create_permission
+    #Invited users are not allowed to create new lists
+    handle_no_access if current_user.invited_user?
   end
 
   def check_permission
-    #Invited users are not allowed to create new lists
-    if current_user.invited_user?
-      redirect_to lists_path, :alert => "You don't have permission to do that. This action is notified."  and return
-    end
+    handle_no_access unless @list.active_members.include?(current_user)
   end
 
   def check_ownership
     #List creator only allowed to remove members
-    unless @list.owner?(current_user)
-      redirect_to lists_path, :alert => "You don't have permission to do that. This action is notified." and return
-    end
+    handle_no_access unless @list.owner?(current_user)
   end
 
   def all_lists
     current_user.paricipating_lists.incomplete
+  end
+
+  def handle_no_access
+    redirect_to lists_path, :alert => "You don't have permission to do that. This action is notified." and return
   end
 end

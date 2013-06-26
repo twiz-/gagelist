@@ -72,7 +72,7 @@ window.enableChat = (baseRef, projRef, userName) ->
       $("#messageInput").val ""
 
   # Add a callback that is triggered for each chat message.
-  projectRef.limit(10).on "child_added", (snapshot) ->
+  projectRef.on "child_added", (snapshot) ->
     message = snapshot.val()
     $("<div/>").text(message.text).prepend($("<em/>").text(message.name + ": ")).appendTo $("#messagesDiv")
     $("#messagesDiv")[0].scrollTop = $("#messagesDiv")[0].scrollHeight  
