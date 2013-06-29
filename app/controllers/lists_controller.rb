@@ -58,9 +58,7 @@ class ListsController < ApplicationController
   end
 
   def enable_chat
-    @list.chat_enabled = true
-    @list.chat_ref = params[:id]
-    @list.save
+    @list.enable_chat
   end
 
   def remove_membership

@@ -57,22 +57,28 @@ jQuery ->
     $(this).toggleClass "clicked"
     $(this).removeClass "red_icon"
 
-window.enableChat = (baseRef, projRef, userName) ->
+window.enableChat = (baseRef, projRef, userName, token) ->
   # Get a reference to the root of the chat data.
   messagesRef = new Firebase(baseRef)
-  projectRef = messagesRef.child(projRef)
+  projectRef = ''
+  messagesRef.auth token, (error, user) ->
+    if error
+      $("#messageInput").prop('disabled', true)
+      $("#messagesDiv").html('Chat is disabled')
+    else
+      projectRef = messagesRef.child(projRef)
 
-  # When the user presses enter on the message input, write the message to firebase.
-  $("#messageInput").keypress (e) ->
-    if e.keyCode is 13
-      text = $("#messageInput").val()
-      projectRef.push #would call child before push to the ROOT above, so child then root then figure out how to organize
-        name: userName
-        text: text
-      $("#messageInput").val ""
+      # Add a callback that is triggered for each chat message.
+      projectRef.on "child_added", (snapshot) ->
+        message = snapshot.val()
+        $("<div/>").text(message.text).prepend($("<em/>").text(message.name + ": ")).appendTo $("#messagesDiv")
+        $("#messagesDiv")[0].scrollTop = $("#messagesDiv")[0].scrollHeight
 
-  # Add a callback that is triggered for each chat message.
-  projectRef.on "child_added", (snapshot) ->
-    message = snapshot.val()
-    $("<div/>").text(message.text).prepend($("<em/>").text(message.name + ": ")).appendTo $("#messagesDiv")
-    $("#messagesDiv")[0].scrollTop = $("#messagesDiv")[0].scrollHeight  
+      # When the user presses enter on the message input, write the message to firebase.
+      $("#messageInput").keypress (e) ->
+        if e.keyCode is 13
+          text = $("#messageInput").val()
+          projectRef.push #would call child before push to the ROOT above, so child then root then figure out how to organize
+            name: userName
+            text: text
+          $("#messageInput").val ""

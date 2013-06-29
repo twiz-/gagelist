@@ -14,14 +14,15 @@ gem 'rubylight'
 gem 'public_activity'
 gem 'will_paginate'
 gem 'postmark-rails','~> 0.5.0'
+gem 'firebase_token_generator'
 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 group :development, :test do
    gem 'sqlite3'
    gem 'letter_opener'
 end
- 
-group :production do 
+
+group :production do
   gem 'pg'
 end
 
@@ -65,4 +66,3 @@ gem "acts_as_list", "~> 0.1.8"
 # gem 'debugger'
 
 # 516e011353b62078731712566b01e143f56adf0b snapito API Key 
-

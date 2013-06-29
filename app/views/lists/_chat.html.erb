@@ -2,5 +2,5 @@
 <input type='text' id='messageInput' placeholder='Message...'>
 
 <script>
-  enableChat('<%= CHAT_BASE_REF%>', "<%= @list.chat_ref %>", "<%= current_user.first_name %>");
+  enableChat('<%= CHAT_BASE_REF%>', "<%= @list.chat_ref %>", "<%= current_user.first_name %>", "<%= @list.chat_auth_token %>");
 </script>
