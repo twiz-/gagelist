@@ -1,1 +1,2 @@
-CHAT_BASE_REF = "https://isiri.firebaseio.com/"
+CHAT_BASE_REF = ''
+FIREBASE_TOKEN = ''
