@@ -35,6 +35,8 @@ class ListsController < ApplicationController
 
   def show
     @task = @list.tasks.new
+    generator = Firebase::FirebaseTokenGenerator.new(FIREBASE_TOKEN)
+    @chat_auth_token = generator.create_token({}, {:expires => 1.hours.from_now})
     flash[:notice] = 'Project is successfully created.' if params[:new] == 'true'
   end
 
