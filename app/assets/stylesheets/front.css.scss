@@ -134,19 +134,10 @@ div.content {
 #front_container {
   margin-top: -7px;
   /* fallback */
-  background-color: #ff1a1a;
-  /* Safari 4-5, Chrome 1-9 */
-  /* Can't specify a percentage size? Laaaaaame. */
-  background: -webkit-gradient(radial, center center, 0, center center, 460, from(#ff1a1a), to(#b30000)); 
-  /* Safari 5.1+, Chrome 10+ */
-  background: -webkit-radial-gradient(circle, #ff1a1a, #b30000);
-  /* Firefox 3.6+ */ 
-  background: -moz-radial-gradient(circle, #ff1a1a, #b30000);
-  /* IE 10 */ 
-  background: -ms-radial-gradient(circle, #ff1a1a, #b30000);
+  background-color: #3cb78f;
   /* Opera cannot do radial gradients yet */
   height: 635px;
-  border-bottom: solid 5px #A80000;
+  border-bottom: solid 5px #297c61;
 }
 .the_answer {
 	display: none;
@@ -281,7 +272,7 @@ div.content {
 	border-width: 4px;
     border-radius: 5px;
     border-style: solid;
-    border-color: #A80000;
+    border-color: #297c61;
 }
 .carousel.carousel-fade .item {
   -webkit-transition: opacity .6s ease-in-out;
@@ -303,7 +294,7 @@ div.content {
     border-width: 8px;
     border-radius: 5px;
     border-style: solid;
-    border-color: #A80000;
+    border-color: #297c61;
 }
 #front_hold {
   padding-top: 25px;	
@@ -423,13 +414,7 @@ div.content {
 	
 }
 .actual_button {
-	background-color: #00c8c8; 
-	background-image: url(images/fallback-gradient.png); 
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#008100), to(#005a00));
-	background-image: -webkit-linear-gradient(top, #008100, #005a00); 
-	background-image:    -moz-linear-gradient(top, #008100, #005a00);
-	background-image:     -ms-linear-gradient(top, #008100, #005a00);
-	background-image:      -o-linear-gradient(top, #008100, #005a00);
+	background: #6aaf63;
 	-moz-box-shadow:    inset 0 0 10px #AEAEAE;
 	-webkit-box-shadow: inset 0 0 10px #AEAEAE;
 	box-shadow:         inset 0 0 10px #AEAEAE;
@@ -444,13 +429,13 @@ div.content {
 }
 
 .actual_button:hover {
-	background-color: #00c8c8; 
-	background-image: url(images/fallback-gradient.png); 
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#00cf00), to(#005a00));
-	background-image: -webkit-linear-gradient(top, #00cf00, #005a00); 
-	background-image:    -moz-linear-gradient(top, #00cf00, #005a00);
-	background-image:     -ms-linear-gradient(top, #00cf00, #005a00);
-	background-image:      -o-linear-gradient(top, #00cf00, #005a00);
+	background-color: #52934c;
+	border: solid inset 2px #6aaf63;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#83bd7d), to(#52934c));
+	background-image: -webkit-linear-gradient(top, #83bd7d, #52934c); 
+	background-image:    -moz-linear-gradient(top, #83bd7d, #52934c);
+	background-image:     -ms-linear-gradient(top, #83bd7d, #52934c);
+	background-image:      -o-linear-gradient(top, #83bd7d, #52934c);
 	
 }
 
@@ -538,13 +523,7 @@ div.content {
 	font-family: helvetica;
 }
 #link_to_signup_section {
-	background-color: #00c8c8; 
-	background-image: url(images/fallback-gradient.png); 
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#00e3e3), to(#00c8c8));
-	background-image: -webkit-linear-gradient(top, #00e3e3, #00c8c8); 
-	background-image:    -moz-linear-gradient(top, #00e3e3, #00c8c8);
-	background-image:     -ms-linear-gradient(top, #00e3e3, #00c8c8);
-	background-image:      -o-linear-gradient(top, #00e3e3, #00c8c8);
+	background: #6aaf63;
 	-moz-box-shadow:    inset 0 0 10px #AEAEAE;
 	-webkit-box-shadow: inset 0 0 10px #AEAEAE;
 	box-shadow:         inset 0 0 10px #AEAEAE;
@@ -557,12 +536,13 @@ div.content {
 	
 }
 #link_to_signup_section:hover {
-	background-color: #00c8c8; 
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#16ffff), to(#00c8c8));
-	background-image: -webkit-linear-gradient(top, #16ffff, #00c8c8); 
-	background-image:    -moz-linear-gradient(top, #16ffff, #00c8c8);
-	background-image:     -ms-linear-gradient(top, #16ffff, #00c8c8);
-	background-image:      -o-linear-gradient(top, #16ffff, #00c8c8);
+	background-color: #6aaf63;
+	border: solid inset 2px #6aaf63;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#83bd7d), to(#6aaf63));
+	background-image: -webkit-linear-gradient(top, #83bd7d, #6aaf63); 
+	background-image:    -moz-linear-gradient(top, #83bd7d, #6aaf63);
+	background-image:     -ms-linear-gradient(top, #83bd7d, #6aaf63);
+	background-image:      -o-linear-gradient(top, #83bd7d, #6aaf63);
 }
 
 
