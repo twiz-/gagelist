@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130623093647) do
+ActiveRecord::Schema.define(:version => 20130629084100) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -99,13 +99,14 @@ ActiveRecord::Schema.define(:version => 20130623093647) do
   create_table "lists", :force => true do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.integer  "user_id"
-    t.boolean  "complete",     :default => false
+    t.boolean  "complete",        :default => false
     t.datetime "completed_at"
-    t.boolean  "chat_enabled", :default => false
+    t.boolean  "chat_enabled",    :default => false
     t.string   "chat_ref"
+    t.string   "chat_auth_token"
   end
 
   create_table "payments", :force => true do |t|

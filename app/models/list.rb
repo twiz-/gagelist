@@ -56,9 +56,9 @@ class List < ActiveRecord::Base
   def enable_chat
     self.chat_enabled = true
     self.chat_ref = "#{self.id}-#{Devise.friendly_token}"
-    #TODO remove chat_auth_token field from lists table, as it is to be dynamically generated.
-    #generator = Firebase::FirebaseTokenGenerator.new(FIREBASE_TOKEN)
-    #self.chat_auth_token = generator.create_token({:expires => 2.years.from_now}, {})
-    #self.save
+    # TODO remove chat_auth_token field from lists table, as it is to be dynamically generated.
+    generator = Firebase::FirebaseTokenGenerator.new(FIREBASE_TOKEN)
+    self.chat_auth_token = generator.create_token({:expires => 2.years.from_now}, {})
+    self.save
   end
 end
