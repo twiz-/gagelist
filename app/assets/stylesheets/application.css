@@ -16,6 +16,7 @@
  *= require tasks
  *= require lightbox
  *= require joyride-2.0.3
+ *= require jquery.pageslide
  */
 .well {
  min-height: 340px;

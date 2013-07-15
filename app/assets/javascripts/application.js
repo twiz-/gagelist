@@ -21,8 +21,10 @@
 //= require lightbox
 //= require jquery.cookie
 //= require jquery.joyride-2.0.3
+//= require jquery.pageslide
 //= require modernizr.mq
 //= require_tree .
+
  
 $(function() {
 	$('#new_task_bt').live('click', function() {

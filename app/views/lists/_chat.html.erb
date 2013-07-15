@@ -1,9 +1,18 @@
-<ol id='messagesDiv' class="conversation">
-  
-</ol>
-<input type='text' id='messageInput' placeholder='Message...'>
+<div id="chattyloo" >
+  <a href="javascript:$.pageslide.close()">Close</a>
+  <ol id='messagesDiv' class="conversation collapse">  
+  </ol>
+  <input type='text' id='messageInput' class="conversation collapse" placeholder='Message...'>
+</div>  
+<%= javascript_include_tag "jquery.pageslide" %>
 
 <script>
- enableChat('<%= CHAT_BASE_REF%>', "<%= @list.chat_ref %>", "<%= current_user.first_name %>", "<%= @list.chat_auth_token %>");
+  $(document).ready(function() {
+      $(".second123").pageslide({ direction: "left", modal: true });
+  });
+</script>
+
+<script>
+ enableChat('<%= CHAT_BASE_REF%>', "<%= @list.chat_ref %>", "<%= current_user.full_name %>", "<%= @list.chat_auth_token %>");
   // enableChat('<%= CHAT_BASE_REF%>', "<%= @list.chat_ref %>", "<%= current_user.first_name %>", "<%= @chat_auth_token %>");
 </script>

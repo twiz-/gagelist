@@ -280,15 +280,15 @@ tr.false td.remove a{display: none;}
 .index_button {
 	z-index: 99;
 }
-.conversation li {
-	display: flex;
-}
 ol#messagesDiv {
 	list-style: none;
-	width: 50%;
+}
+#chat-window {
+	margin-right: 100px;
 }
 ol#messagesDiv li {
 	border: 1px solid #AEAEAE;
-	color: black;
-	
+	border-radius: 8px;
+	background-color: white;
+	color: black;	
 }

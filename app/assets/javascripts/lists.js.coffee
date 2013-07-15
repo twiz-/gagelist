@@ -1,6 +1,12 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+
+jQuery ->
+  $(".second_thing").pageslide
+  direction: "left"
+  modal: true	
+
 jQuery ->
   $('.best_in_place').best_in_place()
 
@@ -71,7 +77,7 @@ window.enableChat = (baseRef, projRef, userName, token) ->
       # Add a callback that is triggered for each chat message.
       projectRef.on "child_added", (snapshot) ->
         message = snapshot.val()
-        $("<li class='self'>").append($("<div class='message'>").append($("<p>").text(message.text))).prepend($("<b/>").text(message.name + ": ")).appendTo $("#messagesDiv")
+        $("<li class='self'>").append($("<div class='message'>").append($("<p>").text(message.text))).prepend($("<span class='userVal'/>").text(message.name + ": ")).appendTo $("#messagesDiv")
         $("#messagesDiv")[0].scrollTop = $("#messagesDiv")[0].scrollHeight
 
       # When the user presses enter on the message input, write the message to firebase.
@@ -82,3 +88,7 @@ window.enableChat = (baseRef, projRef, userName, token) ->
             name: userName
             text: text
           $("#messageInput").val ""
+
+
+
+
