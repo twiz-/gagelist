@@ -281,14 +281,27 @@ tr.false td.remove a{display: none;}
 	z-index: 99;
 }
 ol#messagesDiv {
+	margin-left: 0px;
+	max-height: 500px;
+	overflow-x: auto;
+	overflow-y: auto;
 	list-style: none;
 }
 #chat-window {
 	margin-right: 100px;
 }
+
+#messageInput {
+	height: 30px!important;
+	width: 395px;
+}
 ol#messagesDiv li {
 	border: 1px solid #AEAEAE;
-	border-radius: 8px;
+	margin: 3px;
+	border-radius: 3px;
 	background-color: white;
 	color: black;	
+}
+.self {
+	padding: 5px;
 }

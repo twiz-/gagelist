@@ -78,7 +78,7 @@ window.enableChat = (baseRef, projRef, userName, token) ->
       projectRef.on "child_added", (snapshot) ->
         message = snapshot.val()
         $("<li class='self'>").append($("<div class='message'>").append($("<p>").text(message.text))).prepend($("<span class='userVal'/>").text(message.name + ": ")).appendTo $("#messagesDiv")
-        $("#messagesDiv")[0].scrollTop = $("#messagesDiv")[0].scrollHeight
+			
 
       # When the user presses enter on the message input, write the message to firebase.
       $("#messageInput").keypress (e) ->

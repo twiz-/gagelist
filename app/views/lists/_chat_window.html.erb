@@ -1,13 +1,10 @@
-<section class="module">
-    <header class="top-bar">
-      <h5><%= @list.name %> chat ticket</h5>
+
+<h5><%= @list.name %> chat ticket</h5>
       
-    </header>
-    <% if @list.chat_enabled %>
-      <%= render 'chat' %>
-    <% else %>
-      <% if @list.owner?(current_user) %>
-        <%= link_to 'Get ' + @list.name + "Chat Ticket",  enable_chat_list_path(@list), :class => 'btn', :remote => true %>
-      <% end %>
-    <% end %>
-</section>
+<% if @list.chat_enabled %>
+  <%= render 'chat' %>
+<% else %>
+  <% if @list.owner?(current_user) %>
+    <%= link_to 'Get ' + @list.name + "Chat Ticket",  enable_chat_list_path(@list), :class => 'btn', :remote => true %>
+  <% end %>
+<% end %>
