@@ -63,6 +63,7 @@ jQuery ->
     $(this).toggleClass "clicked"
     $(this).removeClass "red_icon"
 
+
 window.enableChat = (baseRef, projRef, userName, token) ->
   # Get a reference to the root of the chat data.
   messagesRef = new Firebase(baseRef)
@@ -77,17 +78,17 @@ window.enableChat = (baseRef, projRef, userName, token) ->
       # Add a callback that is triggered for each chat message.
       projectRef.on "child_added", (snapshot) ->
         message = snapshot.val()
-        $("<li class='self'>").append($("<div class='message'>").append($("<p>").text(message.text))).prepend($("<span class='userVal'/>").text(message.name + ": ")).appendTo $("#messagesDiv")
-			
+        $("<li class='self'>").append($("<div class='message'>").append($("<p>").text(message.text))).prepend($("<span class='userVal'/>").text(message.name + ": ")).appendTo $("#pageslide #messagesDiv")
+        $("div#pageslide #messagesDiv")[0].scrollTop = $("div#pageslide #messagesDiv")[0].scrollHeight
 
       # When the user presses enter on the message input, write the message to firebase.
       $("#messageInput").keypress (e) ->
         if e.keyCode is 13
-          text = $("#messageInput").val()
+          text = $("div#pageslide #messageInput").val()
           projectRef.push #would call child before push to the ROOT above, so child then root then figure out how to organize
             name: userName
             text: text
-          $("#messageInput").val ""
+          $("div#pageslide #messageInput").val ""
 
 
 
