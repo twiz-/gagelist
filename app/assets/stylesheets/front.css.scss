@@ -1,6 +1,10 @@
 // Place all the styles related to the front controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.front-index-titles{
+	text-align:center;
+	margin-bottom: 40px;
+}
 #impress_gage {
 	margin-top: -30px;
 	padding-left: -60px;
@@ -98,7 +102,7 @@
 	display: inline;
 }
 .nav-under li a {
-	color: white;
+	color: #A80000;
 	padding-right: 5px;
 	border-right: solid 1px #eee;
 }
@@ -134,10 +138,9 @@ div.content {
 #front_container {
   margin-top: -7px;
   /* fallback */
-  background-color: #3cb78f;
+  background-color: white;
   /* Opera cannot do radial gradients yet */
-  height: 635px;
-  border-bottom: solid 5px #297c61;
+/*  height: 635px;*/
 }
 .the_answer {
 	display: none;
@@ -298,8 +301,7 @@ div.content {
 }
 #front_hold {
   padding-top: 25px;	
-  width: 1153px;
-  height: 485px;
+
 }
 .tool_desc {
 	height: 100px;
@@ -309,7 +311,7 @@ div.content {
 }
 /* Start Second Section */
 #next_front_container {
-	height: 700px;
+	margin-left: 20px;
 }
 #second-front_hold {
   width: 1153px;
@@ -460,9 +462,7 @@ div.content {
 	margin-top: -40px;
 	margin-left: 40px;
 }
-#next_front_container {
-	background-image: url("https://lh3.googleusercontent.com/-PS_zDMBiB0Q/UMUAmkFjIpI/AAAAAAAAAG0/NB1FQ03mYEw/s200/noisy-texture-200x200-o9-d36-c-deffff-t1.png");
-}
+
 /*Start Third section */
 .top_left{
 	width: 300px;
@@ -600,3 +600,13 @@ footer ul li {
 	margin-bottom: 40px;
 	
 }
+
+.wistia_embed {
+	border: solid 1px #AEAEAE;
+}
+
+.free-link-front {
+	color: #04d691;
+}
+
+
