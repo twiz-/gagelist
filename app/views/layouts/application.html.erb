@@ -2,12 +2,10 @@
 <html>
 <head>
   <title>refreshrunner | A Task Manager You'll Want To Impress</title>
-  <meta name="verifyownership" content="786ffc2591a3f831244a5bb63988c1fa" />
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"%>
-  <%= csrf_meta_tags %>
-  
+  <%= csrf_meta_tags %>  
 </head>
 <body>
   <a title="Real Time Web Analytics" href="http://clicky.com/100580995"><img alt="Real Time Web Analytics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
@@ -47,7 +45,6 @@
     </div>
   <% end %>  
   <div id="main">
-    Before everything?
     <%= yield %>
   </div>
     
